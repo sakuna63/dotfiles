@@ -1,0 +1,13 @@
+/.backup/
+/auto-save-list/
+/elisp/
+/extention/
+/opt/
+/undohist/
+/url/
+
+*.gpg
+*.dat
+*~
+.#*
+bookmarks
