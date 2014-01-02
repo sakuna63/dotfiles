@@ -2,9 +2,7 @@
 ```sh
 gem install homesick
 ```
-
 or
-
 ```sh
 brew install homesick
 ```
