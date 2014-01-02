@@ -1,9 +1,9 @@
 # 起動時読み込み
-source ./.zsh.d/.zshrc.darwin
-source ./.zsh.d/.zshrc.linux
-source ./.zsh.d/.zshrc.antigen
-source ./.zsh.d/.zshrc.package
-source ./.zsh.d/.zshrc.last
+source ~/.zsh.d/.zshrc.darwin
+source ~/.zsh.d/.zshrc.linux
+source ~/.zsh.d/.zshrc.antigen
+source ~/.zsh.d/.zshrc.package
+source ~/.zsh.d/.zshrc.last
 
 ###################
 # For zsh option  #
