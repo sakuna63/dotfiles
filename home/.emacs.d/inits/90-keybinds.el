@@ -49,7 +49,8 @@
 
 ;; helm
 (global-set-key (kbd "C-x C-h") 'helm-descbinds)
-(global-set-key (kbd "C-x C-b") 'helm-for-files) 
+(global-set-key (kbd "C-x C-b") 'helm-for-files)
+(global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-M-y") 'helm-show-kill-ring)
 
 ;; auto-complete
