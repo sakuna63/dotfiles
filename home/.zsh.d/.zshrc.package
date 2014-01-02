@@ -1,0 +1,16 @@
+echo 'load .zshrc.package'
+
+# auto-fu.zshの設定
+# 入力のたびに補完候補を表示してくれる(-azfu-)
+# if [ -f ~/.zsh.d/packages/auto-fu.zsh ]; then
+#     source ~/.zsh.d/packages/auto-fu.zsh
+#     function zle-line-init () {
+#         auto-fu-init
+#     }
+#     zle -N zle-line-init
+# fi
+
+# z.shの設定
+# 最近移動したディレクトリをうまい感じにだしてくれる
+source ~/.zsh.d/packages/z.sh
+_Z_CMD=j
