@@ -1,7 +1,7 @@
 echo 'load .zshrc.antigen'
 
 # ~/antigenフォルダ下の設定ファイルを読み込む
-source ~/.zsh.d/packages/antigen/antigen.zsh
+source ~/.zsh.d/modules/antigen/antigen.zsh
 
 # oh-my-zshのライブラリをロードする
 antigen-use oh-my-zsh
