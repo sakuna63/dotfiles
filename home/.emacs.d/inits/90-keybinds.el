@@ -43,6 +43,9 @@
 ;; buffer評価
 (global-set-key (kbd "C-x C-e") 'eval-current-buffer)
 
+;; 短形選択
+(global-set-key (kbd "M-RET") 'cua-set-rectangle-mark)
+
 ;;;;;;;;;;;
 ;; elisp ;;
 ;;;;;;;;;;;
@@ -50,6 +53,7 @@
 ;; helm
 (global-set-key (kbd "C-x C-h") 'helm-descbinds)
 (global-set-key (kbd "C-x C-b") 'helm-for-files)
+(global-set-key (kbd "C-x C-d") 'helm-dired-recent-dirs-view)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-M-y") 'helm-show-kill-ring)
 

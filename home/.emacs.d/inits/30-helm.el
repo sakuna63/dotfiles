@@ -13,7 +13,6 @@
 (setq recentf-max-menu-items 50)
 (setq recentf-max-saved-items 50)
 
-
 (define-key helm-map (kbd "C-a") 'move-beginning-of-line)
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
 
@@ -23,8 +22,11 @@
 (define-key helm-map (kbd "M-p") (kbd "C-p C-p C-p C-p C-p"))
 
 (require 'ac-helm)
-(global-set-key (kbd "C-i") 'ac-complete-with-helm)
 (define-key ac-complete-mode-map (kbd "C-i") 'ac-complete-with-helm)
+
+(setq shell-file-name "/usr/local/Cellar/zsh/5.0.2/bin/zsh")
+(require 'helm-dired-recent-dirs)
 
 ;; helm-imenu : メソッドを一覧にしてくれる
 ;; helm-ag    : 指定ディレクトリ以下のほぼすべてのファイル内の文字を文字列検索
+;; helm-resume: helmメニューを復元表示してくれる

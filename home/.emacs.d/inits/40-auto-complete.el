@@ -1,5 +1,9 @@
 (require 'auto-complete-config)
-(require 'auto-complete-nxml) 
+(require 'auto-complete-nxml)
+(require 'ac-emmet)
+(add-hook 'sgml-mode-hook 'ac-emmet-html-setup)
+(add-hook 'sgml-mode-hook 'ac-emmet-css-setup)
+
 (ac-config-default)                                        ; auto-completeの標準設定を有効にする
 (global-auto-complete-mode t)                              ; 常にauto-complete-modeをonにする
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict") ; 補完候補の辞書ディレクトリ
@@ -15,5 +19,5 @@
 
 (define-key ac-menu-map (kbd "C-n") 'ac-next)
 (define-key ac-menu-map (kbd "C-p") 'ac-previous)
-;; (define-key ac-menu-map (kbd "M-n") (kbd "C-u 5 C-n"))
-;; (define-key ac-menu-map (kbd "M-p") (kbd "C-u 5 C-p"))
+;; (define-key ac-menu-map (kbd "M-n") (kbd "C-n C-n C-n C-n C-n"))
+;; (define-key ac-menu-map (kbd "M-p") (kbd "C-p C-p C-p C-p C-p"))

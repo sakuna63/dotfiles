@@ -18,6 +18,12 @@
       (cons (cons "\\.*$" (expand-file-name "~/.emacs.d/.backup"))
             backup-directory-alist))
 
+;; auto-saveを無効化
+(setq auto-save-default nil)
+
+;; symlinkの生成を無効化
+(setq create-lockfiles nil)
+
 ;; タブ幅を4にする
 (defun set-aurora-tab-width (num &optional local redraw)
   (interactive "nTab Width: ")
@@ -44,6 +50,3 @@
 
 ;; 他クライアントからファイル変更があった際の自動再読み込み
 (global-auto-revert-mode 1)
-
-;; auto-saveを無効化
-(setq auto-save-default nil)
