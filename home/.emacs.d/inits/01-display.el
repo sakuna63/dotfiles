@@ -39,9 +39,10 @@
     (ruby-block-mode . " RBl")
     (ruby-electric-mode . " REl")
     (flycheck-mode . " FlyC")
+    (emmet-mode . " Em")
     ;; Major modes
     (fundamental-mode . "Text")
-;    (YaTeX-japan . "Tex")
+    (yatex-mode . "Tex")
     (lisp-interaction-mode . "Li")
     (php-mode . "Php")
     (python-mode . "Py")

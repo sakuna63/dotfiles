@@ -1,9 +1,23 @@
-(require 'smartchr)
-(global-set-key (kbd "{") (smartchr '("{`!!'}" "{")))
-(global-set-key (kbd "(") (smartchr '("(`!!')" "(")))
-(global-set-key (kbd "[") (smartchr '("[`!!']" "[")))
-(global-set-key (kbd "\"") (smartchr '("\"`!!'\"" "\"")))
-(global-set-key (kbd "\'") (smartchr '("\'`!!'\'" "\'")))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;  sgml(html) mode  ;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'sgml-mode)
+(add-to-list 'auto-mode-alist '("\\.[sx]?html?\\(\\.[a-zA-Z_]+\\)?\\'" . sgml-mode))
+
+(defun sgml-mode-hooks ()
+  (emmet-mode)
+  (ac-emmet-html-setup)
+  )
+
+(add-hook 'sgml-mode-hook 'sgml-mode-hooks)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;  css mode  ;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun css-mode-hooks ()
+  (emmet-mode t)
+  (ac-emmet-css-setup)
+  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;  c mode  ;;;;;;;;;;;;;;;;
@@ -37,5 +51,5 @@
 ;;;;;;;;;;; markdown mode ;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'markdown-mode)
-(setq auto-mode-alist (cons '("\\.md$" . markdown-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 

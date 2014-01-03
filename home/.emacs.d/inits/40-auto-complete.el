@@ -1,13 +1,13 @@
 (require 'auto-complete-config)
 (require 'auto-complete-nxml)
-(require 'ac-emmet)
-(add-hook 'sgml-mode-hook 'ac-emmet-html-setup)
-(add-hook 'sgml-mode-hook 'ac-emmet-css-setup)
 
 (ac-config-default)                                        ; auto-completeの標準設定を有効にする
 (global-auto-complete-mode t)                              ; 常にauto-complete-modeをonにする
+
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict") ; 補完候補の辞書ディレクトリ
 (add-to-list 'ac-modes 'python-2-mode)
+(add-to-list 'ac-modes 'html-mode)
+
 (setq ac-ignore-case t)                                    ; 大文字小文字を区別しない
 ;;(setq ac-use-quick-help t)                               ; クイックヘルプを有効化
 ;;(setq ac-quick-help-delay 0.2)                           ; クイッiクヘルプ表示の遅延時間
