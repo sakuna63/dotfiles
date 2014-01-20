@@ -1,3 +1,5 @@
+(hs-minor-mode 1)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;  sgml(html) mode  ;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -12,12 +14,32 @@
 (add-hook 'sgml-mode-hook 'sgml-mode-hooks)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;  scss mode  ;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'scss-mode)
+
+(defun scss-mode-hooks ()
+  (emmet-mode t)
+  (ac-emmet-css-setup)
+  (setq css-indent-offset 2)
+  (scss-compile-at-save nil)
+  )
+
+(add-hook 'scss-mode-hook 'scss-mode-hooks)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;  css mode  ;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (defun css-mode-hooks ()
   (emmet-mode t)
   (ac-emmet-css-setup)
   )
+
+(add-hook 'css-mode-hook 'css-mode-hooks)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;  js mode  ;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq js-indent-level 2)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;  c mode  ;;;;;;;;;;;;;;;;
@@ -52,4 +74,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
-
+(define-key markdown-mode-map (kbd "M-n") (kbd "C-u 5 C-n"))
+(define-key markdown-mode-map (kbd "M-p") (kbd "C-u 5 C-p"))

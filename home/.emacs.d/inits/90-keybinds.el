@@ -13,8 +13,8 @@
 (global-set-key (kbd "C-m") 'newline-and-indent)
 
 ;; 整列
-(global-set-key (kbd "C-c a") 'align)
-(global-set-key (kbd "C-c C-a") 'align-regexp)
+(global-set-key (kbd "C-x a") 'align)
+(global-set-key (kbd "C-x C-a") 'align-regexp)
 
 ;; コメント
 (global-set-key (kbd "M-/") 'comment-or-uncomment-region)
@@ -36,6 +36,7 @@
 
 ;; コードブロック操作
 (global-set-key (kbd "M--") 'hs-hide-block)
+(define-key undo-tree-map (kbd "M-_") nil)
 (global-set-key (kbd "M-_") 'hs-hide-all)
 (global-set-key (kbd "M-=") 'hs-show-block)
 (global-set-key (kbd "M-+") 'hs-show-all)
@@ -51,11 +52,16 @@
 ;;;;;;;;;;;
 
 ;; helm
-(global-set-key (kbd "C-x C-h") 'helm-descbinds)
-(global-set-key (kbd "C-x C-b") 'helm-for-files)
-(global-set-key (kbd "C-x C-d") 'helm-dired-recent-dirs-view)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x C-b") 'helm-for-files)
+(global-set-key (kbd "C-x C-d") 'helm-dired-recent-dirs-view)
+(global-set-key (kbd "C-x C-g") 'helm-ag)
+(global-set-key (kbd "C-x C-h") 'helm-descbinds)
+(global-set-key (kbd "C-x C-i") 'helm-imenu)
+
+;; magit
+(global-set-key (kbd "C-x C-m") 'magit-status)
 
 ;; auto-complete
 (global-unset-key (kbd "C-@"))

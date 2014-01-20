@@ -7,6 +7,9 @@
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/dict") ; 補完候補の辞書ディレクトリ
 (add-to-list 'ac-modes 'python-2-mode)
 (add-to-list 'ac-modes 'html-mode)
+(add-to-list 'ac-modes 'coffee-mode)
+(add-to-list 'ac-modes 'scss-mode)
+(add-to-list 'ac-modes 'css-mode)
 
 (setq ac-ignore-case t)                                    ; 大文字小文字を区別しない
 ;;(setq ac-use-quick-help t)                               ; クイックヘルプを有効化
