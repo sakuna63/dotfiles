@@ -1,5 +1,3 @@
-(hs-minor-mode 1)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;  sgml(html) mode  ;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -9,6 +7,7 @@
 (defun sgml-mode-hooks ()
   (emmet-mode)
   (ac-emmet-html-setup)
+  (hs-minor-mode 1)
   )
 
 (add-hook 'sgml-mode-hook 'sgml-mode-hooks)
@@ -23,6 +22,7 @@
   (ac-emmet-css-setup)
   (setq css-indent-offset 2)
   (scss-compile-at-save nil)
+  (hs-minor-mode 1)
   )
 
 (add-hook 'scss-mode-hook 'scss-mode-hooks)
@@ -32,6 +32,7 @@
 (defun css-mode-hooks ()
   (emmet-mode t)
   (ac-emmet-css-setup)
+  (hs-minor-mode 1)
   )
 
 (add-hook 'css-mode-hook 'css-mode-hooks)
@@ -49,6 +50,7 @@
   (c-set-style "linux")
   (setq c-basic-offset 4)
   (local-unset-key (kbd "C-c C-c"))
+  (hs-minor-mode 1)
   ;; 演算子が複数行にまたがるときのオフセット
   (c-set-offset 'statement-cont 'c-lineup-math))
 
@@ -60,6 +62,7 @@
 (defun c++-mode-hooks ()
   (c-set-style "linux")
   (setq c-basic-offset 4)
+  (hs-minor-mode 1)
   (c-set-offset 'statement-cont 'c-lineup-math))
 
 (add-hook 'c++-mode-hook 'c++-mode-hooks)

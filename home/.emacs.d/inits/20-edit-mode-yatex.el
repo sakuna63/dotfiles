@@ -18,6 +18,7 @@
 
 (defun yatex-mode-hooks ()
   (ac-l-setup)
+  (hs-minor-mode 1)
   (local-set-key (kbd "k") (smartchr '("k" "\\"))))
 
 (add-hook 'yatex-mode-hook 'yatex-mode-hooks)
