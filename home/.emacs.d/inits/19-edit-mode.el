@@ -2,15 +2,15 @@
 ;;;;;;;;;  sgml(html) mode  ;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'sgml-mode)
-(add-to-list 'auto-mode-alist '("\\.[sx]?html?\\(\\.[a-zA-Z_]+\\)?\\'" . sgml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.[sx]?html?\\(\\.[a-zA-Z_]+\\)?\\'" . sgml-mode))
 
-(defun sgml-mode-hooks ()
-  (emmet-mode)
-  (ac-emmet-html-setup)
-  (hs-minor-mode 1)
-  )
+;; (defun sgml-mode-hooks ()
+;;   (emmet-mode)
+;;   (ac-emmet-html-setup)
+;;   (hs-minor-mode 1)
+;;   )
 
-(add-hook 'sgml-mode-hook 'sgml-mode-hooks)
+;; (add-hook 'sgml-mode-hook 'sgml-mode-hooks)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;  scss mode  ;;;;;;;;;;;;;;
@@ -50,6 +50,7 @@
   (c-set-style "linux")
   (setq c-basic-offset 4)
   (local-unset-key (kbd "C-c C-c"))
+  (define-key c-mode-map (kbd "C-c C-w") 'delete-window)
   (hs-minor-mode 1)
   ;; 演算子が複数行にまたがるときのオフセット
   (c-set-offset 'statement-cont 'c-lineup-math))
@@ -71,6 +72,7 @@
 ;;;;;;;;;;;;;; sh mode ;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-to-list 'auto-mode-alist  '("\.zshrc*" . sh-mode))
+(add-to-list 'auto-mode-alist  '("\.zsh*" . sh-mode))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;; markdown mode ;;;;;;;;;;;;;;
@@ -79,3 +81,22 @@
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
 (define-key markdown-mode-map (kbd "M-n") (kbd "C-u 5 C-n"))
 (define-key markdown-mode-map (kbd "M-p") (kbd "C-u 5 C-p"))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;; php mode ;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun php-mode-hooks ()
+  (define-key php-mode-map (kbd "C-c C-w") 'delete-window)
+  )
+
+(add-hook 'php-mode-hook 'php-mode-hooks)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;; java mode ;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(defun java-mode-hooks ()
+  (define-key java-mode-map (kbd "C-c C-w") 'delete-window)
+  )
+
+(add-hook 'java-mode-hook 'java-mode-hooks)
+

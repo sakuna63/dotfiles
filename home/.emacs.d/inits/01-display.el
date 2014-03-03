@@ -1,3 +1,7 @@
+(require 'solarized-dark-theme)
+(setq solarized-degrade t)
+(setq solarized-underline nil)
+
 ;; 対応する括弧を光らせる。
 (show-paren-mode t)
 
@@ -62,23 +66,3 @@
             (setq mode-name mode-str)))))
 
 (add-hook 'after-change-major-mode-hook 'clean-mode-line)
-
-;; (setq mode-line-format
-;;       (list "-"
-            
-;;             'minor-mode-alist ))
-
-;; current directory 表示
-;; (let ((ls (member 'mode-line-buffer-identification
-;;                   mode-line-format)))
-;;   (setcdr ls
-;;           (cons '(:eval (concat " ("
-;;                                 (abbreviate-file-name default-directory)
-;;                                 ")"))
-;;                 (cdr ls))))
-
-(require 'color-theme)
-(color-theme-initialize)
-(color-theme-molokai)
-
-;(set-face-foreground 'minibuffer-prompt nil)

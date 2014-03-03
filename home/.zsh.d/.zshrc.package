@@ -14,3 +14,8 @@ echo 'load .zshrc.package'
 # 最近移動したディレクトリをうまい感じにだしてくれる
 source ~/.zsh.d/modules/z/z.sh
 _Z_CMD=j
+
+# zsh-notifierの設定
+source ~/.zsh.d/modules/zsh-notify/notify.plugin.zsh
+export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
+export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10

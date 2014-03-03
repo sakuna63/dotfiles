@@ -82,6 +82,9 @@
 (global-set-key (kbd "C-c c") 'smart-compile)
 (global-set-key (kbd "C-c C-c") (kbd "C-c c C-m"))
 
+;; evernote-mode
+;; (global-set-key (kbd "C-e C-n") 'evernote-create-note)
+;; (global-set-key (kbd "C-e C-o") 'evernote-create-note)
 
 ;; flycheck
 

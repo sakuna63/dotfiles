@@ -29,11 +29,6 @@ if [ `uname` = "Darwin" ]; then
     # alias git as hub
     function git(){hub "$@"}
 
-    # zsh-notifierの設定
-    source ~/.zsh.d/modules/zsh-notify/notify.plugin.zsh
-    export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
-    export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
-    
     # tmuxの自動起動
     if [ -n "$TMUX" ] ; then
         alias pbcopy="reattach-to-user-namespace pbcopy"

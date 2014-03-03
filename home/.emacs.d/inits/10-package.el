@@ -3,7 +3,6 @@
   '(
     auto-complete-nxml
     anzu
-    color-theme
     flycheck
     helm
     helm-migemo
@@ -17,7 +16,6 @@
     ruby-electric
     smart-compile
     smartrep
-    twittering-mode
     undo-tree
     undohist
     )

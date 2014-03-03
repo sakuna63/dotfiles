@@ -5,6 +5,12 @@
 (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 
+;; do endをたためるように設定
+(add-to-list 'hs-special-modes-alist
+	     '(ruby-mode
+	       "\\(def\\|do\\|{\\)" "\\(end\\|end\\|}\\)" "#"
+	       (lambda (arg) (ruby-end-of-block)) nil))
+
 (require 'ruby-electric)
 (require 'ruby-block)
 
@@ -26,6 +32,7 @@
 ;; (setq )
 
 (defun ruby-mode-hooks ()
+  (hs-minor-mode 1)
   (ruby-electric-mode t)
   (setq ruby-electric-expand-delimiters-list nil)
   (ruby-block-mode t)
@@ -38,15 +45,15 @@
 
 (add-hook 'ruby-mode-hook 'ruby-mode-hooks)
 
-                                        ;(global-set-key (kbd "{") (smartchr '("{`!!'}" "{")))
+;(global-set-key (kbd "{") (smartchr '("{`!!'}" "{")))
 
-(define-key ruby-mode-map (kbd "C-x class")
-  (smartchr '(
-"class `!!'
+;; (define-key ruby-mode-map (kbd "C-x class")
+;;   (smartchr '(
+;; "class `!!'
 
-  def initialize
+;;   def initialize
   
-  end
+;;   end
 
-end
-")))
+;; end
+;; ")))

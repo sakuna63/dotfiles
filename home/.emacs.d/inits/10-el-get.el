@@ -17,13 +17,17 @@
                :branch "default"
                :type hg
                :url "http://www.yatex.org/hgrepos/yatex/")
+        (:name evernote-mode-github
+               :type github
+               :website "https://github.com/pymander/evernote-mode"
+               :description "Emacs interface for Evernote http://code.google.com/p/emacs-evernote-mode/"
+               :pkgname "pymander/evernote-mode")
          ))
 
 (defvar my/el-get-packages
   '(
     yatex
     evil
-    smartchr
     coffee-mode
     auto-complete-latex
     )
