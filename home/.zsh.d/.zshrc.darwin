@@ -14,6 +14,8 @@ if [ `uname` = "Darwin" ]; then
     export LDFLAGS="-L/usr/X11/lib"
     export CFLAGS="-I/usr/X11/include -I/usr/X11/include/freetype2"
 
+    export ANDROID_HOME="/Applications/Android Studio.app/sdk"
+    
     # commands alias
     alias mikutter="ruby /Applications/mikutter/mikutter.rb"
     alias rm="rmtrash"

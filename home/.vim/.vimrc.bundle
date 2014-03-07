@@ -1,0 +1,24 @@
+" ----------------------------------------------------------------------------------------
+" neobundle
+" ----------------------------------------------------------------------------------------
+
+" viとの後方互換性をなくす
+set nocompatible
+
+" 起動時にランタイムパスを設定する
+if has('vim_starting')
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" neobundle自身でneobundleを管理する
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+filetype plugin indent on
+
+" 未インストールのプラグインがないかチェックする
+NeoBundleCheck
+
+NeoBundle 'altercation/vim-colors-solarized'
+" NeoBundle 'tpope/vim-pathogen'
