@@ -1,0 +1,4 @@
+inoremap <C-j> <ESC>
+nnoremap ; :
+
+let mapleader = ','

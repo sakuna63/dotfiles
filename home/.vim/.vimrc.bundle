@@ -2,12 +2,8 @@
 " neobundle
 " ----------------------------------------------------------------------------------------
 
-" viとの後方互換性をなくす
-set nocompatible
-
-" 起動時にランタイムパスを設定する
-if has('vim_starting')
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
+if(has("vim_starting"))
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
@@ -21,4 +17,21 @@ filetype plugin indent on
 NeoBundleCheck
 
 NeoBundle 'altercation/vim-colors-solarized'
-" NeoBundle 'tpope/vim-pathogen'
+NeoBundle 'kakkyz81/evervim'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'rcmdnk/vim-markdown'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'vim-scripts/SingleCompile'
+NeoBundle 'jceb/vim-hier'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'LeafCage/foldCC'
+NeoBundle 'kannokanno/previm'
+
+NeoBundleLazy 'http://conque.googlecode.com/svn/trunk/', { 'autoload' : { 'commands'  : ['ConqueTerm', 'ConqueTermSplit', 'ConqueTermTab', 'ConqueTermVSplit'] } }
+

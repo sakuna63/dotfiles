@@ -13,6 +13,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #antigen-theme robbyrussell
 antigen-theme af-magic
+#antigen-theme agnoster
 
 # antigenの終了(rubyでいうend???)
 antigen-apply

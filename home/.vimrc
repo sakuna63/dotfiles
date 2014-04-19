@@ -2,4 +2,5 @@
 set runtimepath+=~/.vim/
 runtime! .vimrc.*
 
-" execute pathogen#infect()
+source ~/.gvimrc
+

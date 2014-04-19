@@ -1,0 +1,147 @@
+" previm {{{
+
+" g:previm_open_cmd = "open"
+nnoremap <silent> <F7> :PrevimOpen<CR>
+
+" }}}
+
+" ConqueTerm {{{
+
+let g:ConqueTerm_ReadUnfocused = 1
+let g:ConqueTerm_CloseOnEnd = 1
+let g:ConqueTerm_StartMessages = 0
+let g:ConqueTerm_CWInsert = 1
+noremap <silent> <Leader>sh :ConqueTermVSplit zsh<CR>
+
+function! s:delete_ConqueTerm(buffer_name)
+    let term_obj = conque_term#get_instance(a:buffer_name)
+    call term_obj.close()
+endfunction
+autocmd BufWinLeave zsh\s-\s? call <SID>delete_ConqueTerm(expand('%'))
+
+" }}}
+
+"------------------------------------
+"SingleCompile
+"------------------------------------
+
+nmap <F9> :SCCompile<cr>
+nmap <F10> :SCCompileRun<cr>
+
+"------------------------------------
+" vim-over
+"------------------------------------
+
+" over.vimの起動
+nnoremap <silent> <Leader>m :OverCommandLine<CR>
+
+" カーソル下の単語をハイライト付きで置換
+nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+
+" コピーした文字列をハイライト付きで置換
+nnoremap subp y:OverCommandLine<CR>%s!<C-r>=substitute(@0, '!', '\\!', 'g')<CR>!!gI<Left><Left><Left>
+
+"------------------------------------
+" unite.vim
+"------------------------------------
+
+nnoremap [unite] <Nop>
+nmap <Space>u [unite]
+
+nnoremap <silent> [unite]c :UniteWithCurrentDir -buffer-name=files file_mru buffer bookmark file<CR>
+nnoremap <silent> [unite]o :Unite outline<CR>
+
+"------------------------------------
+" neocomplcache
+"------------------------------------
+
+" AutoComplPopというプラグインを無効化する（競合するため）
+let g:acp_enableAtStartup = 0
+" 起動時にneocomplcacheを有効化する
+let g:neocomplcache_enable_at_startup = 1
+" 大文字小文字を区別せずに補完する
+let g:neocomplcache_enable_smart_case = 1
+" シンタックスを記憶する最小の文字数（変数名などが３文字以上である場合に記憶される）
+let g:neocomplcache_min_syntax_length = 3
+" neocomplcacheを自動的にロック（使用しない？）バッファ名のパターンを指定する。ku.vimなどneocomplcacheと相性の悪いプラグインを避けるため
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+" キャメルケース補完
+"let g:neocomplcache_enable_camel_case_completion = 1
+" スネークケース補完
+"let g:neocomplcache_enable_underbar_completion = 1
+
+" ファイルタイプごとに独自のディクショナリを追加する
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ }
+
+" 補完キャンセル
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+" 補完候補から共通する部分を補完する
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplcache#smart_close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" 文字削除時にポップアップを閉じる<BS> = BackSpace
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+" 現在選択している候補を確定する
+inoremap <expr><C-y>  neocomplcache#close_popup()
+" 選択をキャンセルし、ポップアップを閉じる
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
+
+" For cursor moving in insert mode(Not recommended)
+"inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
+"inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
+"inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
+"inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
+" Or set this.
+"let g:neocomplcache_enable_cursor_hold_i = 1
+" Or set this.
+"let g:neocomplcache_enable_insert_char_pre = 1
+
+" AutoComplPop like behavior.
+"let g:neocomplcache_enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplcache_enable_auto_select = 1
+"let g:neocomplcache_disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplcache_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+"------------------------------------
+" evervim
+"------------------------------------
+
+let g:evervim_devtoken='S=s249:U=1d08487:E=14b9a733645:C=14442c20a49:P=1cd:A=en-devtoken:V=2:H=e919f1683a93838fdcd8f761a8b01d52'
+

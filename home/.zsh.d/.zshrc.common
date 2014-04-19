@@ -1,0 +1,48 @@
+echo 'load .zshrc.common'
+
+###################
+# For zsh option  #
+###################
+
+# 補完機能の設定
+autoload -U compinit
+compinit
+# 入力しているコマンdの名画間違っている場合にもしかした：を出す
+setopt correct
+# 色を使う
+setopt prompt_subst
+# 直前と同じコマンドをヒストリに追加しない
+setopt hist_ignore_dups
+# ディレクトリ名のみで移動
+setopt auto_cd
+# ディレクトリ移動経歴を記録 cd -[Tab]
+setopt auto_pushd
+# 表示を詰める
+setopt list_packed
+# SSHで接続した先で日本語が使えるようにする
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+# エディタ
+export EDITOR=/usr/local/bin/vim
+# ページャ
+export PAGER=/usr/local/bin/vimpager
+export MANPAGER=/usr/local/bin/vimpager
+
+# gradleを常にdaemon起動する
+export GRADLE_OPTS="-Dorg.gradle.daemon=true"
+
+# tmuxを自動で起動する
+if [ -z "$TMUX" -a -z "$STY" ]; then
+    if type tmuxx >/dev/null 2>&1; then
+        tmuxx
+    elif type tmux >/dev/null 2>&1; then
+        if tmux has-session && tmux list-sessions | /usr/bin/grep -qE '.*]$'; then
+            tmux attach && echo "tmux attached session "
+        else
+            tmux new-session && echo "tmux created new session"
+        fi
+    elif type screen >/dev/null 2>&1; then
+        screen -rx || screen -D -RR
+    fi
+fi
+

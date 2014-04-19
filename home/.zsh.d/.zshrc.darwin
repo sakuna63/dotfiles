@@ -2,20 +2,16 @@ if [ `uname` = "Darwin" ]; then
     echo 'load .zshrc.darwin'
 
     # PATHはディレクトリで、fpathはファイル？？？
-    PATH=/Applications/UpTex.app/teTex/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr
+    PATH=/Applications/UpTex.app/pteTex/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X12/bin:/usr:$HOME/.cabal/bin
     fpath=(/usr/local/share/zsh-completions $fpath)
+
+    # =/Applications/Android\ Studio.app/sdk/platform-tools:/Applications/Android\ Studio.app/sdk/tools:
 
     # configure rbenv
     eval "$(rbenv init -)"
 
-    # configure clang （これがないとpipがclang周りでエラーを吐く）
-    export CC=clang
-    export CXX=clang++
-    export LDFLAGS="-L/usr/X11/lib"
-    export CFLAGS="-I/usr/X11/include -I/usr/X11/include/freetype2"
+    export ANDROID_HOME="/Applications/Android\ Studio.app/sdk"
 
-    export ANDROID_HOME="/Applications/Android Studio.app/sdk"
-    
     # commands alias
     alias mikutter="ruby /Applications/mikutter/mikutter.rb"
     alias rm="rmtrash"
@@ -27,11 +23,11 @@ if [ `uname` = "Darwin" ]; then
     alias kille="emacsclient -e '(kill-emacs)'"
 
     alias runserv="python -m SimpleHTTPServer"
-    
+
     # alias git as hub
     function git(){hub "$@"}
 
-    # tmuxの自動起動
+    # tmuxでコピーしたテキストをクリップボードに移す
     if [ -n "$TMUX" ] ; then
         alias pbcopy="reattach-to-user-namespace pbcopy"
     fi
