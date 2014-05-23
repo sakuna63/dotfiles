@@ -1,8 +1,8 @@
 " 折りたたみ時の挙動変更
-set foldtext=foldCC#foldtext()
-set foldcolumn=3
-let g:foldCCtext_enable_autofdc_adjuster = 1
-set fillchars=vert:\|
+" set foldtext=foldCC#foldtext()
+" set foldcolumn=3
+" let g:foldCCtext_enable_autofdc_adjuster = 1
+" set fillchars=vert:\|
 
 
 " <Leader>cで複数行をコメントアウト or コメント解除する {{
@@ -49,3 +49,5 @@ vnoremap <Leader>C <Esc>:call CommentMark(0,'<','>')<CR>
 
 " md as markdown, instead of modula2
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+autocmd BufNewFile,BufRead Guardfile set filetype=ruby
+autocmd BufNewFile,BufRead *.pde set filetype=processing

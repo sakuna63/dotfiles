@@ -2,10 +2,25 @@ if [ `uname` = "Darwin" ]; then
     echo 'load .zshrc.darwin'
 
     # PATHはディレクトリで、fpathはファイル？？？
-    PATH=/Applications/UpTex.app/pteTex/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X12/bin:/usr:$HOME/.cabal/bin
+    export PATH=/Applications/UpTex.app/teTex/bin:$PATH
+    export PATH=/usr/local/bin:$PATH
+    export PATH=/usr/local/sbin:$PATH
+    export PATH=/usr/bin:$PATH
+    export PATH=/bin:$PATH 
+    export PATH=/usr/sbin:$PATH
+    export PATH=/sbin:$PATH
+    export PATH=/usr/local/bin:$PATH
+    export PATH=/opt/X12/bin:$PATH
+    export PATH=/usr:$PATH
+    export PATH=$HOME/.cabal/bin:$PATH
+    export PATH=$GOPATH/bin:$PATH
+
     fpath=(/usr/local/share/zsh-completions $fpath)
 
     # =/Applications/Android\ Studio.app/sdk/platform-tools:/Applications/Android\ Studio.app/sdk/tools:
+
+    # for go
+    export GOPATH=~/.gopath
 
     # configure rbenv
     eval "$(rbenv init -)"
@@ -26,6 +41,10 @@ if [ `uname` = "Darwin" ]; then
 
     # alias git as hub
     function git(){hub "$@"}
+
+    export JAVA6_HOME=/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home
+    export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home
+    export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
 
     # tmuxでコピーしたテキストをクリップボードに移す
     if [ -n "$TMUX" ] ; then

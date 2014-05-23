@@ -16,22 +16,116 @@ filetype plugin indent on
 " 未インストールのプラグインがないかチェックする
 NeoBundleCheck
 
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'kakkyz81/evervim'
-NeoBundle 'itchyny/lightline.vim'
+" for edit {{
+
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'rcmdnk/vim-markdown'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'vim-scripts/SingleCompile'
-NeoBundle 'jceb/vim-hier'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'LeafCage/foldCC'
-NeoBundle 'kannokanno/previm'
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'h1mesuke/vim-alignta'
 
-NeoBundleLazy 'http://conque.googlecode.com/svn/trunk/', { 'autoload' : { 'commands'  : ['ConqueTerm', 'ConqueTermSplit', 'ConqueTermTab', 'ConqueTermVSplit'] } }
+" }}
+
+" for development {{
+
+NeoBundle 'xuhdev/SingleCompile'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'jceb/vim-hier' " compile結果のエラー箇所のハイライト
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'scrooloose/syntastic.git'
+NeoBundleLazy 'http://conque.googlecode.com/svn/trunk/', {
+      \'autoload' : {
+      \'commands' : [
+      \  'ConqueTerm', 'ConqueTermSplit', 'ConqueTermTab', 'ConqueTermVSplit'
+      \]
+      \}}
+
+" }}
+
+" for appearance {{
+
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'itchyny/lightline.vim'
+
+" }}
+
+
+" for web programing {{
+
+NeoBundleLazy 'mattn/emmet-vim', {
+      \'autoload' : {
+      \'filetypes' : [ 'html', 'css', 'erb' ]
+      \}}
+
+" }}
+
+" for javascript {{
+
+NeoBundleLazy 'marijnh/tern_for_vim', {
+      \'autoload' : {
+      \'filetypes' : ['javascript']
+      \},
+      \'build': {
+      \  'others': 'npm install'
+      \}}
+NeoBundleLazy 'ahayman/vim-nodejs-complete', {
+      \'autoload' : {
+      \'filetypes' : ['javascript']
+      \}}
+NeoBundleLazy 'jelera/vim-javascript-syntax', {
+      \'autoload' : {
+      \'filetypes' : ['javascript']
+      \}}
+NeoBundleLazy 'moll/vim-node', {
+      \'autoload' : {
+      \'filetypes' : ['javascript']
+      \}}
+
+" }}
+
+" for markdown {{
+
+NeoBundleLazy 'rcmdnk/vim-markdown', {
+      \'autoload' : {
+      \'filetypes' : ['markdown']
+      \}}
+NeoBundleLazy 'kannokanno/previm', {
+      \'autoload' : {
+      \'filetypes' : ['markdown']
+      \}}
+NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
+" }}
+
+" for ruby and rails {{
+
+NeoBundle 'basyura/unite-rails'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'vim-scripts/dbext.vim'
+
+" }}
+
+" for processing {{
+
+NeoBundleLazy 'sophacles/vim-processing', {
+      \'autoload' : {
+      \'filetypes' : ['arduino', 'processing']
+      \}}
+
+
+"}}
+
+" for other {{
+
+NeoBundle 'basyura/TweetVim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'basyura/twibill.vim'
+NeoBundle 'mattn/webapi-vim'
+
+" }}
 

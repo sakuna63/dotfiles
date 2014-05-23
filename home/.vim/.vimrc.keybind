@@ -1,4 +1,14 @@
+" ESC map
 inoremap <C-j> <ESC>
-nnoremap ; :
+vnoremap <C-j> <ESC>
+cnoremap <C-j> <ESC>
 
+" ;を:に変更
+nnoremap ; :
+" nnoremap : ;
+
+" ESC２回で検索ハイライト解除
+" nnoremap <ESC><ESC> :noh<CR>
+
+" <Leader>に,を設定
 let mapleader = ','

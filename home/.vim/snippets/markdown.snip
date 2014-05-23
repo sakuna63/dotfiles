@@ -1,0 +1,210 @@
+snippet *
+abbr bold
+options word
+  **${1:word}**
+
+snippet code
+abbr `
+options word
+  \`\`\`${1:lang}
+    ${2:code}
+  \`\`\`
+
+snippet 1
+abbr #
+options word
+  #
+
+snippet 2
+abbr ##
+options word
+  ##
+
+snippet 3
+abbr ###
+options word
+  ###
+
+snippet 4
+abbr ####
+options word
+  ####
+
+snippet 5
+abbr #####
+options word
+  #####
+
+snippet 6
+abbr ######
+options word
+  ######
+
+snippet table
+abbr table
+options word
+  |${1:calumn name}|${2:calumn name}|${3:calumn name}|${4:calumn name}
+  |-|-|-|-
+  |${1:domain value}|${2:domain value}|${3:domain value}|${4:domain value}
+
+snippet math
+abbr eqnarray
+options word
+  \begin{eqnarray}
+    ${1:equation}
+  \end{eqnarray}
+
+snippet m
+abbr $ $
+options word
+  $${1:equation}$
+
+snippet frac
+abbr \frac{}
+options word
+  \frac{${1:child}}{${2:mother}}
+
+snippet sum
+abbr Σ
+options word
+  \sum_{${1:min}}^{${2:max}}
+
+snippet =
+abbr &=&
+options word
+  &=&
+
+snippet nn
+abbr nonumber
+options word
+  \nonumber \\\\
+
+snippet s
+abbr space
+options word
+  \;
+
+snippet abs
+abbr abs
+options word
+  \left| ${1:val} \right|
+
+snippet (
+abbr ()
+options word
+  \left( ${1:val} \right)
+
+snippet {
+abbr {}
+options word
+  \left{ ${1:val} \right}
+
+snippet |
+abbr bar
+options word
+  \;|\;
+
+snippet dh
+abbr ^δ
+options word
+  \hat{\delta}
+
+snippet eps
+abbr ε
+options word
+  \epsilon
+
+snippet lam
+abbr λ
+options word
+  \lambda
+
+snippet log
+abbr log()
+options word
+  \log{${1:val}}
+
+snippet mu
+abbr μ
+options word
+  \mu
+
+snippet phi
+abbr Φ
+options word
+  \phi
+
+snippet cup
+abbr ∪
+options word
+  \cup
+
+snippet cap
+abbr ∩
+options word
+  \cap
+
+snippet ^
+abbr pow
+options word
+  ^{${1:val}}
+
+snippet _
+abbr under
+options word
+  _{${1:val}}
+
+snippet in
+abbr ∈
+options word
+  \in
+
+snippet subset
+abbr ⊆
+options word
+  \subset
+
+snippet neq
+abbr ≠
+options word
+  \neq
+
+snippet ra
+abbr ⇒
+options word
+  \Rightarrow
+
+snippet lra
+abbr ⇔
+options word
+  \Leftrightarrow
+
+snippet sq
+abbr √
+options word
+  \sqrt{${1:val}}
+
+snippet theta
+abbr θ
+options word
+  \theta
+
+snippet dot
+abbr ・
+options word
+  \cdot
+
+snippet pi
+abbr π
+options word
+  \pi
+
+snippet sig
+abbr σ
+options word
+  \sigma
+
+snippet Sig
+abbr Σ
+options word
+  \Sigma
