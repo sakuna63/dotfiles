@@ -1,3 +1,8 @@
+snippet img
+abbr ![]()
+options word
+  ![${0:caption}](${1:path_to_img})
+
 snippet *
 abbr bold
 options word
@@ -9,36 +14,6 @@ options word
   \`\`\`${1:lang}
     ${2:code}
   \`\`\`
-
-snippet 1
-abbr #
-options word
-  #
-
-snippet 2
-abbr ##
-options word
-  ##
-
-snippet 3
-abbr ###
-options word
-  ###
-
-snippet 4
-abbr ####
-options word
-  ####
-
-snippet 5
-abbr #####
-options word
-  #####
-
-snippet 6
-abbr ######
-options word
-  ######
 
 snippet table
 abbr table
@@ -59,20 +34,31 @@ abbr $ $
 options word
   $${1:equation}$
 
-snippet frac
-abbr \frac{}
+snippet fr
+abbr frac
 options word
-  \frac{${1:child}}{${2:mother}}
+  \frac{${1:child}}{${2:mother}}${3:next}
 
 snippet sum
 abbr Σ
 options word
   \sum_{${1:min}}^{${2:max}}
 
+snippet ,
+abbr \;,\;
+options word
+  \;,\;
+
 snippet =
 abbr &=&
 options word
   &=&
+
+snippet =
+abbr \; = \;
+options word
+  \;=\;
+
 
 snippet nn
 abbr nonumber
@@ -97,12 +83,22 @@ options word
 snippet {
 abbr {}
 options word
-  \left{ ${1:val} \right}
+  \{ ${1:val} \}
 
 snippet |
 abbr bar
 options word
   \;|\;
+
+snippet :
+abbr coron
+options word
+  \;:\;
+
+snippet del
+abbr δ
+options word
+  \delta
 
 snippet dh
 abbr ^δ
@@ -208,3 +204,83 @@ snippet Sig
 abbr Σ
 options word
   \Sigma
+
+snippet gam
+abbr γ
+options word
+  \gamma
+
+snippet Gam
+abbr Γ
+options word
+  \Gamma
+
+snippet zl
+abbr →
+options word
+  →
+
+snippet zh
+abbr ←
+options word
+  ←
+
+snippet rho
+abbr ρ
+options word
+  \rho
+
+snippet leq
+abbr ≦
+options word
+  \leq
+
+snippet geq
+abbr ≧
+options word
+  \geq
+
+snippet time
+abbr ☓
+options word
+  \times
+
+snippet vdash
+abbr vdash
+options word
+  \vdash
+
+snippet alp
+abbr α
+options word
+  \alpha
+
+snippet beta
+abbr β
+options word
+  \beta
+
+snippet exs
+abbr ∃
+options word
+  \exists
+
+snippet ast
+abbr *
+options word
+  \ast
+
+snippet bar
+abbr -
+options word
+  \bar{${0:val}}
+
+snippet partial
+abbr ∂
+options word
+  \partial
+
+snippet vd
+abbr vdash
+options word
+  \vdash

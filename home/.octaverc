@@ -1,0 +1,6 @@
+# setting gui output
+setenv GNUTERM x11
+
+# set default editor
+edit mode sync
+EDITOR('mvim %s')
