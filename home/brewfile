@@ -1,0 +1,18 @@
+tap phinze/cask
+tap homebrew/science
+tap peco/peco
+tap homebrew/binary
+
+install vim
+install zsh
+install tmux
+install reattach-to-user-namespace
+install android-sdk
+install peco
+install packer
+
+cask install appcleaner
+cask install flash-player
+cask install genymotion
+cask install virtualbox
+cask install sourcetree

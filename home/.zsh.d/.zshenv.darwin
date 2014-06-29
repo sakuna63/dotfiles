@@ -1,0 +1,20 @@
+if [ `uname` != "Darwin" ]; then return; fi
+
+echo 'load .zshenv.darwin'
+
+# エディタ
+export EDITOR=/usr/local/bin/vim
+# ページャ
+export PAGER=/usr/local/bin/vimpager
+export MANPAGER=/usr/local/bin/vimpager
+
+# Javaパス
+export JAVA6_HOME=/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home
+export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home
+export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
+
+# configure clang （これがないとpipがclang周りでエラーを吐く）
+export CC=clang
+export CXX=clang++
+export LDFLAGS="-L/usr/X11/lib"
+export CFLAGS="-I/usr/X11/include -I/usr/X11/include/freetype2"

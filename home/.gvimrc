@@ -46,7 +46,7 @@ set display=uhex      " 印字不可能文字を16進数で表示
 set colorcolumn=80    " 80文字地点にラインを表示する（というか背景色を変える）
 
 " カーソル行をハイライトする
-set cursorline
+" set cursorline
 " 検索語を強調表示する
 set hlsearch
 " 画面最下行にルーラーを表示する

@@ -1,12 +1,14 @@
-echo 'load .zshrc.common'
+echo 'load .zshrc'
 
 ###################
 # For zsh option  #
 ###################
 
+# viライクなキーバインドに
+# bindkey -v
+
 # 補完機能の設定
-autoload -U compinit
-compinit
+autoload -U compinit; compinit
 # 入力しているコマンdの名画間違っている場合にもしかした：を出す
 setopt correct
 # 色を使う
@@ -19,17 +21,8 @@ setopt auto_cd
 setopt auto_pushd
 # 表示を詰める
 setopt list_packed
-# SSHで接続した先で日本語が使えるようにする
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-# エディタ
-export EDITOR=/usr/local/bin/vim
-# ページャ
-export PAGER=/usr/local/bin/vimpager
-export MANPAGER=/usr/local/bin/vimpager
 
-# gradleを常にdaemon起動する
-export GRADLE_OPTS="-Dorg.gradle.daemon=true"
+alias ....='cd ../../..'
 
 # tmuxを自動で起動する
 if [ -z "$TMUX" -a -z "$STY" ]; then
@@ -46,3 +39,8 @@ if [ -z "$TMUX" -a -z "$STY" ]; then
     fi
 fi
 
+source ~/.zsh.d/.zshrc.darwin
+source ~/.zsh.d/.zshrc.linux
+source ~/.zsh.d/.zshrc.antigen
+source ~/.zsh.d/.zshrc.package
+source ~/.zsh.d/.zshrc.last
