@@ -2,7 +2,6 @@ if [ `uname` != "Darwin" ]; then return; fi
 
 echo 'load .zshenv.darwin'
 
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 
 # エディタ
 export EDITOR=/usr/local/bin/vim

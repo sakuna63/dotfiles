@@ -1,19 +1,30 @@
 echo 'load .zshrc.antigen'
 
-# ~/antigenフォルダ下の設定ファイルを読み込む
+# load antigen settings
 source ~/.zsh.d/modules/antigen/antigen.zsh
 
-# oh-my-zshのライブラリをロードする
+# load oh-my-zsh library
 antigen-use oh-my-zsh
 
-# syntax highliting
+# install plugins
+antigen bundle brew
+antigen bundle brew-cask
+# antigen bundle common-aliases
+antigen bundle gem
+# antigen bundle git
+# antigen bundle github
+antigen bundle gradle
+antigen bundle heroku
+antigen bundle rbenv
+antigen bundle web-search
+antigen bundle marzocchi/zsh-notify
 antigen bundle zsh-users/zsh-syntax-highlighting
 
-# テーマを変更する（元に戻したいときはコメントアウトすればいい）
+# change theme
 # https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #antigen-theme robbyrussell
 antigen-theme af-magic
 #antigen-theme agnoster
 
-# antigenの終了(rubyでいうend???)
+# apply antigen settings
 antigen-apply

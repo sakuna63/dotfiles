@@ -21,8 +21,10 @@ setopt auto_cd
 setopt auto_pushd
 # 表示を詰める
 setopt list_packed
+# add-zsh-hookを有効化
+autoload -Uz add-zsh-hook
 
-alias ....='cd ../../..'
+alias so='source'
 
 # tmuxを自動で起動する
 if [ -z "$TMUX" -a -z "$STY" ]; then

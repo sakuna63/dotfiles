@@ -10,6 +10,7 @@ install reattach-to-user-namespace
 install android-sdk
 install peco
 install packer
+install terminal-notifier
 
 cask install appcleaner
 cask install flash-player

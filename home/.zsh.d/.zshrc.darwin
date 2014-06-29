@@ -3,14 +3,10 @@ if [ `uname` = "Darwin" ]; then
 
     export ANDROID_HOME="/usr/local/opt/android-sdk"
 
-    # configure rbenv
-    eval "$(rbenv init -)"
-
     # commands alias
     alias mikutter="ruby /Applications/mikutter/mikutter.rb"
     alias rm="rmtrash"
     alias xmysql="/Applications/XAMPP/xamppfiles/bin/mysql -u root"
-#    alias tmux-copy="tmux save-buffer - | pbcopy"
 
     alias o="open"
     alias e="emacsclient -nw -a ''"

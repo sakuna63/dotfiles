@@ -32,7 +32,10 @@ path=(
 
 
 fpath=(
-  /usr/local/share/zsh-completions $fpath
+  /usr/local/share/zsh-completions
+  ~/.zsh.d/completion
+  ~/.zsh.d/modules/zsh-completions/src
+  $fpath
 )
 
 source ~/.zsh.d/.zshenv.darwin
