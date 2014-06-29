@@ -11,6 +11,7 @@ install android-sdk
 install peco
 install packer
 install terminal-notifier
+install rmtrash
 
 cask install appcleaner
 cask install flash-player

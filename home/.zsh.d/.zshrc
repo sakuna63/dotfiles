@@ -24,6 +24,8 @@ setopt list_packed
 # add-zsh-hookを有効化
 autoload -Uz add-zsh-hook
 
+alias g='git'
+alias v='vim'
 alias so='source'
 
 # tmuxを自動で起動する
