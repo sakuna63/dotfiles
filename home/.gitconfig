@@ -1,0 +1,27 @@
+[core]
+  editor = "vim"
+  excludesfile = /Users/sakuna63/.gitignore_global
+[user]
+  name = Ippei Nawate
+  email = saku.ni63@gmail.com
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
+[color]
+  ui = auto
+[alias]
+  st = status
+  sh = show
+  ci = commit
+  cm = commit
+  cma = commit --amend
+  reh = reset --hard
+  adda = add -A .
+  co = checkout
+  cob = checkout -b
+  mas = checkout master
+  plom = pull origin master
+  psom = push origin master
+[mergetool "sourcetree"]
+  cmd = /opt/homebrew-cask/Caskroom/sourcetree/1.9.4.1/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
