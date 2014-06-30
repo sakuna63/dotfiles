@@ -24,10 +24,6 @@ setopt list_packed
 # add-zsh-hookを有効化
 autoload -Uz add-zsh-hook
 
-alias g='git'
-alias v='vim'
-alias so='source'
-
 # tmuxを自動で起動する
 if [ -z "$TMUX" -a -z "$STY" ]; then
     if type tmuxx >/dev/null 2>&1; then
@@ -44,6 +40,7 @@ if [ -z "$TMUX" -a -z "$STY" ]; then
 fi
 
 source ~/.zsh.d/.zshrc.darwin
+source ~/.zsh.d/.zshrc.alias
 source ~/.zsh.d/.zshrc.linux
 source ~/.zsh.d/.zshrc.antigen
 source ~/.zsh.d/.zshrc.package

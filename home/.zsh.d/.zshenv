@@ -8,12 +8,6 @@ export GRADLE_OPTS="-Dorg.gradle.daemon=true"
 # for go
 export GOPATH=~/.gopath
 
-
-# もし .zshenv を複数のマシンで共有していて、
-# あるマシンには存在するが別のマシンには存在しないパスを PATH に追加したいなら、
-# パスの後ろに (N-/) をつけるとよい
-# こうすると、パスの場所にディレクトリが存在しない場合、パスが空文字列に置換される
-# 詳細は `man zshexpn` の Glob Qualifiers を参照
 path=(
   /usr/local/bin
   /usr/local/sbin
@@ -34,7 +28,7 @@ path=(
 fpath=(
   /usr/local/share/zsh-completions
   ~/.zsh.d/completion
-  ~/.zsh.d/modules/zsh-completions/src
+  $(brew --prefix)/share/zsh/site-functions(N-/)
   $fpath
 )
 

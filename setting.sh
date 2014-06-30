@@ -25,4 +25,4 @@ fi
 
 #download tmux plugins
 git clone https://github.com/erikw/tmux-poweline home/.tmux.d/
-git clone https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard home/.tmux.d/
+
