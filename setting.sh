@@ -22,3 +22,7 @@ if [ `uname` = "Linux" ]; then
   curl -O https://raw.github.com/git/git/master/contrib/completion/git-completion.zsh home/.zsh.d/completion/
   mv home/.zsh.d/completion/git-completion.zsh home/.zsh.d/completion/_git
 fi
+
+#download tmux plugins
+git clone https://github.com/erikw/tmux-poweline home/.tmux.d/
+git clone https://github.com/ChrisJohnsen/tmux-MacOSX-pasteboard home/.tmux.d/
