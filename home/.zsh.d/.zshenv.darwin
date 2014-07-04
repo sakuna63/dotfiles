@@ -9,9 +9,10 @@ export PAGER=/usr/local/bin/vimpager
 export MANPAGER=/usr/local/bin/vimpager
 
 # Javaパス
-export JAVA6_HOME=/Library/Java/JavaVirtualMachines/1.6.0_65-b14-462.jdk/Contents/Home
-export JAVA7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home
-export JAVA8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_05.jdk/Contents/Home
+export JAVA6_HOME=$(/usr/libexec/java_home -v 1.6)
+export JAVA7_HOME=$(/usr/libexec/java_home -v 1.7)
+export JAVA8_HOME=$(/usr/libexec/java_home -v 1.8)
+export JAVA_HOME=$JAVA8_HOME
 
 # configure clang （これがないとpipがclang周りでエラーを吐く）
 export CC=clang

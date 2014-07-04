@@ -20,6 +20,10 @@
   co = checkout
   cob = checkout -b
   mas = checkout master
+  pl = pull
+  ps = push
+  plo = pull origin
+  pso = push origin
   plom = pull origin master
   psom = push origin master
 [mergetool "sourcetree"]

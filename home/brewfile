@@ -1,20 +1,85 @@
 tap phinze/cask
+tap caskroom/versions
 tap homebrew/science
-tap peco/peco
 tap homebrew/binary
+tap peco/peco
 
-install vim
-install zsh
-install tmux
-install reattach-to-user-namespace
+# install brew-cask
+
+# tools
 install android-sdk
+install macvim --with-lua
+install reattach-to-user-namespace
+install terminal-notifier
+install tmux
+install vim --with-lua
+install vimpager
+install zsh
+
+# git
+install git
+install hub
+install tig
+
+# util commands
+install ag
+install heroku-toolbelt
+install imagemagick
+install nkf
 install peco
 install packer
-install terminal-notifier
 install rmtrash
+install ruby-build
+install rbenv
+install tree
 
+#########
+# casks #
+#########
+
+# hobby
+cask install cooviewer
+cask install sopcast
+cask install vlc
+
+# start up
+cask install alfred
+cask install caffeine
+caks install dropbox
+cask install keyremap4macbook
+cask install skype
+cask install spectacle
+cask install speedtao
+
+# utility
+cask install airmail
 cask install appcleaner
+cask install dashlane
+cask install evernote
 cask install flash-player
-cask install genymotion
+cask install firefox
+cask install google-chrome
+cask install google-japanese-ime
+cask install grandperspective
+cask install istumbler
+cask install latexit
+cask install sparrow
 cask install virtualbox
+cask install yorufukurou
+cask install sublime-text
+cask install the-unarchiver
+
+## develop
+cask install android-studio
+cask install bee
+cask install genymotion
+cask install intellij-idea-ce
+cask install iterm2
 cask install sourcetree
+cask install xquartz
+cask install java
+cask install java6
+cask install java7
+
+# Remove outdated versions
+cleanup

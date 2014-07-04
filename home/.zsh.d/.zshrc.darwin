@@ -4,6 +4,8 @@ echo 'load .zshrc.darwin'
 
 export ANDROID_HOME="/usr/local/opt/android-sdk"
 
+eval "$(rbenv init -)"
+
 # commands alias
 alias mikutter="ruby /Applications/mikutter/mikutter.rb"
 alias rm="rmtrash"
