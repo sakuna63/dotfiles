@@ -1,3 +1,5 @@
+mkdir -p ~/.homesick/repos
+mv ../dotfiles ~/.homesick/repos/
 # for create symlink to dotfiles
 gem install homesick
 homesick link
@@ -10,10 +12,10 @@ fi
 
 # install neobundle for vim
 mkdir home/.vim/bundle
-git clone https://github.com/Shougo/neobundle.vim home/.vim/bundle/
+git clone https://github.com/Shougo/neobundle.vim home/.vim/bundle/neobundle.vim
 
 # install antigen for zsh
-git clone https://github.com/zsh-users/antigen home/.zsh.d/
+git clone https://github.com/zsh-users/antigen home/.zsh.d/antigen
 
 # download git completions
 if [ `uname` = "Linux" ]; then

@@ -1,0 +1,57 @@
+echo 'load .zshrc.funcs'
+
+# リポジトリ内で空Enter時にgit statusを表示する
+function do_enter() {
+    if [ -n "$BUFFER" ]; then
+        zle accept-line
+        return 0
+    fi
+    echo
+    ls
+    # ↓ おすすめ
+    # ls_abbrev
+    if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+        echo
+        echo -e "\e[0;33m--- git status ---\e[0m"
+        git status -sb
+    fi
+    zle reset-prompt
+    return 0
+}
+zle -N do_enter
+bindkey '^m' do_enter
+
+if ! which peco > /dev/null; then
+  return
+fi
+
+# pecoでコマンド履歴を検索できるようにする
+function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(fc -l -n 1| \
+        eval $tac | \
+        peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+zle -N peco-select-history
+bindkey -r '^r'
+bindkey '^r' peco-select-history
+
+# pecoでディレクトリの移動履歴を見れるように
+function peco-cdr () {
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+zle -N peco-cdr
+bindkey -r '^u'
+bindkey '^u' peco-cdr

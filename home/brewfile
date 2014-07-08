@@ -63,7 +63,6 @@ cask install google-japanese-ime
 cask install grandperspective
 cask install istumbler
 cask install latexit
-cask install sparrow
 cask install virtualbox
 cask install yorufukurou
 cask install sublime-text
@@ -80,6 +79,17 @@ cask install xquartz
 cask install java
 cask install java6
 cask install java7
+
+# cask install skim
+# cask install skitch
+# cask install processing
+# cask install inkscape
+# cask install haroopad
+# cask install chromecast
+# cask install darteditor
+# cask install atom
+# cask install cakebrew
+# cask install sparrow
 
 # Remove outdated versions
 cleanup

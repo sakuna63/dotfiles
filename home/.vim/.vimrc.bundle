@@ -37,7 +37,7 @@ NeoBundle 'xuhdev/SingleCompile'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'jceb/vim-hier' " compile結果のエラー箇所のハイライト
 NeoBundle 'tpope/vim-surround'
-" NeoBundle 'scrooloose/syntastic.git'
+NeoBundle 'scrooloose/syntastic.git'
 " NeoBundleLazy 'http://conque.googlecode.com/svn/trunk/', {
 "       \'autoload' : {
 "       \'commands' : [

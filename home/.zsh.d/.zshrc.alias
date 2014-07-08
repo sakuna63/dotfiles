@@ -1,7 +1,14 @@
-alias g='git'
+echo 'load .zshrc.alias'
+
+alias ....='cd ../../..'
 alias v='vim'
 alias so='source'
+alias re='source ~/.zshrc'
+alias ag='ag -a --hidden -f -i'
+alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 
+alias g='git'
+alias gbw='hub browse'
 # for git completion by antigen
 # alias git-status='git status'
 # alias git-diff='git diff'
