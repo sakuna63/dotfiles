@@ -62,6 +62,7 @@ NeoBundleLazy 'mattn/emmet-vim', {
       \'filetypes' : [ 'html', 'css', 'erb' ]
       \}}
 
+NeoBundle 'nathanaelkane/vim-indent-guides'
 " }}
 
 " for javascript {{
@@ -86,6 +87,14 @@ NeoBundleLazy 'moll/vim-node', {
       \'filetypes' : ['javascript']
       \}}
 
+" }}
+
+" for coffeescript {{
+NeoBundle 'kchmck/vim-coffee-script'
+"NeoBundleLazy 'kchmck/vim-coffee-script', {
+"      \'autoload' : {
+"      \'filetypes' : ['coffeescript']
+"      \}}
 " }}
 
 " for markdown {{

@@ -51,3 +51,4 @@ vnoremap <Leader>C <Esc>:call CommentMark(0,'<','>')<CR>
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 autocmd BufNewFile,BufRead Guardfile set filetype=ruby
 autocmd BufNewFile,BufRead *.pde set filetype=processing
+autocmd BufRead,BufNewFile,BufReadPre *.coffee set filetype=coffee

@@ -1,3 +1,30 @@
+" taglistの設定 coffeeを追加
+let g:tlist_coffee_settings = 'coffee;f:function;v:variable'
+
+" vim-coffee-script {{
+
+" 保存時にコンパイル
+" autocmd BufWritePost *.coffee silent CoffeeMake! -cb | cwindow | redraw!
+
+"}}
+
+" indent_guides {{
+
+" インデントの深さに色を付ける
+let g:indent_guides_start_level=2
+let g:indent_guides_auto_colors=0
+let g:indent_guides_enable_on_vim_startup=0
+let g:indent_guides_color_change_percent=20
+let g:indent_guides_guide_size=1
+let g:indent_guides_space_guides=1
+
+hi IndentGuidesOdd  ctermbg=235
+hi IndentGuidesEven ctermbg=237
+au FileType coffee,python IndentGuidesEnable
+nmap <silent><Leader>ig <Plug>IndentGuidesToggle
+
+" }}
+
 " quickrun {{
 " markdownのHTML変換後にブラウザを開く
 
@@ -187,7 +214,6 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
-" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
