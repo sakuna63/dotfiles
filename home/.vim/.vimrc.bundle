@@ -13,9 +13,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 filetype plugin indent on
 
-" 未インストールのプラグインがないかチェックする
-NeoBundleCheck
-
 " for edit {{
 
 NeoBundle 'Shougo/neocomplete'
@@ -23,6 +20,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
+NeoBundle 'tsukkee/unite-help'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'tpope/vim-fugitive'
@@ -108,6 +106,7 @@ NeoBundleLazy 'kannokanno/previm', {
       \'filetypes' : ['markdown']
       \}}
 NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
+
 " }}
 
 " for ruby and rails {{
@@ -138,3 +137,5 @@ NeoBundle 'mattn/webapi-vim'
 
 " }}
 
+" 未インストールのプラグインがないかチェックする
+NeoBundleCheck

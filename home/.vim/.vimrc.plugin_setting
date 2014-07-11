@@ -139,9 +139,10 @@ let g:unite_source_history_yank_enable = 1
 nnoremap [unite] <Nop>
 nmap <Space>u [unite]
 
-nnoremap <silent> [unite]c :UniteWithCurrentDir -buffer-name=files file_mru buffer bookmark file<CR>
+nnoremap <silent> [unite]c :Unite -start-insert -buffer-name=files file_mru file file/new<CR>
 nnoremap <silent> [unite]y :Unite history/yank<CR>
 nnoremap <silent> [unite]o :Unite outline<CR>
+nnoremap <silent> [unite]h :Unite help<CR>
 nnoremap <silent> [unite]f :VimFiler<CR>
 nnoremap <silent> [unite]t :Unite tweetvim<CR>
 
