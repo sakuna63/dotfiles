@@ -28,7 +28,6 @@ path=(
 fpath=(
   /usr/local/share/zsh-completions
   ~/.zsh.d/completion
-  $(brew --prefix)/share/zsh/site-functions(N-/)
   $fpath
 )
 

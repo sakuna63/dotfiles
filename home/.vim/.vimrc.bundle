@@ -13,23 +13,35 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 filetype plugin indent on
 
-" for edit {{
+"------------------------------------
+" for edit
+"------------------------------------
 
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
-NeoBundle 'tsukkee/unite-help'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+    \ 'windows' : 'make -f make_mingw32.mak',
+    \ 'cygwin' : 'make -f make_cygwin.mak',
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ }
+NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'h1mesuke/vim-alignta'
+NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'rhysd/clever-f.vim'
 
-" }}
-
-" for development {{
+"------------------------------------
+" for development
+"------------------------------------
 
 NeoBundle 'xuhdev/SingleCompile'
 NeoBundle 'thinca/vim-quickrun'
@@ -43,17 +55,16 @@ NeoBundle 'scrooloose/syntastic.git'
 "       \]
 "       \}}
 
-" }}
-
-" for appearance {{
+"------------------------------------
+" for appearance
+"------------------------------------
 
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'itchyny/lightline.vim'
 
-" }}
-
-
-" for web programing {{
+"------------------------------------
+" for web programing
+"------------------------------------
 
 NeoBundleLazy 'mattn/emmet-vim', {
       \'autoload' : {
@@ -61,9 +72,10 @@ NeoBundleLazy 'mattn/emmet-vim', {
       \}}
 
 NeoBundle 'nathanaelkane/vim-indent-guides'
-" }}
 
-" for javascript {{
+"------------------------------------
+" for javascript
+"------------------------------------
 
 NeoBundleLazy 'marijnh/tern_for_vim', {
       \'autoload' : {
@@ -85,17 +97,19 @@ NeoBundleLazy 'moll/vim-node', {
       \'filetypes' : ['javascript']
       \}}
 
-" }}
+"------------------------------------
+" for coffeescript
+"------------------------------------
 
-" for coffeescript {{
 NeoBundle 'kchmck/vim-coffee-script'
 "NeoBundleLazy 'kchmck/vim-coffee-script', {
 "      \'autoload' : {
 "      \'filetypes' : ['coffeescript']
 "      \}}
-" }}
 
-" for markdown {{
+"------------------------------------
+" for markdown
+"------------------------------------
 
 NeoBundleLazy 'rcmdnk/vim-markdown', {
       \'autoload' : {
@@ -107,35 +121,32 @@ NeoBundleLazy 'kannokanno/previm', {
       \}}
 NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
 
-" }}
-
-" for ruby and rails {{
+"------------------------------------
+" for ruby and rails
+"------------------------------------
 
 NeoBundle 'basyura/unite-rails'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-scripts/dbext.vim'
 
-" }}
-
-" for processing {{
+"------------------------------------
+" for processing
+"------------------------------------
 
 NeoBundleLazy 'sophacles/vim-processing', {
       \'autoload' : {
       \'filetypes' : ['arduino', 'processing']
       \}}
 
-
-"}}
-
-" for other {{
+"------------------------------------
+" for other
+"------------------------------------
 
 NeoBundle 'basyura/TweetVim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'basyura/twibill.vim'
 NeoBundle 'mattn/webapi-vim'
-
-" }}
 
 " 未インストールのプラグインがないかチェックする
 NeoBundleCheck

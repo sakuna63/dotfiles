@@ -15,6 +15,8 @@ if has('gui_running')
   set guioptions-=
   "下スクロールバーなし
   set guioptions-=b
+  " フォント
+  set guifont=Ricty:h13
 endif
 
 " }}
