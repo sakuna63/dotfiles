@@ -4,6 +4,7 @@ set nocompatible
 filetype plugin indent on
 " MacOSのクリップボードと同期するようにする
 set clipboard+=unnamed
+set clipboard+=autoselect
 " コマンドライン補完を便利にする
 set wildmenu
 " タイプ途中のコマンドを画面最下行に表示
