@@ -10,6 +10,11 @@ alias -g P='| peco'
 
 alias g='git'
 alias gbw='hub browse'
+alias gpr='hub pull-request'
+alias ghqc='cd $(ghq list -p | peco)'
+alias ghqo='gh-open $(ghq list -p | peco)'
+
+alias pidcat='pidcat --color-gc --always-display-tags'
 # for git completion by antigen
 # alias git-status='git status'
 # alias git-diff='git diff'

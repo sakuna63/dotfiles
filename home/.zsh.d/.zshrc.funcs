@@ -1,5 +1,16 @@
 echo 'load .zshrc.funcs'
 
+replace_exp() {
+  if [ $# -le 1 ]; then
+    echo 'need 2 args'
+    return
+  fi
+
+  for nm in *$1; do
+    mv $nm ${nm%$1}$2;
+  done
+}
+
 # リポジトリ内で空Enter時にgit statusを表示する
 function do_enter() {
     if [ -n "$BUFFER" ]; then

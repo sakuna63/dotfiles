@@ -27,6 +27,7 @@ path=(
 
 fpath=(
   /usr/local/share/zsh-completions
+  $GOPATH/src/github.com/motemen/ghq/zsh/_ghq
   ~/.zsh.d/completion
   $fpath
 )
