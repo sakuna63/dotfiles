@@ -276,7 +276,7 @@ nmap <Space>u [unite]
 
 nnoremap <silent> [unite]u :Unite -start-insert -buffer-name=files file_mru file/async file/new<CR>
 nnoremap <silent> [unite]g :Unite -start-insert -buffer-name=files file_rec/async file/new<CR>
-nnoremap <silent> [unite]c :UniteWithCurrentDir -start-insert -buffer-name=files file_mru file/async file/new<CR>
+nnoremap <silent> [unite]c :UniteWithCurrentDir -start-insert -buffer-name=files file file_mru file/async file/new<CR>
 nnoremap <silent> [unite]a :Unite -start-insert grep:./<CR>
 nnoremap <silent> [unite]y :Unite -start-insert history/yank<CR>
 nnoremap <silent> [unite]o :Unite -start-insert outline<CR>

@@ -37,7 +37,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'rhysd/clever-f.vim'
+" NeoBundle 'rhysd/clever-f.vim'
 
 "------------------------------------
 " for development
