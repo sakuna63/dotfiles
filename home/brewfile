@@ -1,18 +1,24 @@
-tap phinze/cask
+tap caskroom/cask
 tap caskroom/versions
 tap homebrew/science
 tap homebrew/binary
+tap homebrew/versions
 tap peco/peco
 
-# install brew-cask
+update
+upgrade
+
+install brew-cask
 
 # tools
 install android-sdk
-install macvim --with-lua
+install android-ndk
+install pidcat
+install macvim --with-lua --with-luajit --with-python3
 install reattach-to-user-namespace
 install terminal-notifier
 install tmux
-install vim --with-lua
+install vim --with-lua --with-luajit --with-python3
 install vimpager
 install zsh
 
@@ -22,7 +28,7 @@ install hub
 install tig
 
 # util commands
-install ag
+install the_silver_searcher
 install heroku-toolbelt
 install imagemagick
 install nkf
@@ -32,6 +38,7 @@ install rmtrash
 install ruby-build
 install rbenv
 install tree
+install node
 
 #########
 # casks #
@@ -46,7 +53,8 @@ cask install vlc
 cask install alfred
 cask install caffeine
 caks install dropbox
-cask install keyremap4macbook
+cask install karabiner
+cask install shortcat
 cask install skype
 cask install spectacle
 cask install speedtao
@@ -54,6 +62,7 @@ cask install speedtao
 # utility
 cask install airmail
 cask install appcleaner
+cask install coteditor
 cask install dashlane
 cask install evernote
 cask install flash-player
@@ -74,12 +83,12 @@ cask install bee
 cask install genymotion
 cask install intellij-idea-ce
 cask install iterm2
-cask install sourcetree
 cask install xquartz
 cask install java
 cask install java6
 cask install java7
 
+# cask install sourcetree
 # cask install skim
 # cask install skitch
 # cask install processing
