@@ -12,8 +12,8 @@
 [alias]
   br = branch
   st = status
-  sh = show
-  ci = commit
+  ss = stash save
+  sp = stash pop
   cm = commit
   cma = commit --amend
   reh = reset --hard
@@ -22,8 +22,11 @@
   co = checkout
   cob = checkout -b
   mas = checkout master
-  pl = pull
-  ps = push
+  dev = checkout develop
+  mg = merge --no-ff
+  f = fetch
+  p = pull
+  pu = push origin
 [mergetool "sourcetree"]
   cmd = /opt/homebrew-cask/Caskroom/sourcetree/1.9.4.1/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
   trustExitCode = true
