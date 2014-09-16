@@ -1,5 +1,7 @@
 echo 'load .zshrc.funcs'
 
+# usage: replace_exp exp1 exp2
+# desc : 同ディレクトリ内のexp1をexp2に置換する
 replace_exp() {
   if [ $# -le 1 ]; then
     echo 'need 2 args'
@@ -66,3 +68,11 @@ function peco-cdr () {
 zle -N peco-cdr
 bindkey -r '^u'
 bindkey '^u' peco-cdr
+
+# function peco-snippets() {
+#     BUFFER=$(cat ~/.sheets/* | peco)
+#     zle clear-screen
+# }
+# 
+# zle -N peco-snippets
+# bindkey '^x^s' peco-snippets

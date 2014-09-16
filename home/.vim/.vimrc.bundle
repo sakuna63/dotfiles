@@ -37,6 +37,8 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'alpaca-tc/alpaca_tags'
 " NeoBundle 'rhysd/clever-f.vim'
 
 "------------------------------------
@@ -129,6 +131,7 @@ NeoBundle 'basyura/unite-rails'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'vim-scripts/dbext.vim'
+NeoBundle 'tpope/vim-endwise'
 
 "------------------------------------
 " for processing
@@ -143,7 +146,6 @@ NeoBundleLazy 'sophacles/vim-processing', {
 " for other
 "------------------------------------
 
-NeoBundle 'basyura/TweetVim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'basyura/twibill.vim'
 NeoBundle 'mattn/webapi-vim'

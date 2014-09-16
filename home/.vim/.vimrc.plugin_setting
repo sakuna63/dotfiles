@@ -1,4 +1,14 @@
 "------------------------------------
+" alpaca_tags
+"------------------------------------
+
+"------------------------------------
+" indentLine
+"------------------------------------
+
+let g:indentLine_faster = 1
+
+"------------------------------------
 " switch.vim
 "------------------------------------
 
@@ -13,7 +23,7 @@ nnoremap ! :Switch<CR>
 
 let s:switch_definition = {
       \ '*': [
-      \   ['is', 'are']
+      \   ['is', 'are'],
       \ ],
       \ 'ruby,eruby,haml' : [
       \   ['if', 'unless'],
@@ -179,12 +189,12 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/neosnippet-snippets, ~/.vim/s
 " tweetvim
 "------------------------------------
 
-let g:tweetvim_tweet_per_page = 50
-let g:tweetvim_cache_size = 10
-let g:tweetvim_display_source = 1
-let g:tweetvim_display_time = 1
-let g:tweetvim_display_icon = 1
-let g:tweetvim_display_username = 1
+" let g:tweetvim_tweet_per_page = 50
+" let g:tweetvim_cache_size = 10
+" let g:tweetvim_display_source = 1
+" let g:tweetvim_display_time = 1
+" let g:tweetvim_display_icon = 1
+" let g:tweetvim_display_username = 1
 
 "------------------------------------
 " emmet
@@ -282,7 +292,7 @@ nnoremap <silent> [unite]y :Unite -start-insert history/yank<CR>
 nnoremap <silent> [unite]o :Unite -start-insert outline<CR>
 nnoremap <silent> [unite]h :Unite help<CR>
 nnoremap <silent> [unite]f :VimFiler<CR>
-nnoremap <silent> [unite]t :Unite tweetvim<CR>
+nnoremap <silent> [unite]t :Unite tags<CR>
 
 nnoremap [urails] <Nop>
 nmap [unite]r [urails]
