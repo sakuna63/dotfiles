@@ -34,6 +34,7 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 NeoBundle 'tsukkee/unite-help'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'gregsexton/gitv'
 NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'AndrewRadev/switch.vim'

@@ -16,6 +16,7 @@
   sp = stash pop
   cm = commit
   cma = commit --amend
+  re = reset
   reh = reset --hard
   ada = add -A .
   adp = add -p

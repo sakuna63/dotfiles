@@ -8,7 +8,7 @@ alias so='source'
 alias re='source ~/.zshrc'
 alias ag='ag -a --hidden -f -i'
 alias -g B='`git branch | peco | head -n 1 | sed -e "s/^\*[ ]*//g"`'
-alias -g LR='`git branch -a | peco --query "remotes/ " | head -n 1 | sed -e "s/remotes\/\([^\/]*\/\(.*\)\)/\2 \2/"`'
+alias -g LR='`git branch -a | peco --query "remotes/ " | head -n 1 | sed -e "s/remotes\/\([^\/]*\/\(.*\)\)/\2 \1/"`'
 alias -g P='| peco'
 
 alias g='git'
@@ -21,6 +21,7 @@ alias ts='tig status'
 alias tb='tig blame'
 
 alias pidcat='pidcat --color-gc --always-display-tags'
+alias adbp='adb shell screencap -p /sdcard/screen.png; adb pull /sdcard/screen.png; adb shell rm /sdcard/screen.png'
 # for git completion by antigen
 # alias git-status='git status'
 # alias git-diff='git diff'

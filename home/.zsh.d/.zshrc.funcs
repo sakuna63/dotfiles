@@ -57,7 +57,7 @@ bindkey -r '^r'
 bindkey '^r' peco-select-history
 
 # pecoでディレクトリの移動履歴を見れるように
-function peco-cdr () {
+function peco-cdr() {
     local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
     if [ -n "$selected_dir" ]; then
         BUFFER="cd ${selected_dir}"
@@ -76,3 +76,18 @@ bindkey '^u' peco-cdr
 # 
 # zle -N peco-snippets
 # bindkey '^x^s' peco-snippets
+
+function jadr() {
+  jad -8 -s java -d $2 -r $1/**/*.class
+}
+
+# Decompile Android application
+# jadr ${dst} ${dst}/src
+
+function deapk() {
+  local dst=${${1##*/}%%.*}
+  dst+='.depackaged'
+  unzip $1 -d $dst
+  dex2jar ${dst}/classes.dex
+  unzip ${dst}/classes_dex2jar.jar -d ${dst}/Classes
+}

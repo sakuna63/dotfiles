@@ -1,5 +1,5 @@
 " ESC map
-inoremap <C-j> <ESC>
+inoremap jj <ESC>
 vnoremap <C-j> <ESC>
 cnoremap <C-j> <ESC>
 
