@@ -1,25 +1,26 @@
 # install packages for MacOS
 if [ `uname` = "Darwin" ]; then
-  # install packages via homebrew
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  # install packages via ~brew
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/~brew/install/master/install)"
   # zsh 5.0.2
-  git checkout 52fe004 /usr/local/Library/Formula/zsh.rb
+  # git checkout 52fe004 /usr/local/Library/Formula/zsh.rb
   # tmux 1.9
-  git checkout fcb3161 /usr/local/Library/Formula/tmux.rb
-  brew bundle
+  # git checkout fcb3161 /usr/local/Library/Formula/tmux.rb
+  # brew bundle
+  sh brew.sh
 fi
 
 # install packages for Linux
 if [ `uname` = "Linux" ]; then
   # download git completions
-  mkdir -p home/.zsh.d/completion
-  curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash home/.zsh.d/completion/git-completion.bash
-  curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh home/.zsh.d/completion/_git
+  mkdir -p ~/.zsh.d/completion
+  curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash ~/.zsh.d/completion/git-completion.bash
+  curl -O https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh ~/.zsh.d/completion/_git
 
   apt-get install vim zsh golang git
   mkdir ~/.go
   touch ~/.zshrc.local
-  echo 'export GOPATH=$HOME/go' >> ~/.zshrc.local
+  echo 'export GOPATH=$~/go' >> ~/.zshrc.local
   echo 'export GOROOT=/usr/lib/go' >> ~/.zshrc.local
   source ~/.zshrc.local
   go get github.com/peco/peco/cmd/peco

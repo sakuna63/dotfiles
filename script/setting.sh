@@ -1,7 +1,7 @@
-if [ `uname` == "Darwin" -a -e /Applications/Xcode.app ]; then
-  echo 'error :: You must install Xcode.app before running setting script'
-  exit 1
-fi
+# if [ `uname` == "Darwin" -a -e /Applications/Xcode.app ]; then
+#   echo 'error :: You must install Xcode.app before running setting script'
+#   exit 1
+# fi
 
 # create dotifiles dir if not exists
 if [ ! -e ~/.homesick ]; then
