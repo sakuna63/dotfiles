@@ -1,6 +1,6 @@
 [core]
   editor = "vim"
-  excludesfile = /Users/sakuna63/.gitignore_global
+	excludesfile = /Users/sakuna63/.gitignore_global
 [user]
   name = Ippei Nawate
   email = saku.ni63@gmail.com
