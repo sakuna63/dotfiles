@@ -1,0 +1,8 @@
+-Xms512m
+-Xmx2048m
+-XX:MaxPermSize=1024m
+-XX:ReservedCodeCacheSize=256
+-XX:+UseCodeCacheFlushingm
+-XX:+UseCompressedOops
+-Dgroovy.source.encoding=UTF-8
+-Dfile.encoding=UTF-8
