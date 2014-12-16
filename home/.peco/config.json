@@ -1,8 +1,8 @@
 {
     "Prompt": "[peco]",
     "Keymap": {
-        "C-p": "peco.SelectPrevious",
-        "C-n": "peco.SelectNext",
+        "C-n": "peco.SelectPrevious",
+        "C-p": "peco.SelectNext",
         "C-j": "peco.Cancel",
         "C-u": "peco.SelectPreviousPage",
         "C-d": "peco.SelectNextPage"
