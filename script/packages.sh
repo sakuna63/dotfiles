@@ -1,7 +1,7 @@
 # install packages for MacOS
 if [ `uname` = "Darwin" ]; then
   # install packages via ~brew
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/~brew/install/master/install)"
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   # zsh 5.0.2
   # git checkout 52fe004 /usr/local/Library/Formula/zsh.rb
   # tmux 1.9
