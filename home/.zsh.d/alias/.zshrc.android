@@ -1,0 +1,6 @@
+alias adb-capture='screenshot2 $TMPDIR/screenshot.png; open $TMPDIR/screenshot.png'
+alias adb-restart='adb kill-server; adb start-server'
+alias adb-uninstallapp='adbp shell pm list package | sed -e s/package:// | peco | xargs adbp uninstall'
+alias adb-installapp='find ./ -name *.apk | peco | xargs adb install -r'
+
+alias pidcat='pidcat --color-gc --always-display-tags'

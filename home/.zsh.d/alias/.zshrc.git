@@ -1,0 +1,19 @@
+alias g='git'
+alias gbw='hub browse'
+alias gpr='hub pull-request'
+
+########
+# Peco #
+########
+
+alias -g B='`git branch | peco | head -n 1 | sed -e "s/^\*[ ]*//g"`'
+alias -g LR='`git branch -a | peco --query "remotes/ " | head -n 1 | sed -e "s/remotes\/\([^\/]*\/\(.*\)\)/\2 \1/"`'
+
+#######
+# tig #
+#######
+
+alias ts='tig status'
+alias tb='tig blame'
+
+
