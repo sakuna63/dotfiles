@@ -2,20 +2,29 @@ if [ `uname` != "Darwin" ]; then return; fi
 
 echo 'load .zshrc.darwin'
 
-export ANDROID_HOME="/usr/local/opt/android-sdk"
-
 eval "$(rbenv init -)"
+source ~/.zsh.d/modules/genymotion-peco/bin/genymotion_peco.sh
 
 # commands alias
-alias mikutter="ruby /Applications/mikutter/mikutter.rb"
+# alias mikutter="ruby /Applications/mikutter/mikutter.rb"
 alias rm="rmtrash"
-alias xmysql="/Applications/XAMPP/xamppfiles/bin/mysql -u root"
+# alias xmysql="/Applications/XAMPP/xamppfiles/bin/mysql -u root"
 
 alias o="open"
-alias e="emacsclient -nw -a ''"
-alias kille="emacsclient -e '(kill-emacs)'"
-alias cask="brew cask"
+# alias e="emacsclient -nw -a ''"
+# alias kille="emacsclient -e '(kill-emacs)'"
 
+############
+# Homebrew #
+############
+alias b="brew"
+alias bs="brew search"
+alias bins="brew install"
+alias binf="brew info"
+alias c="cask"
+alias cs="brew search"
+alias cins="brew install"
+alias cinf="brew info"
 alias runserv="python -m SimpleHTTPServer"
 
 # alias git as hub
