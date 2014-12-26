@@ -13,13 +13,14 @@ fi
 sudo gem install homesick
 homesick link
 
+
 # install some packages
-sh ./packages.sh
+sh ~/.homesick/repos/dotfiles/script/packages.sh
 # settings for vim
-sh ./vim.sh
+sh ~/.homesick/repos/dotfiles/script/vim.sh
 # settings for zsh
-sh ./zsh.sh
+sh ~/.homesick/repos/dotfiles/script/zsh.sh
 # settings for tmux
-sh ./tmux.sh
+sh ~/.homesick/repos/dotfiles/script/tmux.sh
 
 source ~/.zshrc

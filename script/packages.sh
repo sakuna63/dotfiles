@@ -7,7 +7,7 @@ if [ `uname` = "Darwin" ]; then
   # tmux 1.9
   # git checkout fcb3161 /usr/local/Library/Formula/tmux.rb
   # brew bundle
-  sh brew.sh
+  sh ~/.homesick/repos/dotfiles/script/brew.sh
 fi
 
 # install packages for Linux

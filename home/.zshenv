@@ -21,14 +21,16 @@ path=(
   $GOPATH/bin
   /Applications/MacVim.app/Contents/MacOS(N-/)
   /Applications/UpTeX.app/teTeX/bin(N-/)
+  ~/.zsh.d/modules/adb-peco/bin(N-/)
+  $ANDROID_HOME/tools(N-/)
   $path
 )
 
 
 fpath=(
   /usr/local/share/zsh-completions
+  ~/.zsh.d/completions
   $GOPATH/src/github.com/motemen/ghq/zsh/_ghq
-  ~/.zsh.d/completion
   $fpath
 )
 
