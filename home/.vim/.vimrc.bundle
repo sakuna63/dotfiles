@@ -141,6 +141,11 @@ NeoBundleLazy 'sophacles/vim-processing', {
       \'autoload' : {
       \'filetypes' : ['arduino', 'processing']
       \}}
+"------------------------------------
+" for scala
+"------------------------------------
+
+NeoBundle 'derekwyatt/vim-scala'
 
 "------------------------------------
 " for other
