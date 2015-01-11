@@ -34,4 +34,6 @@ fpath=(
   $fpath
 )
 
-source ~/.zsh.d/.zshenv.darwin
+if [ `uname` = "Darwin" ]; then
+  source ~/.zsh.d/darwin/.zshenv
+fi

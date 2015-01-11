@@ -1,9 +1,10 @@
-if [ `uname` != "Darwin" ]; then return; fi
-
 echo 'load .zshenv.darwin'
 
+# load command installed by conscript
+export PATH=$PATH:~/bin/
 # load git completions
 export FPATH=$FPATH:$(brew --prefix)/share/zsh/site-functions
+
 # default editor
 export EDITOR=/usr/local/bin/vim
 # default pager
