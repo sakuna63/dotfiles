@@ -45,8 +45,14 @@ if [ -z "$TMUX" -a -z "$STY" ]; then
     fi
 fi
 
-source ~/.zsh.d/.zshrc.darwin
-source ~/.zsh.d/.zshrc.linux
+if [ `uname` = "Darwin" ]; then
+  source ~/.zsh.d/darwin/.zshrc
+fi
+
+if [ `uname` = "Linux" ]; then
+  source ~/.zsh.d/linux/.zshrc
+fi
+
 source ~/.zsh.d/.zshrc.antigen
 source ~/.zsh.d/.zshrc.package
 source ~/.zsh.d/.zshrc.alias
