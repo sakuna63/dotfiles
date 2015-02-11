@@ -18,6 +18,16 @@ cnoremap <C-n> <Down>
 cnoremap <C-a> <Esc>^i
 cnoremap <C-e> <Esc><S-a>
 
+"x キー削除でデフォルトレジスタに入れない
+nnoremap x "_x
+
+"vv で行末まで選択
+vnoremap v ^$h
+
+"選択範囲のインデントを連続して変更
+vnoremap < <gv
+vnoremap > >gv
+
 " ;を:に変更
 nnoremap ; :
 " nnoremap : ;
