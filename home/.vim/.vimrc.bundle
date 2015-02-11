@@ -21,8 +21,9 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
-NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'Shougo/unite-help'
 NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -31,31 +32,18 @@ NeoBundle 'Shougo/vimproc', {
     \ 'unix' : 'make -f make_unix.mak',
   \ },
 \ }
-NeoBundle 'tsukkee/unite-help'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'gregsexton/gitv'
 NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'alpaca-tc/alpaca_tags'
-" NeoBundle 'rhysd/clever-f.vim'
+NeoBundle 'bronson/vim-trailing-whitespace'
 
 "------------------------------------
 " for development
 "------------------------------------
 
-NeoBundle 'xuhdev/SingleCompile'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'jceb/vim-hier' " compile結果のエラー箇所のハイライト
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'scrooloose/syntastic.git'
-" NeoBundleLazy 'http://conque.googlecode.com/svn/trunk/', {
-"       \'autoload' : {
-"       \'commands' : [
-"       \  'ConqueTerm', 'ConqueTermSplit', 'ConqueTermTab', 'ConqueTermVSplit'
-"       \]
-"       \}}
+NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'osyo-manga/unite-quickfix'
 
 "------------------------------------
 " for appearance
@@ -63,17 +51,7 @@ NeoBundle 'scrooloose/syntastic.git'
 
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'itchyny/lightline.vim'
-
-"------------------------------------
-" for web programing
-"------------------------------------
-
-NeoBundleLazy 'mattn/emmet-vim', {
-      \'autoload' : {
-      \'filetypes' : [ 'html', 'css', 'erb' ]
-      \}}
-
-NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'Yggdroot/indentLine'
 
 "------------------------------------
 " for javascript
@@ -86,15 +64,7 @@ NeoBundleLazy 'marijnh/tern_for_vim', {
       \'build': {
       \  'others': 'npm install'
       \}}
-NeoBundleLazy 'ahayman/vim-nodejs-complete', {
-      \'autoload' : {
-      \'filetypes' : ['javascript']
-      \}}
 NeoBundleLazy 'jelera/vim-javascript-syntax', {
-      \'autoload' : {
-      \'filetypes' : ['javascript']
-      \}}
-NeoBundleLazy 'moll/vim-node', {
       \'autoload' : {
       \'filetypes' : ['javascript']
       \}}
@@ -104,43 +74,7 @@ NeoBundleLazy 'moll/vim-node', {
 "------------------------------------
 
 NeoBundle 'kchmck/vim-coffee-script'
-"NeoBundleLazy 'kchmck/vim-coffee-script', {
-"      \'autoload' : {
-"      \'filetypes' : ['coffeescript']
-"      \}}
 
-"------------------------------------
-" for markdown
-"------------------------------------
-
-NeoBundleLazy 'rcmdnk/vim-markdown', {
-      \'autoload' : {
-      \'filetypes' : ['markdown']
-      \}}
-NeoBundleLazy 'kannokanno/previm', {
-      \'autoload' : {
-      \'filetypes' : ['markdown']
-      \}}
-NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
-
-"------------------------------------
-" for ruby and rails
-"------------------------------------
-
-NeoBundle 'basyura/unite-rails'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'vim-scripts/dbext.vim'
-NeoBundle 'tpope/vim-endwise'
-
-"------------------------------------
-" for processing
-"------------------------------------
-
-NeoBundleLazy 'sophacles/vim-processing', {
-      \'autoload' : {
-      \'filetypes' : ['arduino', 'processing']
-      \}}
 "------------------------------------
 " for scala
 "------------------------------------
@@ -148,12 +82,12 @@ NeoBundleLazy 'sophacles/vim-processing', {
 NeoBundle 'derekwyatt/vim-scala'
 
 "------------------------------------
-" for other
+" for markdown
 "------------------------------------
 
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'basyura/twibill.vim'
-NeoBundle 'mattn/webapi-vim'
+NeoBundle 'joker1007/vim-markdown-quote-syntax'
+NeoBundle 'rcmdnk/vim-markdown'
+NeoBundle 'Shougo/junkfile.vim'
 
 " 未インストールのプラグインがないかチェックする
 NeoBundleCheck
