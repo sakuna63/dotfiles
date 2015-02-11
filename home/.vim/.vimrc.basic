@@ -38,3 +38,4 @@ set directory=~/.vim/swap
 " Kaoriya MacVimのundoファイルの作成場所の指定
 set undodir=~/.vim/undo
 
+set number
