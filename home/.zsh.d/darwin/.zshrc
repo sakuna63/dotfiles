@@ -1,6 +1,5 @@
 echo 'load .zshrc.darwin'
 
-eval "$(rbenv init -)"
 source ~/.zsh.d/modules/genymotion-peco/bin/genymotion_peco.sh
 
 # commands alias

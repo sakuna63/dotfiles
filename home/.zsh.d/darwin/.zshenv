@@ -1,7 +1,7 @@
 echo 'load .zshenv.darwin'
 
 # load command installed by conscript
-export PATH=$PATH:~/bin/
+export PATH=$PATH:~/bin
 # load git completions
 export FPATH=$FPATH:$(brew --prefix)/share/zsh/site-functions
 
@@ -32,3 +32,5 @@ export CFLAGS="-I/usr/X11/include -I/usr/X11/include/freetype2"
 export MONO_GAC_PREFIX="/usr/local"
 export ANDROID_HOME="/usr/local/opt/android-sdk"
 export GENYMOTION_APP_HOME="/Applications/Genymotion.app"
+
+eval "$(rbenv init -)"
