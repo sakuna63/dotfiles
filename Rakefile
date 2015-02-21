@@ -64,7 +64,7 @@ task :zsh do
 end
 
 task :package do
-  case `uname`
+  case `uname`.chomp
   when 'Darwin'
     flags = {}.tap do |hash|
       keys = (ENV['flags'] || '').split(',').map(&:to_sym)
