@@ -1,4 +1,4 @@
-task default: 'setting'
+task default: 'setup'
 
 URL_GITHUB = 'https://github.com'
 URL_GITHUB_CONTENT = 'https://raw.githubusercontent.com'
