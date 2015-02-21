@@ -33,4 +33,7 @@ export MONO_GAC_PREFIX="/usr/local"
 export ANDROID_HOME="/usr/local/opt/android-sdk"
 export GENYMOTION_APP_HOME="/Applications/Genymotion.app"
 
-eval "$(rbenv init -)"
+
+if [ `which rbenv` ]; then
+  eval "$(rbenv init --no-rehash -)"
+fi
