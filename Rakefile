@@ -66,10 +66,7 @@ end
 task :package do
   case `uname`.chomp
   when 'Darwin'
-    flags = {}.tap do |hash|
-      keys = (ENV['flags'] || '').split(',').map(&:to_sym)
-      keys.each { |sym| hash[sym] = true}
-    end
+    flags = (ENV['flags'] || '').split(',').map(&:to_sym)
     Rake::Task['homebrew:install'].invoke(flags)
   when 'Linux'
     Rake::Task['linux_package'].invoke
@@ -110,9 +107,9 @@ namespace :homebrew do
 
   task :install, [:flags] => :setup do |t, args|
     tasks = %w(utils_essential dev:utils cask:utils_essential cask:dev:utils dev:git)
-    tasks = tasks + %w(dev:android cask:dev:android) if args.flags[:android]
-    tasks = tasks + %w(dev:ruby) if args.flags[:ruby]
-    tasks = tasks + %w(utils cask:utils cask:media) if args.flags[:full]
+    tasks = tasks + %w(dev:android cask:dev:android) if args.flags.include? :android
+    tasks = tasks + %w(dev:ruby) if args.flags.include? :ruby
+    tasks = tasks + %w(utils cask:utils cask:media) if args.flags.include? :full
 
     tasks.each do |task|
       Rake::Task["homebrew:#{task}"].invoke
