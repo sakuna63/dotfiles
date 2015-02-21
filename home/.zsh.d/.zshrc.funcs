@@ -111,4 +111,4 @@ function peco-find() {
 zle -N peco-find
  
 # bind keys
-bindkey '^f' peco-find
+bindkey '^F' peco-find

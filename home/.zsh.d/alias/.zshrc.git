@@ -15,5 +15,3 @@ alias -g LR='`git branch -a | peco --query "remotes/ " | head -n 1 | sed -e "s/r
 
 alias ts='tig status'
 alias tb='tig blame'
-
-
