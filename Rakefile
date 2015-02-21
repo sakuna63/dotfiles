@@ -125,7 +125,6 @@ namespace :homebrew do
       homebrew/science
       homebrew/binary
       homebrew/versions
-      peco/peco
       sanemat/font
       )
     tap(*repos)
@@ -151,9 +150,6 @@ namespace :homebrew do
       tmux
       go)
     packages << 'ricty --vim-powerline'
-
-
-    tap('peco/peco', 'sanemat/font')
     ins(*packages)
   end
 
@@ -205,7 +201,7 @@ namespace :homebrew do
         caffeine
         karabiner
         spectacle
-        flex
+        flux
         day-o
         evernote
         google-chrome
