@@ -151,6 +151,10 @@ namespace :homebrew do
       go)
     packages << 'ricty --vim-powerline'
     ins(*packages)
+
+    # setup for ricty
+    puts `cp -f $(brew --cellar)/ricty/3.2.4/share/fonts/Ricty*.ttf ~/Library/Fonts/`
+    puts `fc-cache -vf`
   end
 
   task utils: :setup do
