@@ -3,8 +3,12 @@ task default: 'setup'
 URL_GITHUB = 'https://github.com'
 URL_GITHUB_CONTENT = 'https://raw.githubusercontent.com'
 
-  path_to_dir = path_to_dir.gsub('~', ENV[HOME])
+def tilde_to_path_to_home(path)
+  path.gsub('~', ENV['HOME'])
+end
+
 def makedir(path_to_dir)
+  path_to_dir = tilde_to_path_to_home(path_to_dir)
   if Dir.exist?(path_to_dir)
     puts "#{path_to_dir} is already exist"
     return
@@ -13,8 +17,8 @@ def makedir(path_to_dir)
 end
 
 def move(src, dest)
-  src = src.gsub('~', ENV[HOME])
-  dest = dest.gsub('~', ENV[HOME])
+  src = tilde_to_path_to_home(src)
+  dest = tilde_to_path_to_home(dest)
   puts "moved '#{src} → #{dest}'" if FileUtils.mv(src, dest)
 end
 
