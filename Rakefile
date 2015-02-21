@@ -4,8 +4,12 @@ URL_GITHUB = 'https://github.com'
 URL_GITHUB_CONTENT = 'https://raw.githubusercontent.com'
 
   path_to_dir = path_to_dir.gsub('~', ENV[HOME])
-  puts "created #{path_to_dir}" if Dir.mkdir(path_to_dir) 
 def makedir(path_to_dir)
+  if Dir.exist?(path_to_dir)
+    puts "#{path_to_dir} is already exist"
+    return
+  end
+  puts "created #{path_to_dir}" if Dir.mkdir(path_to_dir)
 end
 
 def move(src, dest)
