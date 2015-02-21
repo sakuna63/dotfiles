@@ -207,9 +207,11 @@ namespace :homebrew do
         spectacle
         flux
         day-o
+        dropbox
         evernote
         google-chrome
         google-japanese-ime
+        hyperswitch
         the-unarchiver
         )
       ins_cask(*packages)
@@ -219,9 +221,7 @@ namespace :homebrew do
       packages = %w(
         appcleaner
         disk-inventry-x
-        dropbox
         google-drive
-        speedtao
         skype
         shortcat
       )
