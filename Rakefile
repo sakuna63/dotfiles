@@ -93,7 +93,7 @@ task :linux_package do
 end
 
 namespace :homebrew do
-  def install(*packages)
+  def ins(*packages)
     packages.each do |package|
       puts "brew install #{package}"
     end
@@ -132,7 +132,7 @@ namespace :homebrew do
     puts `brew update`
     puts `brew upgrade`
     puts `brew pull #{URL_GITHUB}/Homebrew/homebrew/pull/25953`
-    install('brew-cask')
+    ins('brew-cask')
   end
 
   task :clean do
@@ -154,7 +154,7 @@ namespace :homebrew do
 
 
     tap('peco/peco', 'sanemat/font')
-    install(packages)
+    ins(*packages)
   end
 
   task utils: :setup do
@@ -168,33 +168,34 @@ namespace :homebrew do
       pdftk
       wine
     )
-    install(packages)
+    ins(*packages)
   end
 
   namespace :dev do
     task utils: :setup do
       packages = %w(jq vimpager zsh)
       packages << 'macvim --override-system-vim --with-lua --with-luajit, --with-python2'
-      install(packages)
+      ins(*packages)
     end
 
     task ruby: :setup do
       packages = %w(ruby-build rbenv heroku-toolbelt)
+      int(*packages)
     end
 
     task android: :setup do
-      install(*%w(android-sdk android-ndk jad dex2jar pidcat))
+      ins(*%w(android-sdk android-ndk jad dex2jar pidcat))
     end
 
     task git: :setup do
-      install(*%w(git hub tig))
+      ins(*%w(git hub tig))
     end
   end
 
   namespace :cask do
-    def install(*packages)
+    def ins_cask(*packages)
       packages.each do |package|
-        puts "brew cask install #{package}"
+        puts `brew cask install #{package}`
       end
     end
 
@@ -211,7 +212,7 @@ namespace :homebrew do
         google-japanese-ime
         the-unarchiver
         )
-      install(*packages)
+      ins_cask(*packages)
     end
 
     task utils: :setup do
@@ -224,31 +225,31 @@ namespace :homebrew do
         skype
         shortcat
       )
-      install(*packages)
+      ins_cask(*packages)
     end
 
     task media: :setup do
       packages = %w(cooviewer sopcast vlc vox)
-      install(*packages)
+      ins_cask(*packages)
     end
 
     namespace :dev do
       task utils: :setup do
-        pakcages = %w(
+        packages = %w(
           iterm2
           sourcetree
         )
-        install(*packages)
+        ins_cask(*packages)
       end
 
       task android: :setup do
-        pakcages = %w(
+        packages = %w(
           virtual-box
           genymotion
           java6
           java7
         )
-        install(*packages)
+        ins_cask(*packages)
       end
    end
   end
