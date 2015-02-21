@@ -3,9 +3,9 @@ task default: 'setup'
 URL_GITHUB = 'https://github.com'
 URL_GITHUB_CONTENT = 'https://raw.githubusercontent.com'
 
-def mkdir(path_to_dir)
   path_to_dir = path_to_dir.gsub('~', ENV[HOME])
   puts "created #{path_to_dir}" if Dir.mkdir(path_to_dir) 
+def makedir(path_to_dir)
 end
 
 def move(src, dest)
@@ -29,7 +29,7 @@ end
 task :homesick do
   path_to_homesick = "~/homesick"
   if Dir.exist?(path_to_homesick)
-    mkdir("#{path_to_homesick}/repos")
+    makedir("#{path_to_homesick}/repos")
     move('../dotfiles', "#{path_to_homesick}/repos/")
   end
 
@@ -40,7 +40,7 @@ end
 task :vim do
   path_to_vim_dir = "#{ENV['HOME']}/.vim"
   %w(bundle backup swap undo).each do |name|
-    mkdir("#{path_to_vim_dir}/#{name}")
+    makedir("#{path_to_vim_dir}/#{name}")
   end
 
   github_clone('Shougo/neobundle.vim', '~/.vim/bundle/neobundle.vim')
@@ -73,13 +73,13 @@ end
 
 
 task :linux_package do
-  mkdir("#{ENV[HOME]}/zsh.d/completion")
+  makedir("#{ENV[HOME]}/zsh.d/completion")
   path_to_git_completion = '/git/git/master/contrib/completion/'
   github_content_curl("#{url_to_git_completion}/git-completion.bash" '~/.zsh.d/completion/git-completion.bash')
   github_content_curl("#{url_to_git_completion}/git-completion.zsh" '~/.zsh.d/completion/_git')
 
   puts `apt-get install vim zsh golang git`
-  mkdir('~/.go')
+  makedir('~/.go')
   puts `touch ~/.zshrc.local`
   puts `echo 'export GOPATH=$~/go' >> ~/.zshrc.local`
   puts `echo 'export GOROOT=/usr/lib/go' >> ~/.zshrc.local`
