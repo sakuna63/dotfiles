@@ -115,6 +115,7 @@ namespace :homebrew do
       Rake::Task["homebrew:#{task}"].invoke
     end
     Rake::Task['homebrew:clean'].invoke
+    Rake::Task['homebrew:link'].invoke
   end
 
   task :setup do
@@ -136,6 +137,10 @@ namespace :homebrew do
 
   task :clean do
     puts `brew cleanup`
+  end
+
+  task :link do
+    puts `brew linkapps`
   end
 
   task utils_essential: :setup do
