@@ -30,12 +30,12 @@ def github_content_curl(src, dest)
   puts `curl -O #{URL_GITHUB_CONTENT}/#{src} #{dest}`
 end
 
-task setup: [:homesick, :package, :vim, :zsh, :tmux] do
+task setup: [:homesick, :package, :vim, :zsh, :tmux, :misc] do
   puts `source ~/.zshrc`
 end
 
 task :homesick do
-  path_to_homesick = "~/homesick"
+  path_to_homesick = '~/homesick'
   if Dir.exist?(path_to_homesick)
     makedir("#{path_to_homesick}/repos")
     move('../dotfiles', "#{path_to_homesick}/repos/")
@@ -260,4 +260,8 @@ namespace :homebrew do
       end
    end
   end
+end
+
+task :misc do
+  puts `defaults write -g ApplePressAndHoldEnabled -bool false`
 end
