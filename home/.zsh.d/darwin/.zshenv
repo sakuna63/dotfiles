@@ -12,10 +12,10 @@ export PAGER=/usr/local/bin/vimpager
 export MANPAGER=/usr/local/bin/vimpager
 
 # path to java
-export JAVA6_HOME=$(/usr/libexec/java_home -v 1.6)
-export JAVA7_HOME=$(/usr/libexec/java_home -v 1.7)
-export JAVA8_HOME=$(/usr/libexec/java_home -v 1.8)
-export JAVA_HOME=$JAVA8_HOME
+# export JAVA6_HOME=$(/usr/libexec/java_home -v 1.6)
+# export JAVA7_HOME=$(/usr/libexec/java_home -v 1.7)
+# export JAVA8_HOME=$(/usr/libexec/java_home -v 1.8)
+# export JAVA_HOME=$JAVA8_HOME
 
 # path to scala
 export SCALA_HOME=/usr/local/opt/scala/idea
