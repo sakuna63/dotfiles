@@ -97,13 +97,13 @@ end
 namespace :homebrew do
   def ins(*packages)
     packages.each do |package|
-      puts "brew install #{package}"
+      puts `brew install #{package}`
     end
   end
 
   def tap(*repos)
     repos.each do |repo|
-      puts "brew tap #{repo}"
+      puts `brew tap #{repo}`
     end
   end
 
