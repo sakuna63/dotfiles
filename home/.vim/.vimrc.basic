@@ -34,7 +34,8 @@ set lazyredraw
 " バックアップファイルの作成場所の指定
 set backupdir=~/.vim/backup
 " swapフィアルの作成場所の指定
-set directory=~/.vim/swap
+" set directory=~/.vim/swap
+set noswapfile
 " Kaoriya MacVimのundoファイルの作成場所の指定
 set undodir=~/.vim/undo
 
