@@ -34,6 +34,30 @@ task setup: [:homesick, :package, :vim, :zsh, :tmux, :misc] do
   puts `source ~/.zshrc`
 end
 
+task :check do
+  case `uname`.chomp
+  when 'Darwin'
+    Rake::Task['check_darwin'].invoke
+  when 'Linux'
+    Rake::Task['check_linux'].invoke
+  end
+end
+
+task :check_darwin do
+  xcode_exists = Dir.exists?('/Applications/Xcode.app')
+  brew_exists = `brew`
+
+  puts 'you must install xcode via AppStore' unless xcode_exists
+  puts 'you must install brew via  `ruby -e "$(curl -fsSL #{URL_GITHUB_CONTENT}/Homebrew/install/master/install)"`' unless brew_exists
+
+  unless false && xcode_exists && brew_exists
+    raise "don't satisfy the condition for installing packages"
+  end
+end
+
+task :check_darwin do
+end
+
 task :homesick do
   path_to_homesick = '~/homesick'
   if Dir.exist?(path_to_homesick)
@@ -65,7 +89,7 @@ task :zsh do
   puts `chsh -s $(brew --prefix)/bin/zsh`
 end
 
-task :package do
+task package: [:check] do
   case `uname`.chomp
   when 'Darwin'
     flags = (ENV['flags'] || '').split(',').map(&:to_sym)
@@ -121,7 +145,6 @@ namespace :homebrew do
   end
 
   task :setup do
-    puts `ruby -e "$(curl -fsSL #{URL_GITHUB_CONTENT}/Homebrew/install/master/install)"`
     repos = %w(
       caskroom/cask
       caskroom/versions
