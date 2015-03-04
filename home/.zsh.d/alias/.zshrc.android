@@ -1,4 +1,5 @@
-alias adb-capture='screenshot2 $TMPDIR/screenshot.png; open $TMPDIR/screenshot.png'
+alias adb-capture='screenshot2 ./screenshot.png;'
+alias adb-record='adb shell screenrecord /sdcard/record.mp4; adb pull /sdcard/record.mp4'
 alias adb-restart='adb kill-server; adb start-server'
 alias adb-uninstallapp='adbp shell pm list package | sed -e s/package:// | peco | xargs adbp uninstall'
 alias adb-installapp='find ./ -name *.apk | peco | xargs adb install -r'
