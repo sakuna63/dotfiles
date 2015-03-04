@@ -177,6 +177,7 @@ namespace :homebrew do
       tree
       wget
       reattach-to-user-namespace
+      tarminal-notifier
       tmux
       go)
     packages << 'ricty --vim-powerline'
@@ -243,6 +244,7 @@ namespace :homebrew do
         google-japanese-ime
         hyperswitch
         the-unarchiver
+        xquartz
         )
       ins_cask(*packages)
     end
