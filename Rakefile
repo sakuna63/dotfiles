@@ -61,7 +61,7 @@ end
 
 task :zsh do
   github_clone('zsh-users/antigen', '~/.zsh.d/antigen')
-  puts `echo '$(brew --prefix)/bin/msh' | sudo tee -a /etc/shells`
+  puts `echo '$(brew --prefix)/bin/zsh' | sudo tee -a /etc/shells`
   puts `chsh -s $(brew --prefix)/bin/zsh`
 end
 
