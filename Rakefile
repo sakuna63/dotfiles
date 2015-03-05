@@ -59,7 +59,7 @@ task :check_darwin do
 end
 
 task :homesick do
-  path_to_homesick = '~/homesick'
+  path_to_homesick = '~/.homesick'
   if Dir.exist?(path_to_homesick)
     makedir("#{path_to_homesick}/repos")
     move('../dotfiles', "#{path_to_homesick}/repos/")
