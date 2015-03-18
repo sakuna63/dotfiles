@@ -162,6 +162,7 @@ namespace :homebrew do
 
   task :clean do
     puts `brew cleanup`
+    puts `brew cask cleanup`
   end
 
   task :link do
@@ -204,7 +205,7 @@ namespace :homebrew do
 
   namespace :dev do
     task utils: :setup do
-      packages = %w(jq vimpager zsh)
+      packages = %w(jq vimpager zsh ssh-copy-id)
       packages << 'macvim --override-system-vim --with-lua --with-luajit, --with-python2'
       ins(*packages)
     end
