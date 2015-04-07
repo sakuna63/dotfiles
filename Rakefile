@@ -30,7 +30,7 @@ def github_content_curl(src, dest)
   puts `curl -O #{URL_GITHUB_CONTENT}/#{src} #{dest}`
 end
 
-task setup: [:homesick, :package, :vim, :zsh, :tmux, :misc] do
+task setup: [:check, :homesick, :package, :vim, :zsh, :tmux, :misc] do
   puts `source ~/.zshrc`
 end
 
@@ -50,7 +50,7 @@ task :check_darwin do
   puts 'you must install xcode via AppStore' unless xcode_exists
   puts 'you must install brew via  `ruby -e "$(curl -fsSL #{URL_GITHUB_CONTENT}/Homebrew/install/master/install)"`' unless brew_exists
 
-  unless false && xcode_exists && brew_exists
+  unless xcode_exists && brew_exists
     raise "don't satisfy the condition for installing packages"
   end
 end
@@ -65,7 +65,7 @@ task :homesick do
     move('../dotfiles', "#{path_to_homesick}/repos/")
   end
 
-  puts `gem install homesick`
+  puts `sudo gem install homesick`
   puts `homesick link`
 end
 
