@@ -1,5 +1,8 @@
 echo 'load .zshrc.funcs'
 
+# change tab name of iterm2
+function chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
+
 # usage: replace_exp exp1 exp2
 # desc : 同ディレクトリ内のexp1をexp2に置換する
 replace_exp() {
