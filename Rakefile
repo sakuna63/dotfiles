@@ -241,6 +241,7 @@ namespace :homebrew do
         day-o
         dropbox
         evernote
+        fantastical
         google-chrome
         google-japanese-ime
         hyperswitch
