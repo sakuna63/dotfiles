@@ -180,7 +180,9 @@ namespace :homebrew do
       reattach-to-user-namespace
       tarminal-notifier
       tmux
-      go)
+      go
+      Caskroom/cask/xquartz
+      )
     packages << 'ricty --vim-powerline'
     ins(*packages)
 
