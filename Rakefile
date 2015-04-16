@@ -1,52 +1,21 @@
+require './setup_utils'
+
 task default: 'setup'
 
-URL_GITHUB = 'https://github.com'
-URL_GITHUB_CONTENT = 'https://raw.githubusercontent.com'
+desc "default task. this task executes all tasks"
+task setup: [:check, :homesick, :package, :vim, :tmux, :zsh, :misc] do end
 
-def tilde_to_path_to_home(path)
-  path.gsub('~', ENV['HOME'])
-end
-
-def makedir(path_to_dir)
-  path_to_dir = tilde_to_path_to_home(path_to_dir)
-  if Dir.exist?(path_to_dir)
-    puts "#{path_to_dir} is already exist"
-    return
-  end
-  puts "created #{path_to_dir}" if Dir.mkdir(path_to_dir)
-end
-
-def move(src, dest)
-  src = tilde_to_path_to_home(src)
-  dest = tilde_to_path_to_home(dest)
-  puts "moved '#{src} → #{dest}'" if FileUtils.mv(src, dest)
-end
-
-def github_clone(src, dest)
-  puts `git clone #{URL_GITHUB}/#{src} #{dest}`
-end
-
-def github_content_curl(src, dest)
-  puts `curl -O #{URL_GITHUB_CONTENT}/#{src} #{dest}`
-end
-
-task setup: [:check, :homesick, :package, :vim, :zsh, :tmux, :misc] do
-  puts `source ~/.zshrc`
-end
-
+desc "check device environment satisfy requirement for executing setup tasks"
 task :check do
   case `uname`.chomp
   when 'Darwin'
-    Rake::Task['check_darwin'].invoke
+    check_darwin
   when 'Linux'
-    Rake::Task['check_linux'].invoke
+    check_linux
   end
 end
 
-task :check_darwin do
-  xcode_exists = Dir.exists?('/Applications/Xcode.app')
-  brew_exists = `brew`
-
+def check_darwin
   puts 'you must install xcode via AppStore' unless xcode_exists
   puts 'you must install brew via  `ruby -e "$(curl -fsSL #{URL_GITHUB_CONTENT}/Homebrew/install/master/install)"`' unless brew_exists
 
@@ -55,9 +24,10 @@ task :check_darwin do
   end
 end
 
-task :check_darwin do
+def check_linux
 end
 
+desc "setup homesick environment"
 task :homesick do
   path_to_homesick = '~/.homesick'
   if Dir.exist?(path_to_homesick)
@@ -69,45 +39,51 @@ task :homesick do
   puts `homesick link`
 end
 
+desc "setup vim environment"
 task :vim do
   path_to_vim_dir = "#{ENV['HOME']}/.vim"
   %w(bundle backup swap undo).each do |name|
     makedir("#{path_to_vim_dir}/#{name}")
   end
 
-  github_clone('Shougo/neobundle.vim', '~/.vim/bundle/neobundle.vim')
+  Github::clone('Shougo/neobundle.vim', '~/.vim/bundle/neobundle.vim')
   puts `vim +NeoBundleInstall +qall`
 end
 
+desc "setup tmux environment"
 task :tmux do
-  github_clone('erikw/tmux-powerline', '~/.tmux.d/tmux-powerline')
+  Github::clone('erikw/tmux-powerline', '~/.tmux.d/tmux-powerline')
 end
 
-task :zsh do
-  github_clone('zsh-users/antigen', '~/.zsh.d/antigen')
-  puts `echo $(brew --prefix)/bin/zsh | sudo tee -a /etc/shells`
-  puts `chsh -s $(brew --prefix)/bin/zsh`
+desc "setup zsh environment"
+task zsh: [:check] do
+  Github::clone('zsh-users/antigen', '~/.zsh.d/antigen')
+  prefix = brew_exists ? `brew --prefix` : '/usr/local'
+  puts `echo #{prefix}/bin/zsh | sudo tee -a /etc/shells`
+  puts `chsh -s #{prefix}/bin/zsh`
+  puts `source ~/.zshrc`
 end
 
+desc "install package flags=android,ruby,full"
 task package: [:check] do
   case `uname`.chomp
   when 'Darwin'
-    flags = (ENV['flags'] || '').split(',').map(&:to_sym)
-    Rake::Task['homebrew:install'].invoke(flags)
+    install_darwin_packages
   when 'Linux'
-    Rake::Task['linux_package'].invoke
+    install_linux_packages
   end
-
-  puts `go get github.com/typester/gh-open`
-  puts `go get github.com/motemen/ghq`
 end
 
+def install_darwin_packages
+  flags = (ENV['flags'] || '').split(',').map(&:to_sym)
+  Rake::Task['homebrew:install'].invoke(flags)
+end
 
-task :linux_package do
+def install_linux_packages
   makedir("#{ENV[HOME]}/zsh.d/completion")
   path_to_git_completion = '/git/git/master/contrib/completion/'
-  github_content_curl("#{url_to_git_completion}/git-completion.bash" '~/.zsh.d/completion/git-completion.bash')
-  github_content_curl("#{url_to_git_completion}/git-completion.zsh" '~/.zsh.d/completion/_git')
+  Github::content("#{path_to_git_completion}/git-completion.bash" '~/.zsh.d/completion/git-completion.bash')
+  Github::content("#{path_to_git_completion}/git-completion.zsh" '~/.zsh.d/completion/_git')
 
   puts `apt-get install vim zsh golang git`
   makedir('~/.go')
@@ -119,18 +95,6 @@ task :linux_package do
 end
 
 namespace :homebrew do
-  def ins(*packages)
-    packages.each do |package|
-      puts `brew install #{package}`
-    end
-  end
-
-  def tap(*repos)
-    repos.each do |repo|
-      puts `brew tap #{repo}`
-    end
-  end
-
   task :install, [:flags] => :setup do |t, args|
     tasks = %w(utils_essential dev:utils cask:utils_essential cask:dev:utils dev:git)
     tasks = tasks + %w(dev:android cask:dev:android) if args.flags.include? :android
@@ -153,20 +117,20 @@ namespace :homebrew do
       homebrew/versions
       sanemat/font
       )
-    tap(*repos)
-    puts `brew update`
-    puts `brew upgrade`
-    puts `brew pull #{URL_GITHUB}/Homebrew/homebrew/pull/25953`
-    ins('brew-cask')
+    Homebrew::tap(*repos)
+    Homebrew::update
+    Homebrew::upgrade
+    Homebrew::pull('/Homebrew/homebrew/pull/25953')
+    Homebrew::install('brew-cask')
   end
 
   task :clean do
-    puts `brew cleanup`
-    puts `brew cask cleanup`
+    Homebrew::clean
+    Homebrew::Cask::clean
   end
 
   task :link do
-    puts `brew linkapps`
+    Homebrew::link
   end
 
   task utils_essential: :setup do
@@ -184,7 +148,7 @@ namespace :homebrew do
       Caskroom/cask/xquartz
       )
     packages << 'ricty --vim-powerline'
-    ins(*packages)
+    Homebrew::install(*packages)
 
     # setup for ricty
     puts `cp -f $(brew --cellar)/ricty/3.2.4/share/fonts/Ricty*.ttf ~/Library/Fonts/`
@@ -202,37 +166,31 @@ namespace :homebrew do
       pdftk
       wine
     )
-    ins(*packages)
+    Homebrew::install(*packages)
   end
 
   namespace :dev do
     task utils: :setup do
       packages = %w(jq vimpager zsh ssh-copy-id)
       packages << 'macvim --override-system-vim --with-lua --with-luajit, --with-python2'
-      ins(*packages)
+      Homebrew::install(*packages)
     end
 
     task ruby: :setup do
       packages = %w(ruby-build rbenv heroku-toolbelt)
-      int(*packages)
+      Homebrew::install(*packages)
     end
 
     task android: :setup do
-      ins(*%w(android-sdk android-ndk jad dex2jar pidcat))
+      Homebrew::install(*%w(android-sdk android-ndk jad dex2jar pidcat))
     end
 
     task git: :setup do
-      ins(*%w(git hub tig))
+      Homebrew::install(*%w(git hub tig))
     end
   end
 
   namespace :cask do
-    def ins_cask(*packages)
-      packages.each do |package|
-        puts `brew cask install #{package}`
-      end
-    end
-
     task utils_essential: :setup do
       packages = %w(
         alfred
@@ -250,7 +208,7 @@ namespace :homebrew do
         the-unarchiver
         xquartz
         )
-      ins_cask(*packages)
+      Homebrew::Cask::install(*packages)
     end
 
     task utils: :setup do
@@ -261,12 +219,12 @@ namespace :homebrew do
         skype
         shortcat
       )
-      ins_cask(*packages)
+      Homebrew::Cask::install(*packages)
     end
 
     task media: :setup do
       packages = %w(cooviewer sopcast vlc vox)
-      ins_cask(*packages)
+      Homebrew::Cask::install(*packages)
     end
 
     namespace :dev do
@@ -275,7 +233,7 @@ namespace :homebrew do
           iterm2
           sourcetree
         )
-        ins_cask(*packages)
+        Homebrew::Cask::install(*packages)
       end
 
       task android: :setup do
@@ -285,7 +243,7 @@ namespace :homebrew do
           java6
           java7
         )
-        ins_cask(*packages)
+        Homebrew::Cask::install(*packages)
       end
    end
   end
@@ -293,4 +251,10 @@ end
 
 task :misc do
   puts `defaults write -g ApplePressAndHoldEnabled -bool false`
+
+  puts `go get github.com/typester/gh-open`
+  puts `go get github.com/motemen/ghq`
+
+  # ref http://labocho.github.io/rubydoc-ja-docsets/
+  puts `open dash-feed://https%3A%2F%2Fraw.github.com%2Flabocho%2Frubydoc-ja-docsets%2Fmaster%2Ftarball%2FRuby-2.2.0-ja.xml`
 end
