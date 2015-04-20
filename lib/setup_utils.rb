@@ -20,12 +20,20 @@ def move(src, dest)
   puts "moved '#{src} → #{dest}'" if FileUtils.mv(src, dest)
 end
 
-def xcode_exists
+def xcode_exists?
   Dir.exists?('/Applications/Xcode.app')
 end
 
-def brew_exists
+def brew_exists?
   `brew`
+end
+
+def darwin?
+  `uname`.chomp == 'Darwin'
+end
+
+def linux?
+  `uname`.chomp == 'Linux'
 end
 
 module Github
