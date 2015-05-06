@@ -1,0 +1,35 @@
+"大文字小文字の区別なし
+set ignorecase
+"検索時に大文字を含んでいたら大/小を区別
+set smartcase
+"検索対象をハイライト
+"ハイライトを消す場合は:noh[l]
+set hlsearch
+" MacOSのクリップボードと同期するようにする
+set clipboard=unnamed
+" 行番号表示の変更
+set number
+" set relativenumber
+
+"x キー削除でデフォルトレジスタに入れない
+nnoremap x "_x
+"vnoremap x "_x
+"vv で行末まで選択
+vnoremap v ^$h
+"選択範囲のインデントを連続して変更
+vnoremap < <gv
+vnoremap > >gv
+
+inoremap jj <ESC>
+inoremap <C-j> <ESC>
+vnoremap <C-j> <ESC>
+cnoremap <C-j> <ESC>
+nnoremap ; :
+inoremap ; ;
+inoremap : :
+
+inoremap <C-a> <Esc>^i
+inoremap <C-e> <Esc><S-a>
+
+cnoremap <C-a> <Esc>^i
+cnoremap <C-e> <Esc><S-a>
