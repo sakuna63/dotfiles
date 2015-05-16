@@ -114,10 +114,10 @@ sudo pmset -a sms 0
 ###############################################################################
 
 # for trackpad gesture
-defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture = 2;
-defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture = 2;
-defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadThreeFingerDrag = 1;
-defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture = 2;
+defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture -int 2
+defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 2
+defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadThreeFingerDrag -int 1
+defaults write com.apple.driver.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 2
 
 # Increase sound quality for Bluetooth headphones/headsets
 defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
@@ -309,7 +309,7 @@ defaults write com.apple.dock showhidden -bool true
 ###############################################################################
 
 # allow launch downloaded applications
-spctl --master-disable
+sudo spctl --master-disable
 
 ###############################################################################
 # Spotlight                                                                   #
@@ -506,7 +506,7 @@ defaults write org.pqrs.Karabiner configList -array '{
         identify = "config_1428385909_544799";
         name = Default;
     }'
-defaults write org.pqrs.Karabiner config_1428385909_544799 -array ' {
+defaults write org.pqrs.Karabiner config_1428385909_544799 -array '{
         "notsave.automatically_enable_keyboard_device" = 1;
         "notsave.automatically_enable_pointing_device" = 1;
         "option.emacsmode_controlPNBF_ex_private" = 1;
@@ -527,7 +527,7 @@ defaults write org.pqrs.Karabiner config_1428385909_544799 -array ' {
         "remap.swap_colon_and_semicolon_private_for_sublime_text" = 1;
         "repeat.initial_wait" = 200;
         "repeat.wait" = 30;
-    };'
+    }'
 
 
 ###############################################################################
