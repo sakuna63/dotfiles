@@ -100,7 +100,7 @@
   editor = "vim"
 
   # Use custom `.gitignore` and `.gitattributes`
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/sakuna63/.gitignore
   attributesfile = ~/.gitattributes
 
   # Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -195,3 +195,9 @@
 
 [credential]
   helper = osxkeychain
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.2/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
