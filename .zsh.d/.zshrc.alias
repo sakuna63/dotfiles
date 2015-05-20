@@ -1,12 +1,10 @@
 echo 'load .zshrc.alias'
 
-alias ....='cd ../../..'
-alias .....='cd ../../..'
-
 alias v='vim'
 alias so='source'
 alias re='source ~/.zshrc'
 alias ag='ag -a --hidden -f -i'
+
 alias -g P='| peco'
 alias -g PP='| peco | pbcopy'
 
