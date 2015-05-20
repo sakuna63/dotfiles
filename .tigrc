@@ -1,0 +1,7 @@
+set main-view = id date author commit-title:graph=yes,refs=yes
+
+# 差分の前後の表示行数（diff-context)を指定
+set diff-context = 6
+
+# copy commit number
+# bind main C @sh -c "printf '%s' %(commit) | pbcopy"
