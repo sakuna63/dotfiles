@@ -1,17 +1,27 @@
 alias g='git'
-alias gbw='hub browse'
-alias gpr='hub pull-request'
 
 ########
 # Peco #
 ########
 
 alias -g B='`git branch | peco | head -n 1 | sed -e "s/^\*[ ]*//g"`'
-alias -g LR='`git branch -a | peco --query "remotes/ " | head -n 1 | sed -e "s/remotes\/\([^\/]*\/\(.*\)\)/\2 \1/"`'
+# copy commit number
+alias ccn="git log --no-merges --date=short --pretty='format:%h %cd %an %d %s | peco | sed -e 's/\ .*// | pbcopy"
+# alias -g LR='`git branch -a | peco --query "remotes/ " | head -n 1 | sed -e "s/remotes\/\([^\/]*\/\(.*\)\)/\2 \1/"`'
 
 #######
 # tig #
 #######
 
 alias ts='tig status'
+alias tst='tig stash'
 alias tb='tig blame'
+alias tg='tig grep'
+alias trf='tig refs'
+
+#######
+# hub #
+#######
+
+alias gbw='hub browse'
+alias gpr='hub pull-request'
