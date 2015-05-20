@@ -5,3 +5,5 @@ alias adb-uninstallapp='adbp shell pm list package | sed -e s/package:// | peco 
 alias adb-installapp='find ./ -name *.apk | peco | xargs adb install -r'
 
 alias pidcat='pidcat --color-gc --always-display-tags'
+
+alias gl='./gradlew'
