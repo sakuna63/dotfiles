@@ -55,6 +55,7 @@ fi
 
 source ~/.zsh.d/.zshrc.antigen
 source ~/.zsh.d/.zshrc.package
+source ~/.aliases
 source ~/.zsh.d/.zshrc.alias
 source ~/.zsh.d/.zshrc.funcs
 source ~/.zsh.d/.zshrc.last
