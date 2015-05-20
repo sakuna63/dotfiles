@@ -1,41 +1,41 @@
 echo 'load .zshrc.funcs'
 
 # change tab name of iterm2
-function chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
+# function chpwd() { ls; echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
 
 # usage: replace_exp exp1 exp2
 # desc : 同ディレクトリ内のexp1をexp2に置換する
-replace_exp() {
-  if [ $# -le 1 ]; then
-    echo 'need 2 args'
-    return
-  fi
-
-  for nm in *$1; do
-    mv $nm ${nm%$1}$2;
-  done
-}
+# replace_exp() {
+#   if [ $# -le 1 ]; then
+#     echo 'need 2 args'
+#     return
+#   fi
+#
+#   for nm in *$1; do
+#     mv $nm ${nm%$1}$2;
+#   done
+# }
 
 # リポジトリ内で空Enter時にgit statusを表示する
-function do_enter() {
-    if [ -n "$BUFFER" ]; then
-        zle accept-line
-        return 0
-    fi
-    echo
-    ls
-    # ↓ おすすめ
-    # ls_abbrev
-    if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
-        echo
-        echo -e "\e[0;33m--- git status ---\e[0m"
-        git status -sb
-    fi
-    zle reset-prompt
-    return 0
-}
-zle -N do_enter
-bindkey '^m' do_enter
+# function do_enter() {
+#     if [ -n "$BUFFER" ]; then
+#         zle accept-line
+#         return 0
+#     fi
+#     echo
+#     ls
+#     # ↓ おすすめ
+#     # ls_abbrev
+#     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+#         echo
+#         echo -e "\e[0;33m--- git status ---\e[0m"
+#         git status -sb
+#     fi
+#     zle reset-prompt
+#     return 0
+# }
+# zle -N do_enter
+# bindkey '^m' do_enter
 
 if ! which peco > /dev/null; then
   return
@@ -72,14 +72,6 @@ zle -N peco-cdr
 bindkey -r '^u'
 bindkey '^u' peco-cdr
 
-# function peco-snippets() {
-#     BUFFER=$(cat ~/.sheets/* | peco)
-#     zle clear-screen
-# }
-# 
-# zle -N peco-snippets
-# bindkey '^x^s' peco-snippets
-
 function jadr() {
   jad -8 -s java -d $2 -r $1/**/*.class
 }
@@ -94,24 +86,3 @@ function deapk() {
   dex2jar ${dst}/classes.dex
   unzip ${dst}/classes_dex2jar.jar -d ${dst}/Classes
 }
-
-# peco find directory
-function peco-find() {
-  local current_buffer=$BUFFER
-  local search_root=""
-  local file_path=""
- 
-  if git rev-parse --is-inside-work-tree > /dev/null 2>&1; then
-    search_root=`git rev-parse --show-toplevel`
-  else
-    search_root=`pwd`
-  fi
-  file_path="$(find ${search_root} -maxdepth 5 | peco)"
-  BUFFER="${current_buffer} ${file_path}"
-  CURSOR=$#BUFFER
-  zle clear-screen
-}
-zle -N peco-find
- 
-# bind keys
-# bindkey '^F' peco-find
