@@ -38,4 +38,7 @@ if [ `uname` = "Darwin" ]; then
   source ~/.zsh.d/darwin/.zshenv
 fi
 
-source ~/.zshenv.local
+if [ -e ~/.zshenv.local ]; then
+  echo "load .zshenv.local"
+  source ~/.zshenv.local
+fi
