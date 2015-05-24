@@ -6,4 +6,6 @@ alias adb-installapp='find ./ -name *.apk | peco | xargs adb install -r'
 
 alias pidcat='pidcat --color-gc --always-display-tags'
 
-alias gl='./gradlew'
+alias glo='./gradlew'
+alias gl='./gradlew --offline'
+alias glp='./gradlew --profile --offline'
