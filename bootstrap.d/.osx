@@ -540,6 +540,12 @@ ln -sf ~/Dropbox/Configurations/AndroidStudio/studio.vmoptions ~/Library/Prefere
 ln -sf ~/Dropbox/Configurations/IntellijIdea/idea.vmoptions ~/Library/Preferences/IntelliJIdea14/idea.vmoptions
 
 ###############################################################################
+# Gradle
+###############################################################################
+
+ln -sf ~/dotfiles/gradle.properties ~/.gradle/gradle.properties
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
