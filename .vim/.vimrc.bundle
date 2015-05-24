@@ -6,11 +6,12 @@ if(has("vim_starting"))
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-call neobundle#end()
-
 filetype plugin indent on
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
 
 "------------------------------------
 " for edit
@@ -56,14 +57,6 @@ NeoBundle 'Yggdroot/indentLine'
 "------------------------------------
 " for javascript
 "------------------------------------
-
-NeoBundleLazy 'marijnh/tern_for_vim', {
-      \'autoload' : {
-      \'filetypes' : ['javascript']
-      \},
-      \'build': {
-      \  'others': 'npm install'
-      \}}
 NeoBundleLazy 'jelera/vim-javascript-syntax', {
       \'autoload' : {
       \'filetypes' : ['javascript']
@@ -94,5 +87,22 @@ NeoBundle 'joker1007/vim-markdown-quote-syntax'
 NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'Shougo/junkfile.vim'
 
+" for rust
+NeoBundle 'rust-lang/rust.vim'
+NeoBundleLazy 'phildawes/racer', {
+        \   'build' : {
+        \     'mac'  : 'cargo build --release',
+        \     'unix' : 'cargo build --release',
+        \   },
+        \   'autoload' : {
+        \     'filetypes' : 'rust',
+        \   },
+        \ }
+
+" for toml
+NeoBundle 'cespare/vim-toml'
+
 " 未インストールのプラグインがないかチェックする
 NeoBundleCheck
+
+call neobundle#end()
