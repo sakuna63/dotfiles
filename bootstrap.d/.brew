@@ -10,7 +10,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 brew tap homebrew/binary
 brew tap caskroom/cask
-brew tap homebrew/dupus
+brew tap homebrew/homebrew-dupus
 brew tap homebrew/science
 brew tap homebrew/versions
 brew tap caskroom/versions
@@ -117,7 +117,7 @@ brew cask install the-unarchiver
 brew cask install virtualbox
 
 # Remove outdated versions from the cellar.
-brew cleanup
+brew cleanup -s
 brew cask cleanup
 
 brew linkapps
