@@ -7,6 +7,7 @@ alias ag='ag -a --hidden -f -i'
 
 alias -g P='| peco'
 alias -g PP='| peco | pbcopy'
+alias -g FF='`tree -f | grep .java | peco | sed -e "s/^.\+\.\//.\//g"`'
 
 alias ghqc='cd $(ghq list -p | peco)'
 alias ghqo='gh-open $(ghq list -p | peco)'
