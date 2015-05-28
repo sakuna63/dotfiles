@@ -18,5 +18,5 @@ if [ -f ~/.zsh.d/modules/z/z.sh ]; then
 fi
 
 # zsh-notifier
-export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
-export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
+export SYS_NOTIFIER=$(which terminal-notifier)
+export NOTIFY_COMMAND_COMPLETE_TIMEOUT=3
