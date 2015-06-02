@@ -7,3 +7,5 @@ alias adb-installapp='find ./ -name *.apk | peco | xargs adb install -r'
 alias glo='./gradlew'
 alias gl='./gradlew --offline'
 alias glp='./gradlew --profile --offline'
+
+alias adb-run='sh ~/.zsh.d/funcs/adb-run.sh'
