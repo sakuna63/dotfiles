@@ -14,7 +14,6 @@ export PAGER=vimpager
 export MANPAGER=vimpager
 
 path=(
-  $(brew --prefix)/bin
   /bin
   /opt/X12/bin
   /usr/bin
@@ -31,6 +30,10 @@ fpath=(
   $GOPATH/src/github.com/motemen/ghq/zsh/_ghq
   $fpath
 )
+
+if [ -e rbenv ]; then
+  eval "$(rbenv init --no-rehash -)"
+fi
 
 if [ `uname` = "Darwin" ]; then
   source ~/.zsh.d/darwin/.zshenv
