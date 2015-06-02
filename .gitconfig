@@ -46,7 +46,7 @@
   whitespace = fix
 
 [core]
-  editor = "vim"
+  editor = $EDITOR
 
   excludesfile = /Users/sakuna63/.gitignore
   attributesfile = ~/.gitattributes
