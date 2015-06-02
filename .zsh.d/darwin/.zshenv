@@ -29,3 +29,5 @@ export CFLAGS="-I/usr/X11/include -I/usr/X11/include/freetype2"
 export MONO_GAC_PREFIX="/usr/local"
 export ANDROID_HOME=$(brew --prefix)/opt/android-sdk
 export GENYMOTION_APP_HOME="/Applications/Genymotion.app"
+
+export GIT_CREDENTIAL_HELPER=osxkeychain

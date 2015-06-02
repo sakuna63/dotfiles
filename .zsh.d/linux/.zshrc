@@ -1,3 +1,3 @@
 if [ `uname` = "Linux" ]; then
-    echo 'load linux'
+    echo 'load .zshrc.linux'
 fi
