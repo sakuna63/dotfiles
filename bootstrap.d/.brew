@@ -65,6 +65,7 @@ brew install dex2jar
 brew install ghostscript
 brew install git
 brew install go
+brew install heroku-toolbelt
 brew install hub
 brew install imagemagick --with-webp
 brew install jad
