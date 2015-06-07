@@ -36,4 +36,4 @@ nnoremap ; :
 " nnoremap <ESC><ESC> :noh<CR>
 
 " <Leader>に,を設定
-let mapleader = ','
+let mapleader = "\<Space>"
