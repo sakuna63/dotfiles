@@ -37,6 +37,7 @@ NeoBundle 'osyo-manga/vim-over'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'tomtom/tcomment_vim'
 
 "------------------------------------
 " for development

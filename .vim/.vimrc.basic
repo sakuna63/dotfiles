@@ -17,7 +17,7 @@ set wildmode=list:full
 set ignorecase
 set smartcase
 
-" タブ文字の代わりにスペース２個を使用する 
+" タブ文字の代わりにスペース２個を使用する
 set shiftwidth=2
 set softtabstop=2
 " タブの変わりに空白文字を使う

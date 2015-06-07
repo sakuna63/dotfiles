@@ -1,3 +1,13 @@
+"------------------------------------
+" tcomment_vim
+" -----------------------------------
+
+vnoremap <silent> <Leader>c :TComment<CR>
+
+"------------------------------------
+" rustとか
+" -----------------------------------
+
 " racer の設定
 let $RUST_SRC_PATH = expand('~/.vim/rust/src')
 
@@ -55,7 +65,7 @@ let g:quickrun_config = {
 "------------------------------------
 
 " over.vimの起動
-nnoremap <silent> <Space>s :OverCommandLine %s/<CR>
+nnoremap <silent> <Leader>s :OverCommandLine %s/<CR>
 " カーソル下の単語をハイライト付きで置換
 nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
 " コピーした文字列をハイライト付きで置換
@@ -89,7 +99,7 @@ elseif executable('ack-grep')
 endif
 
 nnoremap [unite] <Nop>
-nmap <Space>u [unite]
+nmap <Leader>u [unite]
 
 nnoremap <silent> [unite]u :Unite -start-insert -buffer-name=files file_mru file/async file/new<CR>
 nnoremap <silent> [unite]g :Unite -start-insert -buffer-name=files file_rec/async file/new<CR>
