@@ -20,7 +20,7 @@
   p = pull
   pu = push origin
 
-  re = reset
+  re = "!r() { git reset HEAD~$1; }; r"
   rea = "!r() { git reset HEAD@{$1}; }; r"
   reh = "!r() { git reset --hard HEAD~$1; }; r"
   reha = "!r() { git reset --hard HEAD@{$1}; }; r"
@@ -39,6 +39,8 @@
   # Remove branches that have already been merged with master
   # a.k.a. ‘delete merged’
   dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+  n = now --all --stat
 
 [apply]
 

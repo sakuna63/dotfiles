@@ -1,4 +1,5 @@
 alias g='git'
+alias t='tig'
 
 ########
 # Peco #
