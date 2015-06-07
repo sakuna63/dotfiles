@@ -5,3 +5,6 @@ set diff-context = 6
 
 # copy commit number
 # bind main C @sh -c "printf '%s' %(commit) | pbcopy"
+
+bind main    R !git rebase -i %(commit)
+bind diff    R !git rebase -i %(commit)
