@@ -15,9 +15,12 @@ export MANPAGER=vimpager
 
 path=(
   /bin
+  /sbin
   /opt/X12/bin
   /usr/bin
+  /usr/sbin
   /usr/local/bin
+  /usr/local/sbin
   $GOPATH/bin
   ~/.zsh.d/modules/adb-peco/bin(N-/)
   $path
@@ -31,9 +34,7 @@ fpath=(
   $fpath
 )
 
-if [ -e rbenv ]; then
-  eval "$(rbenv init --no-rehash -)"
-fi
+eval "$(rbenv init -)"
 
 if [ `uname` = "Darwin" ]; then
   source ~/.zsh.d/darwin/.zshenv
