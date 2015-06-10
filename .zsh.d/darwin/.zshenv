@@ -31,3 +31,5 @@ export ANDROID_HOME=$(brew --prefix)/opt/android-sdk
 export GENYMOTION_APP_HOME="/Applications/Genymotion.app"
 
 export GIT_CREDENTIAL_HELPER=osxkeychain
+
+export PGDATA=/usr/local/var/postgres
