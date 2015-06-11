@@ -6,7 +6,6 @@ alias re='source ~/.zshrc'
 alias ag='ag -a --hidden -f -i'
 
 alias -g A='| awk'
-alias -g C='| cat'
 alias -g E='2>&1 > /dev/null'
 alias -g FF='`tree -f | grep .java | peco | sed -e "s/^.\+\.\//.\//g"`'
 alias -g G='| grep'
