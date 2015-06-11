@@ -23,18 +23,24 @@ path=(
   /usr/local/sbin
   $GOPATH/bin
   ~/.zsh.d/modules/adb-peco/bin(N-/)
+# darwin
+  ~/bin(N-/)
+  $(brew --prefix)/bin(N-/)
   $path
 )
-
 
 fpath=(
   /usr/local/share/zsh-completions
   ~/.zsh.d/completions
   $GOPATH/src/github.com/motemen/ghq/zsh/_ghq
+# darwin
+  $(brew --prefix)/share/zsh/site-functions
   $fpath
 )
 
-eval "$(rbenv init -)"
+if which rbenv >/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
 
 if [ `uname` = "Darwin" ]; then
   source ~/.zsh.d/darwin/.zshenv
@@ -44,3 +50,4 @@ if [ -e ~/.zshenv.local ]; then
   echo "load .zshenv.local"
   source ~/.zshenv.local
 fi
+

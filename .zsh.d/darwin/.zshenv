@@ -1,19 +1,5 @@
 echo 'load .zshenv.darwin'
 
-path=(
-# load command installed by conscript
-  ~/bin
-  $(brew --prefix)/bin
-  $path
-)
-
-
-fpath=(
-# load git completions
-  $FPATH:$(brew --prefix)/share/zsh/site-functions
-  $fpath
-)
-
 # path to java
 # export JAVA6_HOME=$(/usr/libexec/java_home -v 1.6)
 export JAVA7_HOME=$(/usr/libexec/java_home -v 1.7)
