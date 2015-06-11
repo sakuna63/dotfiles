@@ -9,7 +9,7 @@ echo 'load .zshrc'
 
 # 補完機能の設定
 autoload -U compinit; compinit
-# 入力しているコマンdの名画間違っている場合にもしかした：を出す
+# 入力しているコマンdの名画間違っている場合にもしかしたらを出す
 setopt correct
 # 色を使う
 setopt prompt_subst
@@ -29,6 +29,32 @@ chpwd_functions+=chpwd_recent_dirs
 zstyle ":chpwd:*" recent-dirs-max 500
 zstyle ":chpwd:*" recent-dirs-default true
 zstyle ":completion:*" recent-dirs-insert always
+
+### ref: http://grml.org/zsh/zsh-lovers.html
+# Some functions, like _apt and _dpkg, are very slow. You can use a cache in order to proxy the list of results (like the list of available debian packages) Use a cache:
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+## Prevent CVS files/directories from being completed:
+zstyle ':completion:*:(all-|)files' ignored-patterns '(|*/)CVS'
+zstyle ':completion:*:cd:*' ignored-patterns '(*/)#CVS'
+## Fuzzy matching of completions for when you mistype them:
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:match:*' original only
+zstyle ':completion:*:approximate:*' max-errors 1 numeric
+## Ignore completion functions for commands you don’t have:
+zstyle ':completion:*:functions' ignored-patterns '_*'
+## cd will never select the parent directory (e.g.: cd ../<TAB>):
+zstyle ':completion:*:cd:*' ignore-parents parent pwd
+# Another method for quick change directories. Add this to your ~/.zshrc, then just enter “cd …./dir”
+rationalise-dot() {
+  if [[ $LBUFFER = *.. ]]; then
+    LBUFFER+=/..
+  else
+    LBUFFER+=.
+  fi
+}
+zle -N rationalise-dot
+bindkey . rationalise-dot
 
 # tmuxを自動で起動する
 # if [ -z "$TMUX" -a -z "$STY" ]; then
