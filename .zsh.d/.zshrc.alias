@@ -12,8 +12,21 @@ alias -g FF='`tree -f | grep .java | peco | sed -e "s/^.\+\.\//.\//g"`'
 alias ghqc='cd $(ghq list -p | peco)'
 alias ghqo='gh-open $(ghq list -p | peco)'
 
+if which pbcopy >/dev/null 2>&1 ; then
+    # Mac
+    alias -g C='| pbcopy'
+elif which xsel >/dev/null 2>&1 ; then
+    # Linux
+    alias -g C='| xsel --input --clipboard'
+elif which putclip >/dev/null 2>&1 ; then
+    # Cygwin
+    alias -g C='| putclip'
+fi
+
 source ~/.zsh.d/alias/.zshrc.android
 source ~/.zsh.d/alias/.zshrc.git
+
+
 
 # for git completion by antigen
 # alias git-status='git status'
