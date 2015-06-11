@@ -14,13 +14,13 @@ export PAGER=vimpager
 export MANPAGER=vimpager
 
 path=(
+  /usr/local/bin
+  /usr/local/sbin
+  /usr/bin
+  /usr/sbin
   /bin
   /sbin
   /opt/X12/bin
-  /usr/bin
-  /usr/sbin
-  /usr/local/bin
-  /usr/local/sbin
   $GOPATH/bin
   ~/.zsh.d/modules/adb-peco/bin(N-/)
 # darwin
