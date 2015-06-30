@@ -1,5 +1,9 @@
 echo 'load .zshrc'
 
+if [[ -s "~/.zsh.d/prezto/init.zsh" ]]; then
+  source "~/.zsh.d/prezto/init.zsh"
+fi
+
 ###################
 # For zsh option  #
 ###################
@@ -71,7 +75,6 @@ bindkey . rationalise-dot
 #     fi
 # fi
 
-source ~/.zsh.d/.zshrc.antigen
 source ~/.zsh.d/.zshrc.modules
 source ~/.zsh.d/.zshrc.alias
 source ~/.zsh.d/.zshrc.funcs
