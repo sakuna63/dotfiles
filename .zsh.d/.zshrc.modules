@@ -19,8 +19,11 @@ fi
 
 # zsh-notifier
 if [ -e terminal-notifier ]; then
+  source ~/.zsh.d/modules/zsh-notify/notify.plugin.zsh
   export SYS_NOTIFIER=$(which terminal-notifier)
   export NOTIFY_COMMAND_COMPLETE_TIMEOUT=3
 fi
 
+source ~/.zsh.d/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh.d/modules/zsh-bd/bd.plugin.zsh
 source ~/.zsh.d/modules/genymotion-peco/bin/genymotion_peco.sh
