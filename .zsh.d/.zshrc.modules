@@ -22,3 +22,5 @@ if [ -e terminal-notifier ]; then
   export SYS_NOTIFIER=$(which terminal-notifier)
   export NOTIFY_COMMAND_COMPLETE_TIMEOUT=3
 fi
+
+source ~/.zsh.d/modules/genymotion-peco/bin/genymotion_peco.sh

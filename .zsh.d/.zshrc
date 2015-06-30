@@ -71,14 +71,6 @@ bindkey . rationalise-dot
 #     fi
 # fi
 
-if [ `uname` = "Darwin" ]; then
-  source ~/.zsh.d/darwin/.zshrc
-fi
-
-if [ `uname` = "Linux" ]; then
-  source ~/.zsh.d/linux/.zshrc
-fi
-
 source ~/.zsh.d/.zshrc.antigen
 source ~/.zsh.d/.zshrc.modules
 source ~/.aliases

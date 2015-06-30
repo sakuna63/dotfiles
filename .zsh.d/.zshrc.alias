@@ -1,9 +1,40 @@
 echo 'load .zshrc.alias'
 
-alias v='vim'
 alias so='source'
 alias re='source ~/.zshrc'
 alias ag='ag -a --hidden -f -i'
+alias ghqc='cd $(ghq list -p | peco)'
+alias ghqo='gh-open $(ghq list -p | peco)'
+
+### v,vim
+if which vimx >/dev/null 2>&1; then
+  vim=vimx
+fi
+v=vim
+
+### rm
+if which rmtrash >/dev/null 2>&1; then
+  rm=rmtrash
+elif which trash-put >/dev/null 2>&1; then
+  rm=trash-put
+fi
+
+### o,open
+if which open >/dev/null 2>&1; then
+  alias o=open
+elif which xdg-open >/dev/null 2>&1; then
+  alias open=xdg-open
+  alias o=xdg-open
+fi
+
+### Homebrew
+if which brew >/dev/null 2>&1; then
+  cask='brew cask'
+fi
+
+########################
+###   global alias   ###
+########################
 
 alias -g A='| awk'
 alias -g E='2>&1 > /dev/null'
@@ -17,9 +48,7 @@ alias -g T='| tail'
 alias -g W='| wc'
 alias -g X='| xargs'
 
-alias ghqc='cd $(ghq list -p | peco)'
-alias ghqo='gh-open $(ghq list -p | peco)'
-
+### C
 if which pbcopy >/dev/null 2>&1 ; then
     # Mac
     alias -g C='| pbcopy'
@@ -30,6 +59,10 @@ elif which putclip >/dev/null 2>&1 ; then
     # Cygwin
     alias -g C='| putclip'
 fi
+
+########################
+###   suffix alias   ###
+########################
 
 alias -s {rb}='ruby'
 function extract() {

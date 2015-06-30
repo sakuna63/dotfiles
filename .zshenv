@@ -7,12 +7,7 @@ export LC_ALL=en_US.UTF-8
 # for go
 export GOPATH=~/.gopath
 
-# default editor
-export EDITOR=vim
-# default pager
-export PAGER=vimpager
-export MANPAGER=vimpager
-
+### Common settings
 path=(
   /usr/local/bin
   /usr/local/sbin
@@ -23,9 +18,6 @@ path=(
   /opt/X12/bin
   $GOPATH/bin
   ~/.zsh.d/modules/adb-peco/bin(N-/)
-# darwin
-  ~/bin(N-/)
-  $(brew --prefix)/bin(N-/)
   $path
 )
 
@@ -33,19 +25,62 @@ fpath=(
   /usr/local/share/zsh-completions
   ~/.zsh.d/completions
   $GOPATH/src/github.com/motemen/ghq/zsh/_ghq
-# darwin
-  $(brew --prefix)/share/zsh/site-functions
   $fpath
 )
+
+### Settings depending on specific commands
+if which vim >/dev/null 2>&1; then
+  export EDITOR=vim
+elif which vimx >/dev/null 2>&1; then
+  export EDITOR=vimx
+fi
+
+if which vimpager >/dev/null 2>&1; then
+  export PAGER=vimpager
+  export MANPAGER=vimpager
+else
+  export PAGER=less
+  export MANPAGER=less
+fi
 
 if which rbenv >/dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
 
-if [ `uname` = "Darwin" ]; then
-  source ~/.zsh.d/darwin/.zshenv
+if which hub >/dev/null 2>&1; then
+  eval "$(hub alias -s)"
 fi
 
+if which git-credencial-osxkeychain >/dev/null 2>&1; then
+  export GIT_CREDENTIAL_HELPER=osxkeychain
+elif which gnome-keyring >/dev/null 2>&1; then
+  export GIT_CREDENTIAL_HELPER=gnome-keyring
+fi
+
+### Settings for Darwin(osx)
+if [ `uname` = "Darwin" ]; then
+  path=(
+    $(brew --prefix)/bin(N-/)
+    $path
+  )
+
+  fpath=(
+    $(brew --prefix)/share/zsh/site-functions
+    $fpath
+  )
+
+  export ANDROID_HOME=$(brew --prefix)/opt/android-sdk
+
+  if [ -e /Applications/Genymotion.app ]; then
+    export GENYMOTION_APP_HOME="/Applications/Genymotion.app"
+  elif [ -e ~/Applications/Genymotion.app ]; then
+    export GENYMOTION_APP_HOME="/Applications/Genymotion.app"
+  fi
+
+  export PGDATA=/usr/local/var/postgres
+fi
+
+### Local settings
 if [ -e ~/.zshenv.local ]; then
   echo "load .zshenv.local"
   source ~/.zshenv.local
