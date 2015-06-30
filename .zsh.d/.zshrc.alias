@@ -3,20 +3,18 @@ echo 'load .zshrc.alias'
 alias so='source'
 alias re='source ~/.zshrc'
 alias ag='ag -a --hidden -f -i'
-alias ghqc='cd $(ghq list -p | peco)'
-alias ghqo='gh-open $(ghq list -p | peco)'
 
 ### v,vim
 if which vimx >/dev/null 2>&1; then
-  vim=vimx
+  alias vim=vimx
 fi
-v=vim
+alias v=vim
 
 ### rm
 if which rmtrash >/dev/null 2>&1; then
-  rm=rmtrash
+  alias rm=rmtrash
 elif which trash-put >/dev/null 2>&1; then
-  rm=trash-put
+  alias rm=trash-put
 fi
 
 ### o,open
@@ -28,15 +26,75 @@ elif which xdg-open >/dev/null 2>&1; then
 fi
 
 ### Homebrew
-if which brew >/dev/null 2>&1; then
-  cask='brew cask'
-fi
+alias cask='brew cask'
+
+### android
+alias adb-capture='screenshot2 ./screenshot.png;'
+alias adb-record='adb shell screenrecord /sdcard/record.mp4; adb pull /sdcard/record.mp4'
+alias adb-restart='adb kill-server; adb start-server'
+alias adb-uninstall='adbp shell pm list package | sed -e s/package:// | peco | xargs adbp uninstall'
+alias adb-install='find ./ -name *.apk | peco | xargs adb install -rd'
+
+function adb-run() {
+  count_apk=`find . -name '*.apk' | wc -l`
+  if [ $count_apk -eq 0 ]; then
+    echo 'apk is not found'
+    exit
+  elif [ $count_apk -eq 1 ]; then
+    apk=`find . -name '*.apk'`
+  else
+    apk=`find . -name '*.apk' | peco`
+  fi
+
+  package=`aapt dump badging $apk | head -n 1 | sed -e "s/package:\sname='\(.\+\)'\sversionCode.\+/\1/"`
+  count_activity=`aapt dump badging $apk | grep launchable-activity | wc -l`
+  if [ $count_activity -eq 0 ]; then
+    echo 'launchable activity is not found'
+    exit
+  elif [ $count_activity -eq 1 ]; then
+    activity=`aapt dump badging $apk | grep launchable-activity | sed -e "s/.\+name='\(.\+\)'\s\+label.\+/\1/"`
+  else
+    activity=`aapt dump badging $apk | grep launchable-activity | peco | sed -e "s/.\+name='\(.\+\)'\s\+label.\+/\1/"`
+  fi
+
+  echo "ADB_SHELL_COMMAND: adb shell am start -n \"$package/$activity\" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER"
+  adb shell am start -n "$package/$activity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
+}
+
+function gradlew() {
+  dir='.'
+  if git rev-parse >/dev/null 2>&1; then
+    dir="`git rev-parse --show-toplevel`"
+  fi
+  `find $dir -name gradlew` $@
+}
+alias glo='gradlew'
+alias gl='gradlew --offline'
+alias glp='gradlew --profile --offline'
+#alias adb-run='sh ~/.zsh.d/funcs/adb-run.sh'
+
+### git
+alias g='git'
+
+alias t='tig'
+alias ts='tig status'
+alias tst='tig stash'
+alias tb='tig blame'
+alias tg='tig grep'
+alias trf='tig refs'
+
+alias gbw='hub browse'
+alias gpr='hub pull-request'
+
+alias ghqc='cd $(ghq list -p | peco)'
+alias ghqo='gh-open $(ghq list -p | peco)'
 
 ########################
 ###   global alias   ###
 ########################
 
 alias -g A='| awk'
+alias -g B='`git branch | peco | head -n 1 | sed -e "s/^\*[ ]*//g"`'
 alias -g E='2>&1 > /dev/null'
 alias -g FF='`tree -f | grep .java | peco | sed -e "s/^.\+\.\//.\//g"`'
 alias -g G='| grep'
@@ -81,38 +139,3 @@ function extract() {
   esac
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-source ~/.zsh.d/alias/.zshrc.android
-source ~/.zsh.d/alias/.zshrc.git
-
-
-
-# for git completion by antigen
-# alias git-status='git status'
-# alias git-diff='git diff'
-# alias git-pull='git pull'
-# alias git-fetch='git fetch'
-# alias git-push='git push'
-# alias git-commit='git commit'
-# alias git-checkout='git checkout'
-# alias git-rebase='git rebase'
-# alias git-cherry-pick='git cherry-pick'
-# alias git-log='git log'
-# alias git-status='git status'
-# alias git-add='git add'
-# alias git-merge='git merge'
-# alias git-mergetool='git mergetool'
