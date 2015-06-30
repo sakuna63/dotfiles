@@ -80,7 +80,7 @@ if [ `uname` = "Linux" ]; then
 fi
 
 source ~/.zsh.d/.zshrc.antigen
-source ~/.zsh.d/.zshrc.package
+source ~/.zsh.d/.zshrc.modules
 source ~/.aliases
 source ~/.zsh.d/.zshrc.alias
 source ~/.zsh.d/.zshrc.funcs

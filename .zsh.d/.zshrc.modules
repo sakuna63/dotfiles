@@ -1,4 +1,4 @@
-echo 'load .zshrc.package'
+echo 'load .zshrc.modules'
 
 # auto-fu.zsh
 # if [ -f ~/.zsh.d/modules/auto-fu.zsh/auto-fu.zsh ]; then
