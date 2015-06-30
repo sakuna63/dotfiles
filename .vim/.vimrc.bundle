@@ -88,18 +88,6 @@ NeoBundle 'joker1007/vim-markdown-quote-syntax'
 NeoBundle 'rcmdnk/vim-markdown'
 NeoBundle 'Shougo/junkfile.vim'
 
-" for rust
-NeoBundle 'rust-lang/rust.vim'
-" NeoBundleLazy 'phildawes/racer', {
-"         \   'build' : {
-"         \     'mac'  : 'cargo build --release',
-"         \     'unix' : 'cargo build --release',
-"         \   },
-"         \   'autoload' : {
-"         \     'filetypes' : 'rust',
-"         \   },
-"         \ }
-
 " for toml
 NeoBundle 'cespare/vim-toml'
 
