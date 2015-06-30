@@ -10,7 +10,7 @@ echo 'load .zshrc'
 # 補完機能の設定
 autoload -U compinit; compinit
 # 入力しているコマンdの名画間違っている場合にもしかしたらを出す
-setopt correct
+unsetopt correct
 # 色を使う
 setopt prompt_subst
 # 直前と同じコマンドをヒストリに追加しない
