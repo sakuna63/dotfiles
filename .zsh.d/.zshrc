@@ -73,7 +73,6 @@ bindkey . rationalise-dot
 
 source ~/.zsh.d/.zshrc.antigen
 source ~/.zsh.d/.zshrc.modules
-source ~/.aliases
 source ~/.zsh.d/.zshrc.alias
 source ~/.zsh.d/.zshrc.funcs
 source ~/.zsh.d/.zshrc.last

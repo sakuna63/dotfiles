@@ -89,6 +89,26 @@ alias gpr='hub pull-request'
 alias ghqc='cd $(ghq list -p | peco)'
 alias ghqo='gh-open $(ghq list -p | peco)'
 
+### update
+update() {
+  if which brew >/dev/null 2>&1; then
+    brew update; brew upgrade -all
+  fi
+
+  if which gem >/dev/null 2>&1; then
+    sudo gem update --system
+    sudo gem update
+  fi
+
+  if which gem >/dev/null 2>&1; then
+    antigen update
+  fi
+
+  if which yum >/dev/null 2>&1; then
+    sudo yum update; sudo yum upgrade
+  fi
+}
+
 ########################
 ###   global alias   ###
 ########################
