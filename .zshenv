@@ -1,6 +1,6 @@
 echo 'load .zshenv'
 
-source ~/.zsh.d/prezto/runcoms/zshenv
+source ~/.zprezto/runcoms/zshenv
 
 # SSHで接続した先で日本語が使えるようにする
 export LC_CTYPE=en_US.UTF-8
@@ -34,6 +34,8 @@ if which vim >/dev/null 2>&1; then
   export EDITOR=vim
 elif which vimx >/dev/null 2>&1; then
   export EDITOR=vimx
+else
+  export EDITOR=nano
 fi
 
 if which vimpager >/dev/null 2>&1; then
@@ -52,7 +54,7 @@ if which hub >/dev/null 2>&1; then
   eval "$(hub alias -s)"
 fi
 
-if which git-credencial-osxkeychain >/dev/null 2>&1; then
+if which git-credential-osxkeychain >/dev/null 2>&1; then
   export GIT_CREDENTIAL_HELPER=osxkeychain
 elif which gnome-keyring >/dev/null 2>&1; then
   export GIT_CREDENTIAL_HELPER=gnome-keyring
@@ -83,7 +85,5 @@ fi
 
 ### Local settings
 if [ -e ~/.zshenv.local ]; then
-  echo "load .zshenv.local"
   source ~/.zshenv.local
 fi
-

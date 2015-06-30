@@ -1,1 +1,1 @@
-source ~/.zsh.d/prezto/runcoms/zlogin
+source ~/.zprezto/runcoms/zlogin

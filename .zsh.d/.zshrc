@@ -1,9 +1,5 @@
 echo 'load .zshrc'
 
-if [[ -s "~/.zsh.d/prezto/init.zsh" ]]; then
-  source "~/.zsh.d/prezto/init.zsh"
-fi
-
 ###################
 # For zsh option  #
 ###################
@@ -49,31 +45,6 @@ zstyle ':completion:*:approximate:*' max-errors 1 numeric
 zstyle ':completion:*:functions' ignored-patterns '_*'
 ## cd will never select the parent directory (e.g.: cd ../<TAB>):
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
-# Another method for quick change directories. Add this to your ~/.zshrc, then just enter “cd …./dir”
-rationalise-dot() {
-  if [[ $LBUFFER = *.. ]]; then
-    LBUFFER+=/..
-  else
-    LBUFFER+=.
-  fi
-}
-zle -N rationalise-dot
-bindkey . rationalise-dot
-
-# tmuxを自動で起動する
-# if [ -z "$TMUX" -a -z "$STY" ]; then
-#     if type tmuxx >/dev/null 2>&1; then
-#         tmuxx
-#     elif type tmux >/dev/null 2>&1; then
-#         if tmux has-session && tmux list-sessions | /usr/bin/grep -qE '.*]$'; then
-#             tmux attach && echo "tmux attached session "
-#         else
-#             tmux new-session && echo "tmux created new session"
-#         fi
-#     elif type screen >/dev/null 2>&1; then
-#         screen -rx || screen -D -RR
-#     fi
-# fi
 
 source ~/.zsh.d/.zshrc.modules
 source ~/.zsh.d/.zshrc.alias

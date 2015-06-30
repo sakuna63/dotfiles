@@ -1,1 +1,1 @@
-source ~/.zsh.d/prezto/runcoms/zlogout
+source ~/.zprezto/runcoms/zlogout
