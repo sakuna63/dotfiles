@@ -24,6 +24,12 @@ function doIt() {
       ln -sf $(pwd)/$filename $HOME/$filename
     fi
   done
+
+  git submodule update --init --recursive
+  if which bundle >/dev/null 1>&2 ; then
+    sudo gem install bundler
+  fi
+  bundle install
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
