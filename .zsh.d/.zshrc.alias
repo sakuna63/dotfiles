@@ -25,6 +25,12 @@ elif which xdg-open >/dev/null 2>&1; then
   alias o=xdg-open
 fi
 
+# Shortcuts
+alias dm="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias dv="cd ~/Develop"
+
 ### Homebrew
 alias cask='brew cask'
 
@@ -33,9 +39,14 @@ alias adb-capture='screenshot2 ./screenshot.png;'
 alias adb-record='adb shell screenrecord /sdcard/record.mp4; adb pull /sdcard/record.mp4'
 alias adb-restart='adb kill-server; adb start-server'
 alias adb-uninstall='adbp shell pm list package | sed -e s/package:// | peco | xargs adbp uninstall'
-alias adb-install='find ./ -name *.apk | peco | xargs adb install -rd'
+alias adb-install='find ./ -name *.apk | peco | xargs adb install -r -d'
 
 function adb-run() {
+  flag_install=0
+  if [ "$1" = "--install" ]; then
+    flag_install=1
+  fi
+
   count_apk=`find . -name '*.apk' | wc -l`
   if [ $count_apk -eq 0 ]; then
     echo 'apk is not found'
@@ -44,6 +55,10 @@ function adb-run() {
     apk=`find . -name '*.apk'`
   else
     apk=`find . -name '*.apk' | peco`
+  fi
+
+  if [ $apk = '' ]; then
+    exit
   fi
 
   package=`aapt dump badging $apk | head -n 1 | sed -e "s/package:\sname='\(.\+\)'\sversionCode.\+/\1/"`
@@ -57,8 +72,33 @@ function adb-run() {
     activity=`aapt dump badging $apk | grep launchable-activity | peco | sed -e "s/.\+name='\(.\+\)'\s\+label.\+/\1/"`
   fi
 
-  echo "ADB_SHELL_COMMAND: adb shell am start -n \"$package/$activity\" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER"
-  adb shell am start -n "$package/$activity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
+  if [ $activity = '' ]; then
+    exit
+  fi
+
+  count=`adb devices | sed '/^$/d' | wc -l`
+  if [ $count -eq 1 ]; then
+    echo "device not found"
+    exit
+  elif [ $count -eq 2 ]; then
+    device=`adb devices | sed -e "1,1d"`
+  else
+    device=`adb devices | sed -e "1,1d" | peco`
+  fi
+
+  if [ "$device" = "" ]; then
+      exit
+  fi
+
+  IFS="	" read -r id state <<< "$device"
+
+  if [ $flag_install -eq 1 ]; then
+    echo "ADB_SHELL_COMMAND: adb -s $id install -r -d $apk"
+    adb -s $id install -r -d $apk
+  fi
+
+  echo "ADB_SHELL_COMMAND: adb -s $id shell am start -n \"$package/$activity\" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER"
+  adb -s $id shell am start -n "$package/$activity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
 }
 
 function gradlew() {
@@ -92,7 +132,7 @@ alias ghqo='gh-open $(ghq list -p | peco)'
 ### update
 update() {
   if which brew >/dev/null 2>&1; then
-    brew update; brew upgrade -all
+    brew update; brew upgrade -all; brew clean -s; brew cask cleanup; brew linkapps
   fi
 
   if which gem >/dev/null 2>&1; then
@@ -113,11 +153,12 @@ update() {
 ###   global alias   ###
 ########################
 
+
 alias -g A='| awk'
 alias -g B='`git branch | peco | head -n 1 | sed -e "s/^\*[ ]*//g"`'
 alias -g E='2>&1 > /dev/null'
-alias -g FF='`tree -f | grep .java | peco | sed -e "s/^.\+\.\//.\//g"`'
 alias -g G='| grep'
+alias -g GF='git ls-files | peco'
 alias -g N='> /dev/null'
 alias -g P='| peco'
 alias -g PP='| peco | pbcopy'
