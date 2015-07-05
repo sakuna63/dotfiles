@@ -36,10 +36,10 @@ alias cask='brew cask'
 
 ### android
 alias adb-capture='screenshot2 ./screenshot.png;'
-alias adb-record='adb shell screenrecord /sdcard/record.mp4; adb pull /sdcard/record.mp4'
+alias adb-record='adbp shell screenrecord /sdcard/record.mp4; adbp pull /sdcard/record.mp4'
 alias adb-restart='adb kill-server; adb start-server'
 alias adb-uninstall='adbp shell pm list package | sed -e s/package:// | peco | xargs adbp uninstall'
-alias adb-install='find ./ -name *.apk | peco | xargs adb install -r -d'
+alias adb-install='find ./ -name *.apk | peco | xargs adbp install -r -d'
 alias adb-run='sh ~/.zsh.d/funcs/adb-run.sh'
 
 function gradlew() {
