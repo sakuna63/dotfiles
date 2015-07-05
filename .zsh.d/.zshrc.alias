@@ -40,78 +40,23 @@ alias adb-record='adb shell screenrecord /sdcard/record.mp4; adb pull /sdcard/re
 alias adb-restart='adb kill-server; adb start-server'
 alias adb-uninstall='adbp shell pm list package | sed -e s/package:// | peco | xargs adbp uninstall'
 alias adb-install='find ./ -name *.apk | peco | xargs adb install -r -d'
-
-function adb-run() {
-  flag_install=0
-  if [ "$1" = "--install" ]; then
-    flag_install=1
-  fi
-
-  count_apk=`find . -name '*.apk' | wc -l`
-  if [ $count_apk -eq 0 ]; then
-    echo 'apk is not found'
-    exit
-  elif [ $count_apk -eq 1 ]; then
-    apk=`find . -name '*.apk'`
-  else
-    apk=`find . -name '*.apk' | peco`
-  fi
-
-  if [ $apk = '' ]; then
-    exit
-  fi
-
-  package=`aapt dump badging $apk | head -n 1 | sed -e "s/package:\sname='\(.\+\)'\sversionCode.\+/\1/"`
-  count_activity=`aapt dump badging $apk | grep launchable-activity | wc -l`
-  if [ $count_activity -eq 0 ]; then
-    echo 'launchable activity is not found'
-    exit
-  elif [ $count_activity -eq 1 ]; then
-    activity=`aapt dump badging $apk | grep launchable-activity | sed -e "s/.\+name='\(.\+\)'\s\+label.\+/\1/"`
-  else
-    activity=`aapt dump badging $apk | grep launchable-activity | peco | sed -e "s/.\+name='\(.\+\)'\s\+label.\+/\1/"`
-  fi
-
-  if [ $activity = '' ]; then
-    exit
-  fi
-
-  count=`adb devices | sed '/^$/d' | wc -l`
-  if [ $count -eq 1 ]; then
-    echo "device not found"
-    exit
-  elif [ $count -eq 2 ]; then
-    device=`adb devices | sed -e "1,1d"`
-  else
-    device=`adb devices | sed -e "1,1d" | peco`
-  fi
-
-  if [ "$device" = "" ]; then
-      exit
-  fi
-
-  IFS="	" read -r id state <<< "$device"
-
-  if [ $flag_install -eq 1 ]; then
-    echo "ADB_SHELL_COMMAND: adb -s $id install -r -d $apk"
-    adb -s $id install -r -d $apk
-  fi
-
-  echo "ADB_SHELL_COMMAND: adb -s $id shell am start -n \"$package/$activity\" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER"
-  adb -s $id shell am start -n "$package/$activity" -a android.intent.action.MAIN -c android.intent.category.LAUNCHER
-}
+alias adb-run='sh ~/.zsh.d/funcs/adb-run.sh'
 
 function gradlew() {
   dir='.'
   if git rev-parse >/dev/null 2>&1; then
     dir="`git rev-parse --show-toplevel`"
   fi
-  `find $dir -name gradlew` $@
+
+  current_dir=`pwd`
+  path_to_gradlew=`find $dir -name gradlew`
+  cd `dirname $path_to_gradlew`
+  ./gradlew $@
+  cd $current_dir
 }
 alias glo='gradlew'
 alias gl='gradlew --offline'
 alias glp='gradlew --profile --offline'
-#alias adb-run='sh ~/.zsh.d/funcs/adb-run.sh'
 
 ### git
 alias g='git'
