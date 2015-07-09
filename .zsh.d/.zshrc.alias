@@ -4,6 +4,14 @@ alias so='source'
 alias re='source ~/.zshrc'
 alias ag='ag -a --hidden -f -i'
 
+### man
+if [ -e /Applications/Dash.localized/Dash.app ]; then
+  function man_dash() { open "dash://m:$1" };
+  alias m="man_dash"
+else
+  alias m=man
+fi
+
 ### v,vim
 if which vimx >/dev/null 2>&1; then
   alias vim=vimx
