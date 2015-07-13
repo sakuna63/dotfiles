@@ -93,7 +93,7 @@ update() {
     sudo gem update
   fi
 
-  if which gem >/dev/null 2>&1; then
+  if which antigen >/dev/null 2>&1; then
     antigen update
   fi
 
