@@ -7,10 +7,10 @@ ACTIVITY=''
 DEVICE_ID=''
 FLAG_INSTALL=0
 
-function show_help() {
-  echo "Usage: adb-run -a activity_name -d device_id -f apk_file -i"
-  echo "-i: flag indicating will install apk or not"
-  exit
+function show_usage() {
+  echo "Usage: adb-run -a activity_name -d device_id -f path_to_apk_file -i"
+  echo "-i: flag indicating whather attempting to install apk or not"
+  exit 1
 }
 
 while getopts a:d:f:hi OPT; do
@@ -19,7 +19,7 @@ while getopts a:d:f:hi OPT; do
     d ) DEVICE_ID=$OPTARG ;;
     f ) APK=$OPTARG ;;
     i ) FLAG_INSTALL=1 ;;
-    h ) show_help ;;
+    h ) show_usage ;;
   esac
 done
 
@@ -62,7 +62,7 @@ if [ -z "$ACTIVITY" ]; then
 fi
 
 ### Find target device
-if [ -z "$DEVICE" ]; then
+if [ -z "$DEVICE_ID" ]; then
   count_device=`adb devices | sed '/^$/d' | wc -l`
   if [ $count_device -eq 1 ]; then
     echo "device not found"
