@@ -5,22 +5,6 @@
 vnoremap <silent> <Leader>c :TComment<CR>
 
 "------------------------------------
-" rustとか
-" -----------------------------------
-
-" racer の設定
-let $RUST_SRC_PATH = expand('~/.vim/rust/src')
-
-" :QuickRun でファイル保存時にシンタックスチェック
-let g:quickrun_config = get(g:, 'quickrun_config', {})
-let g:quickrun_config['syntax/rust'] = {
-            \   'command' : 'rustc',
-            \   'cmdopt' : '-Zparse-only',
-            \   'exec' : '%c %o %s:p',
-            \   'outputter' : 'quickfix',
-            \ }
-
-"------------------------------------
 " vim-trailing-whitespace
 " -----------------------------------
 
