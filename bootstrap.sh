@@ -25,6 +25,11 @@ function doIt() {
     fi
   done
 
+  if [ ! -e ~/.gradle ]; then
+    mkdir ~/.gradle
+  fi
+  ln -sf ~/dotfiles/gradle.properties ~/.gradle/gradle.properties
+
   git submodule update --init --recursive
   if which bundle >/dev/null 1>&2 ; then
     sudo gem install bundler
