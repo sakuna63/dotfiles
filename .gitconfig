@@ -10,8 +10,8 @@
   c = checkout
   cb = checkout -b
 
-  cm = commit
-  cma = commit --amend
+  cm = commit -v
+  cma = commit --amend -v
 
   f = fetch
 
@@ -49,6 +49,7 @@
 
 [core]
   editor = $EDITOR
+  pager = less
 
   excludesfile = /Users/sakuna63/.gitignore_global
   attributesfile = ~/.gitattributes
