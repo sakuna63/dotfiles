@@ -30,10 +30,6 @@ vnoremap > >gv
 
 " ;を:に変更
 nnoremap ; :
-" nnoremap : ;
-
-" ESC２回で検索ハイライト解除
-" nnoremap <ESC><ESC> :noh<CR>
 
 " <Leader>に,を設定
 let mapleader = "\<Space>"
