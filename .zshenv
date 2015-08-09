@@ -39,12 +39,11 @@ else
 fi
 
 if which vimpager >/dev/null 2>&1; then
-  export PAGER=vimpager
   export MANPAGER=vimpager
 else
-  export PAGER=less
   export MANPAGER=less
 fi
+export PAGER=less
 
 if which rbenv >/dev/null 2>&1; then
   eval "$(rbenv init -)"
