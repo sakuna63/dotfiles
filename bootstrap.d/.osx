@@ -530,8 +530,7 @@ defaults write org.pqrs.Karabiner config_0000000000_000000 -dict \
 # Android Studio
 ###############################################################################
 
-ln -sf ~/Dropbox/Configurations/AndroidStudio/studio.vmoptions ~/Library/Preferences/AndroidStudio/studio.vmoptions
-ln -sf ~/Dropbox/Configurations/AndroidStudio/studio.vmoptions ~/Library/Preferences/AndroidStudio1.2/studio.vmoptions
+ln -sf ~/Dropbox/Configurations/AndroidStudio/studio.vmoptions ~/Library/Preferences/AndroidStudio1.3/studio.vmoptions
 
 ###############################################################################
 # Intellij Idea
