@@ -110,6 +110,7 @@ brew cask install iterm2
 # brew cask install java6
 brew cask install java7
 brew cask install karabiner
+brew cask install bettertouchtool
 # brew cask install shortcat
 brew cask install skype
 brew cask install sourcetree
