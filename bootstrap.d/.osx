@@ -523,12 +523,14 @@ defaults write org.pqrs.Karabiner config_0000000000_000000 -dict \
 # Android Studio
 ###############################################################################
 
+mkdir ~/Library/Preferences/AndroidStudio1.3
 ln -sf ~/Dropbox/Configurations/AndroidStudio/studio.vmoptions ~/Library/Preferences/AndroidStudio1.3/studio.vmoptions
 
 ###############################################################################
 # Intellij Idea
 ###############################################################################
 
+mkdir ~/Library/Preferences/IntelliJIdea14
 ln -sf ~/Dropbox/Configurations/IntellijIdea/idea.vmoptions ~/Library/Preferences/IntelliJIdea14/idea.vmoptions
 
 ###############################################################################
@@ -538,6 +540,17 @@ ln -sf ~/Dropbox/Configurations/IntellijIdea/idea.vmoptions ~/Library/Preference
 ln -sf ~/dotfiles/gradle.properties ~/.gradle/gradle.properties
 
 ###############################################################################
+# PopClip
+###############################################################################
+
+url="http://hitoriblog.com/wp-content/uploads/2014/02/PopClipPopUp.scpt_.zip"
+name=`basename $url`
+curl -O $url; unzip $name PopClipPopUp.scpt -d ~/Applications; /bin/rm $name
+
+mkdir ~/Library/Application\ Support/BetterTouchTool
+ln -sf ~/Dropbox/Configurations/BetterTouchTool/bttdata2 ~/Library/Application\ Support/BetterTouchTool/bttdata2
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
@@ -545,7 +558,7 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
   "Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
   "Opera" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
   "Transmission" "Twitter" "iCal" "Dash" "Karabiner" "Android\ Studio" "Intellij\ idea14" \
-  "GoogleJapaneseInput" "Alfred" ; do
+  "GoogleJapaneseInput" "Alfred" "PopClip" ; do
   killall "${app}" > /dev/null 2>&1
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
