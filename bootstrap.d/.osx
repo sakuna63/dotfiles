@@ -490,13 +490,6 @@ defaults write com.runningwithcrayons.Alfred-Preferences syncfolder -string "~/D
 ln -sf ~/Dropbox/Configurations/GoogleJapaneseInput/JapaneseInput ~/Library/Application\ Support/Google/JapaneseInput
 
 ###############################################################################
-# Dash
-###############################################################################
-
-# download ruby-ja docsets
-open dash-feed://https%3A%2F%2Fraw.github.com%2Flabocho%2Frubydoc-ja-docsets%2Fmaster%2Ftarball%2FRuby-2.2.0-ja.xml
-
-###############################################################################
 # Karabiner
 ###############################################################################
 
