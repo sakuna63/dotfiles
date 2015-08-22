@@ -23,7 +23,7 @@ done
 
 function find_apk()
 {
-  local apks="$(find . -name '*.apk')"
+  local apks="$(find . -name '*.apk' | grep -v unaligned)"
   local count=`echo $apks | wc -w`
   if [ $count -le 1 ]; then
     echo $apks
