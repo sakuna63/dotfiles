@@ -34,18 +34,3 @@ function peco-cdr() {
 zle -N peco-cdr
 bindkey -r '^u'
 bindkey '^u' peco-cdr
-
-function jadr() {
-  jad -8 -s java -d $2 -r $1/**/*.class
-}
-
-# Decompile Android application
-# jadr ${dst} ${dst}/src
-
-function deapk() {
-  local dst=${${1##*/}%%.*}
-  dst+='.depackaged'
-  unzip $1 -d $dst
-  dex2jar ${dst}/classes.dex
-  unzip ${dst}/classes_dex2jar.jar -d ${dst}/Classes
-}

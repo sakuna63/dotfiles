@@ -87,6 +87,17 @@ alias glo='gradlew'
 alias gl='gradlew --offline'
 alias glp='gradlew --profile --offline'
 
+function deapk() {
+  local dst=${1%.*}
+  unzip $1 -d $dst
+  d2j-dex2jar ${dst}/classes.dex
+  unzip ${dst}/classes_dex2jar.jar -d ${dst}/Classes
+  for d in `ls $dst`;
+  do
+    jad -8 -s java -d Srcs -r $1/$d/**/*.class
+  done
+}
+
 ### git
 alias g='git'
 
