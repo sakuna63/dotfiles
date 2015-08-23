@@ -43,11 +43,32 @@ alias dv="cd ~/Develop"
 alias cask='brew cask'
 
 ### android
-alias adb-capture='screenshot2 ./screenshot.png;'
+function find_device()
+{
+  count=`adb devices | sed '/^$/d' | wc -l`
+  if [ $count -le 2 ]; then
+    adb devices | sed -e "1,1d" | cut -f 1
+  else
+    adb devices | sed -e "1,1d" | peco | cut -f 1
+  fi
+}
+
+function adb-capture()
+{
+  local device=`find_device`
+  local name=${1:-screenshot.png}
+  adb -s $device shell screencap -p /sdcard/$name
+  adb -s $device pull /sdcard/$name
+  adb -s $device shell rm /sdcard/$name
+
+  if which mogrify >/dev/null 2>&1; then
+    mogrify -resize ${2:-50}% $name
+  fi
+}
 alias adb-record='adbp shell screenrecord /sdcard/record.mp4; adbp pull /sdcard/record.mp4'
 alias adb-restart='adb kill-server; adb start-server'
 alias adb-uninstall='adbp shell pm list package | sed -e s/package:// | peco | xargs adbp uninstall'
-alias adb-install='find ./ -name *.apk | peco | xargs adbp install -r -d'
+alias adb-install='find . -name "*.apk" | peco | xargs adbp install -r'
 alias adb-run='sh ~/.zsh.d/funcs/adb-run.sh'
 
 function gradlew() {
