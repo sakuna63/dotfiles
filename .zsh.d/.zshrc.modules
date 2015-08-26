@@ -26,4 +26,4 @@ fi
 
 source ~/.zsh.d/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.zsh.d/modules/zsh-bd/bd.plugin.zsh
-source ~/.zsh.d/modules/genymotion-peco/bin/genymotion_peco.sh
+alias genymotion_peco='bash -c "source ~/.zsh.d/modules/genymotion-peco/bin/genymotion_peco.sh; genymotion_peco"'
