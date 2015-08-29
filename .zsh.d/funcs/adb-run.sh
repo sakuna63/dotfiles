@@ -4,8 +4,9 @@ set -e
 
 function show_usage()
 {
-  echo "Usage: adb-run -a activity_name -d device_id -f path_to_apk_file -i"
-  echo "-i: flag indicating whather attempting to install apk or not"
+  echo "Usage: adb-run -a activity_name -d device_id -f path_to_apk_file"
+  echo "-i: flag indicating whether install apk or not"
+  echo "-c: flag indicating whather clear app data"
   exit 1
 }
 
@@ -13,10 +14,10 @@ while getopts a:d:f:hic OPT
 do
   case $OPT in
     a ) _ACTIVITY=$OPTARG ;;
+    c ) _FLAG_CLEAR_DATA=1 ;;
     d ) _DEVICE_ID=$OPTARG ;;
     f ) _APK=$OPTARG ;;
     i ) _FLAG_INSTALL=1 ;;
-    c ) _FLAG_COPY_OPTIONS=1 ;;
     h ) show_usage ;;
   esac
 done
@@ -107,6 +108,11 @@ OUTPUT
 if [ -n "${_FLAG_INSTALL}" ]; then
   echo "ADB_SHELL_COMMAND: adb -s $_DEVICE_ID install -r -d $_APK"
   adb -s $_DEVICE_ID install -r -d $_APK
+fi
+
+if [ -n "${_FLAG_CLEAR_DATA}" ]; then
+  echo "ADB_SHELL_COMMAND: adb -s $_DEVICE_ID shell pm clear $package"
+  adb -s $_DEVICE_ID shell pm clear $package
 fi
 
 if [ -n "${_FLAG_COPY_OPTIONS}" ]; then
