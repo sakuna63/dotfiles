@@ -38,6 +38,7 @@ alias dm="cd ~/Documents"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias dv="cd ~/Develop"
+alias dr="cd ~/Dropbox"
 
 ### Homebrew
 alias cask='brew cask'
