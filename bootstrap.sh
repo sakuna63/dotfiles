@@ -3,7 +3,7 @@
 git pull origin master;
 
 files="./.*"
-excludes=(".gitmodules" ".git" "." "..")
+excludes=(".gitignore", ".gitmodules" ".git" "." "..")
 
 function is_excluded() {
   for exclude in ${excludes[@]}; do
