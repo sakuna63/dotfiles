@@ -34,3 +34,22 @@ function peco-cdr() {
 zle -N peco-cdr
 bindkey -r '^u'
 bindkey '^u' peco-cdr
+
+# 's'end 'f'ile to 'e'vernote
+function sfe()
+{
+  if [ $# -eq 0 ]; then
+    echo "Usege: sfe path_to_file"
+    return
+  fi
+
+  ptf="$1"
+  osascript -l JavaScript -e "
+    app = Application('com.evernote.Evernote');
+    app.createNote({
+      withText: ' ',
+      title: '`basename $ptf`',
+      attachments: '`greadlink -f $ptf`'
+    });
+  "
+}
