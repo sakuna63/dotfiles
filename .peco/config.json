@@ -12,5 +12,11 @@
         "Selected": ["on_cyan", "black"],
         "Query": ["on_default", "green"],
         "Matched": ["yellow", "bold"]
+    },
+    "CustomFilter": {
+      "Migemo": {
+        "Cmd": "migemogrep",
+        "BufferThreshold": 10000
+      }
     }
 }
