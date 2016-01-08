@@ -20,6 +20,7 @@ path=(
   /opt/X12/bin
   $GOPATH/bin
   ~/.zsh.d/modules/adb-peco/bin(N-/)
+  ~/bin
   $path
 )
 
