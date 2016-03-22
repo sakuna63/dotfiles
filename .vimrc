@@ -13,7 +13,7 @@ set gcr=a:blinkon0              " Disable cursor blink
 set visualbell                  " No sounds
 set autoread                    " Reload files changed outside vim
 set hidden                      " Allow open other file when current file is not saved
-set confirm                     " Confirm whether saving file when quiting vim without saving
+" set confirm                     " Confirm whether saving file when quiting vim without saving
 
 syntax on
 set nofoldenable                 " Disable folding
@@ -30,11 +30,11 @@ set nowb
 
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
-if has('persistent_undo') && !isdirectory(expand('~').'/.vim/backup')
+" if has('persistent_undo') && !isdirectory(expand('~').'/.vim/backup')
   silent !mkdir ~/.vim/backup > /dev/null 2>&1
   set undodir=~/.vim/backup
   set undofile
-endif
+" endif
 
 " ===================================================
 " ================ Indentation ======================
@@ -110,8 +110,8 @@ inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-p> <Up>
 inoremap <C-n> <Down>
-cnoremap <C-a> <HOME>
-cnoremap <C-e> <END>
+inoremap <C-a> <Esc>^i
+inoremap <C-e> <Esc><S-a>
 
 cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
