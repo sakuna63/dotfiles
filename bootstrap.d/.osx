@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+# NOTE: This script depends on files under the ~/Dropbox directory
+if [ ! -e ~/Dropbox ]; then
+  echo 'There is not dropbox directory' >&2
+  exit 1
+fi
+
+read -p "Have dropbox sync already finished?" -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  doIt;
+fi;
+
 # ~/.osx — https://mths.be/osx
 
 # Ask for the administrator password upfront
