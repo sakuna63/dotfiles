@@ -59,6 +59,7 @@ fc-cache -vf
 # Install other useful binaries.
 brew install Caskroom/cask/xquartz
 brew install ag
+brew install argon/mas/mas
 # brew install android-ndk
 brew install android-sdk
 brew install dex2jar
