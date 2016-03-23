@@ -534,6 +534,7 @@ ln -sf ~/Dropbox/Configurations/GoogleJapaneseInput/JapaneseInput ~/Library/Appl
 
 ln -sf ~/Dropbox/Configurations/Karabiner/private.xml ~/Library/Application\ Support/Karabiner/private.xml
 
+defaults write org.pqrs.Karabiner SUHasLaunchedBefore -int 1
 defaults write org.pqrs.Karabiner configList -array '{
         appendIndex = 1;
         identify = "config_0000000000_000000";
@@ -548,15 +549,67 @@ defaults write org.pqrs.Karabiner config_0000000000_000000 -dict \
         option.emacsmode_controlS_private 1 \
         option.emacsmode_controlW_private 1 \
         option.emacsmode_controlY_private 1 \
-        remap.app_finder_forwarddelete2commandLdelete 1 \
+        remap.altC2altCommandControlC_for_evernote 1 \
+        remap.app_jetbrains_ides_function2functional 1 \
+        remap.app_jetbrains_ides_functional2function 1 \
+        remap.app_word_emacs_bindings 1 \
+        remap.commandM2controlCommandM_for_evernote 1 \
         remap.commandR2forwarddelete 1 \
         remap.controlH2backspace_for_line 1 \
         remap.controlJ2escape_and_eisuu_private 1 \
+        remap.controlJ2return_private 1 \
+        remap.dashlane_copy_password_to_clipboard 1 \
         remap.jis_command2eisuukana_prefer_command 1 \
         remap.swap_colon_and_semicolon_private_for_sublime_text 1 \
+        remap.switchCommandFWithCommandAltF 1 \
+        remap.switchCommandFWithCommandAltF_for_evernote 1 \
+        remap.tweetbot_switch_account_1 1 \
+        remap.tweetbot_switch_account_2 1 \
         repeat.initial_wait 200 \
-        repeat.wait 30
+        repeat.wait 30 \
 
+###############################################################################
+# Flux
+###############################################################################
+
+defaults write org.herf.Flux lateColorTemp -int 2700;
+
+###############################################################################
+# FormatMatch
+###############################################################################
+
+defaults write dutch.apps.formatmatch enableHotKey -int 1
+defaults write dutch.apps.formatmatch shortcut -array {
+  characters = D;
+  keyCode = 2;
+  modifierFlags = 1441792;
+}
+
+###############################################################################
+# Day-O
+###############################################################################
+
+defaults write com.shauninman.Day-O firstRun -int 0
+defaults write com.shauninman.Day-O format -string "E H:mm"
+
+###############################################################################
+# Pocket
+###############################################################################
+
+defaults write com.readitlater.PocketMac NSUserKeyEquivalents -array {
+  Twitter = "@t";
+}
+defaults write com.readitlater.PocketMac TextFontSize -int 21
+defaults write com.readitlater.PocketMac TextMode -string night
+
+###############################################################################
+# App Cleaner
+###############################################################################
+
+defaults write net.freemacsoft.AppCleaner ProtectOpenedApps = 0;
+defaults write net.freemacsoft.AppCleaner SUEnableAutomaticChecks = 1;
+defaults write net.freemacsoft.AppCleaner SUHasLaunchedBefore = 1;
+defaults write net.freemacsoft.AppCleaner SUSendProfileInfo = 0;
 
 ###############################################################################
 # Android Studio
@@ -595,6 +648,79 @@ ln -sf ~/dotfiles/gradle.properties ~/.gradle/gradle.properties
 url="http://hitoriblog.com/wp-content/uploads/2014/02/PopClipPopUp.scpt_.zip"
 name=`basename $url`
 curl -O $url; unzip $name PopClipPopUp.scpt -d ~/Applications; /bin/rm $name
+
+defaults write com.pilotmoon.popclip CombinedItemOrder -data (
+  openlink,
+  search,
+  cut,
+  copy,
+  paste,
+  revealfile,
+  openmail,
+  lookup,
+  "ext-com.pilotmoon.popclip.extension.amazon-search",
+  "ext-com.pilotmoon.popclip.extension.pronounce",
+  "ext-com.pilotmoon.popclip.extension.say",
+  "ext-com.my_name.popclip.extension.open-in-weblio",
+  "ext-com.pilotmoon.popclip.extension.dash",
+  "ext-com.pilotmoon.popclip.extension.evernote"
+)
+defaults write com.pilotmoon.popclip ExtensionAdded -int 1
+defaults write com.pilotmoon.popclip HasRunBefore -int 1;
+defaults write com.pilotmoon.popclip HasShownWelcome -int 1;
+defaults write com.pilotmoon.popclip "enable-action-copy" -int 0;
+defaults write com.pilotmoon.popclip "enable-action-cut" -int 0;
+defaults write com.pilotmoon.popclip "enable-action-ext-com.my_name.popclip.extension.open-in-weblio" -int 1;
+defaults write com.pilotmoon.popclip "enable-action-ext-com.pilotmoon.popclip.extension.amazon-search" -int 1;
+defaults write com.pilotmoon.popclip "enable-action-ext-com.pilotmoon.popclip.extension.dash" -int 1;
+defaults write com.pilotmoon.popclip "enable-action-ext-com.pilotmoon.popclip.extension.evernote" -int 1;
+defaults write com.pilotmoon.popclip "enable-action-ext-com.pilotmoon.popclip.extension.pronounce" -int 0;
+defaults write com.pilotmoon.popclip "enable-action-ext-com.pilotmoon.popclip.extension.say" -int 0;
+defaults write com.pilotmoon.popclip "enable-action-openmail" -int 0;
+defaults write com.pilotmoon.popclip "enable-action-paste" -int 0;
+defaults write com.pilotmoon.popclip "enable-action-revealfile" -int 0;
+defaults write com.pilotmoon.popclip "extension#com.pilotmoon.popclip.extension.amazon-search#site" -string "amazon.co.jp";
+
+###############################################################################
+# Evernote
+###############################################################################
+
+defaults write com.evernote.Evernote runHelperAtLogin -int 1
+
+#### Evernote Helper
+
+defaults write com.evernote.EvernoteHelper "ShortcutRecorder newnote" -array {
+  keyChars = "\005";
+  keyCharsIgnoringModifiers = E;
+  keyCode = 14;
+  modifierFlags = 1441792;
+  modifiers = 4864;
+};
+
+defaults write com.evernote.EvernoteHelper "ShortcutRecorder newnotewindow" -array {
+  keyCode = "-1";
+  modifierFlags = 0;
+  modifiers = 0;
+};
+
+defaults write com.evernote.EvernoteHelper "ShortcutRecorder pasteboard" -array {
+  keyCode = "-1";
+  modifierFlags = 0;
+  modifiers = 0;
+};
+
+defaults write com.evernote.EvernoteHelper "ShortcutRecorder screenshot" -array {
+  keyCode = "-1";
+  modifierFlags = 0;
+  modifiers = 0;
+};
+
+defaults write com.evernote.EvernoteHelper "ShortcutRecorder search" -array {
+  keyCode = "-1";
+  modifierFlags = 0;
+  modifiers = 0;
+};
+defaults write com.evernote.EvernoteHelper showsStatusBarItem -int 1
 
 ###############################################################################
 # BetterTouchTool
