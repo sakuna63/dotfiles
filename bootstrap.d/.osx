@@ -152,6 +152,32 @@ sudo systemsetup -settimezone "Europe/Brussels" > /dev/null
 launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
 ###############################################################################
+# Input source                                                                      #
+###############################################################################
+
+defaults write com.apple.HIToolbox AppleCurrentKeyboardLayoutInputSourceID -string "com.apple.keylayout.US";
+defaults write com.apple.HIToolbox AppleEnabledInputSources -data '(
+    {
+      "Bundle ID" = "com.apple.50onPaletteIM";
+      InputSourceKind = "Non Keyboard Input Method";
+    },
+    {
+      "Bundle ID" = "com.google.inputmethod.Japanese";
+      "Input Mode" = "com.apple.inputmethod.Japanese";
+      InputSourceKind = "Input Mode";
+    },
+    {
+      "Bundle ID" = "com.google.inputmethod.Japanese";
+      InputSourceKind = "Keyboard Input Method";
+    },
+    {
+      InputSourceKind = "Keyboard Layout";
+      "KeyboardLayout ID" = 0;
+      "KeyboardLayout Name" = "U.S.";
+    }
+  );'
+
+###############################################################################
 # Screen                                                                      #
 ###############################################################################
 
@@ -402,6 +428,13 @@ defaults write com.apple.appstore WebKitDeveloperExtras -bool true
 defaults write com.apple.appstore ShowDebugMenu -bool true
 
 ###############################################################################
+# Photos                                                                      #
+###############################################################################
+
+# Prevent Photos from opening automatically when devices are plugged in
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+###############################################################################
 # Safari
 ###############################################################################
 
@@ -526,6 +559,7 @@ defaults write com.divisiblebyzero.Spectacle UndoLastMove -data 62706c6973743030
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 # Set pereferencefile custom folder
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -int 1
 defaults write com.googlecode.iterm2 PrefsCustomFolder -string "${HOME}/Dropbox/Configurations/iTerm2"
 
 ###############################################################################
@@ -538,7 +572,9 @@ defaults write com.runningwithcrayons.Alfred-Preferences syncfolder -string "~/D
 # Google Japanese Input
 ###############################################################################
 
-ln -sf ~/Dropbox/Configurations/GoogleJapaneseInput/JapaneseInput ~/Library/Application\ Support/Google/JapaneseInput
+/bin/rm -rf ~/Library/Application\ Support/Google/JapaneseInput
+
+ln -sf ~/Dropbox/Configurations/GoogleJapaneseInput/JapaneseInput ~/Library/Application\ Support/Google
 
 ###############################################################################
 # Karabiner
@@ -569,6 +605,30 @@ defaults write org.pqrs.Karabiner config_0000000000_000000 -dict \
         repeat.initial_wait 200 \
         repeat.wait 30
 
+###############################################################################
+# HyperSwitch
+###############################################################################
+
+defaults write com.bahoom.HyperSwitch "NSToolbar Configuration com.apple.NSColorPanel" -array '{
+        "TB Is Shown" = 1;
+    }'
+defaults write com.bahoom.HyperSwitch NSAppSleepDisabled -int 1
+defaults write com.bahoom.HyperSwitch SULastCheckTime -string "2016-03-23 06:29:20 +0000"
+defaults write com.bahoom.HyperSwitch SULastProfileSubmissionDate -string "2016-03-23 06:29:20 +0000"
+defaults write com.bahoom.HyperSwitch SUScheduledCheckInterval -int 10800
+defaults write com.bahoom.HyperSwitch SUSendProfileInfo -int 1
+defaults write com.bahoom.HyperSwitch "hs_theme" 3
+defaults write com.bahoom.HyperSwitch "not_first_launch" -int 1
+defaults write com.bahoom.HyperSwitch "run_in_background" -int 1
+defaults write com.bahoom.HyperSwitch "show_prefs_on_next_launch" -int 0
+defaults write com.bahoom.HyperSwitch "show_status_menu" -int 1
+defaults write com.bahoom.HyperSwitch "welcome_window_shown" -int 1
+defaults write com.bahoom.HyperSwitch "window_preview_allscreens" -int 1
+defaults write com.bahoom.HyperSwitch "window_preview_allspaces" -int 1
+defaults write com.bahoom.HyperSwitch "window_switcher_current_app_keycode" -int 48
+defaults write com.bahoom.HyperSwitch "window_switcher_current_app_mod" -int 2
+defaults write com.bahoom.HyperSwitch "window_switcher_delay" -int 50
+defaults write com.bahoom.HyperSwitch "window_switcher_mod" -int 2
 
 ###############################################################################
 # Android Studio
@@ -578,7 +638,7 @@ for app in ~/Applications/Android\ Studio.app /Applications/Android\ Studio.app;
 do
   ver=$(cat $app/Contents/Info.plist | grep 'Android Studio [^<]' | sed 's/.\+Android Studio \([0-9]\.[0-9]\).\+/\1/')
   path_lib="~/Library/Preferences/AndroidStudio$ver"
-  mkdir $path_lib
+  mkdir -p $path_lib
   ln -sf ~/Dropbox/Configurations/AndroidStudio/studio.vmoptions $path_lib
 done
 
@@ -590,7 +650,7 @@ for app in ~/Applications/IntelliJ\ IDEA* /Applications/Intellij\ IDEA*
 do
   ver=$(echo `basename $app` | sed 's/IntelliJ IDEA \([0-9]\+\)\.app/\1/')
   path_lib="~/Library/Preferences/IntelliJIdea$ver"
-  mkdir $path_lib
+  mkdir -p $path_lib
   ln -sf ~/Dropbox/Configurations/IntellijIdea/idea.vmoptions $path_lib
 done
 
@@ -612,8 +672,8 @@ curl -O $url; unzip $name PopClipPopUp.scpt -d ~/Applications; /bin/rm $name
 # BetterTouchTool
 ###############################################################################
 
-mkdir ~/Library/Application\ Support/BetterTouchTool
-ln -sf ~/Dropbox/Configurations/BetterTouchTool/bttdata2 ~/Library/Application\ Support/BetterTouchTool/bttdata2
+# mkdir -p ~/Library/Application\ Support/BetterTouchTool
+# ln -sf ~/Dropbox/Configurations/BetterTouchTool/bttdata2 ~/Library/Application\ Support/BetterTouchTool/bttdata2
 
 ###############################################################################
 # Tweetbot
@@ -623,6 +683,19 @@ ln -sf ~/Dropbox/Configurations/BetterTouchTool/bttdata2 ~/Library/Application\ 
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
 ###############################################################################
+# Dash
+###############################################################################
+
+# Set Dash sync folder
+defaults write com.kapeli.dashdoc syncFolderPath -string "~/Dropbox/Configurations/Dash"
+
+###############################################################################
+# Caffeine
+###############################################################################
+
+defaults write com.lightheadsw.Caffeine ActivateOnLaunch -int 1
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
@@ -630,7 +703,7 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
   "Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
   "Opera" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
   "Transmission" "Twitter" "iCal" "Dash" "Karabiner" "Android\ Studio" "Intellij\ idea14" \
-  "GoogleJapaneseInput" "Alfred" "PopClip" ; do
+  "GoogleJapaneseInput" "Alfred" "PopClip" "Photos" "Caffeine" "HyperSwitch" ; do
   killall "${app}" > /dev/null 2>&1
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
