@@ -59,9 +59,6 @@ fc-cache -vf
 # Install other useful binaries.
 brew install Caskroom/cask/xquartz
 brew install ag
-# brew install android-ndk
-brew install android-sdk
-brew install dex2jar
 brew install ghostscript
 brew install git
 brew install go
@@ -101,19 +98,12 @@ brew cask install dropbox
 brew cask install evernote
 brew cask install fantastical
 brew cask install flux
-brew cask install genymotion
-brew cask install google-chrome
 brew cask install google-drive
 brew cask install google-japanese-ime
 brew cask install hyperswitch
 brew cask install iterm2
-# brew cask install java6
-brew cask install java7
 brew cask install karabiner
-brew cask install bettertouchtool
-# brew cask install shortcat
-brew cask install skype
-brew cask install sourcetree
+brew cask install github
 brew cask install spectacle
 brew cask install the-unarchiver
 brew cask install virtualbox
