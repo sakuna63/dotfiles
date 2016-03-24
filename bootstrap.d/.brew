@@ -64,6 +64,7 @@ fc-cache -vf
 # Install other useful binaries.
 brew install Caskroom/cask/xquartz
 brew install ag
+brew install argon/mas/mas
 brew install ghostscript
 brew install git
 brew install go
