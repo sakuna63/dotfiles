@@ -143,3 +143,5 @@
 
 [credential]
   helper = $GIT_CREDENTIAL_HELPER
+[rebase]
+	autosquash = true
