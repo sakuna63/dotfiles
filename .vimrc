@@ -13,6 +13,8 @@ set gcr=a:blinkon0              " Disable cursor blink
 set visualbell                  " No sounds
 set autoread                    " Reload files changed outside vim
 set hidden                      " Allow open other file when current file is not saved
+" http://qiita.com/shotat/items/da0f42ea90610ca0dadb
+set synmaxcol=200
 " set confirm                     " Confirm whether saving file when quiting vim without saving
 
 syntax on
