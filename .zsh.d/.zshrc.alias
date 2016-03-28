@@ -122,12 +122,16 @@ update() {
   fi
 
   if which gem >/dev/null 2>&1; then
-    sudo gem update --system
-    sudo gem update
+    sudo gem update --system --no-document
+    sudo gem update --no-document
   fi
 
   if which antigen >/dev/null 2>&1; then
     antigen update
+  fi
+
+  if which apt-get >/dev/null 2>&1; then
+    sudo apt-get update; sudo apt-get upgrade
   fi
 
   if which yum >/dev/null 2>&1; then
