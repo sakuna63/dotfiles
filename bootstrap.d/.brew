@@ -68,6 +68,7 @@ brew install argon/mas/mas
 brew install ghostscript
 brew install git
 brew install go
+brew install graphviz
 brew install heroku-toolbelt
 brew install hub
 brew install imagemagick --with-webp
