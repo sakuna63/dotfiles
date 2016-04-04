@@ -65,6 +65,7 @@ fc-cache -vf
 brew install Caskroom/cask/xquartz
 brew install ag
 brew install argon/mas/mas
+brew install cliclick
 brew install ghostscript
 brew install git
 brew install go
