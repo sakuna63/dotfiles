@@ -582,6 +582,7 @@ ln -sf ~/Dropbox/Configurations/GoogleJapaneseInput/JapaneseInput ~/Library/Appl
 ###############################################################################
 
 ln -sf ~/Dropbox/Configurations/Karabiner/private.xml ~/Library/Application\ Support/Karabiner/private.xml
+ln -sf ~/Dropbox/Configurations/Karabiner/snippets ~/Library/Application\ Support/Karabiner/snippets
 
 defaults write org.pqrs.Karabiner SUHasLaunchedBefore -int 1
 defaults write org.pqrs.Karabiner configList -array '{
