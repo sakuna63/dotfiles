@@ -6,3 +6,10 @@ gem 'alfi'
 gem 'replicant-adb'
 # download and install repository
 gem 'dryrun'
+
+gem 'capybara'
+gem 'selenium-webdriver'
+gem 'poltergeist'
+gem 'trollop'
+gem 'pry'
+gem 'pry-byebug'
