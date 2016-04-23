@@ -87,7 +87,7 @@ begin
   end
   date_table.map {|l| l.all('input').to_a}.flatten.find {|i| i.value == date}.click
 
-  phone_numbers = (opts[:phone] || (print 'Input phone(space separated): '; gets.chomp)).split(' ')
+  phone_numbers = (opts[:phone] || (print 'Input phone(space separated): '; gets.chomp)).split('-')
   input_phone1 = browser.find('#clientTelNoArea')
   input_phone1.set(phone_numbers[0])
   input_phone2 = browser.find('#con_no_rnav > div:nth-child(4) > div > div > table > tbody > tr:nth-child(1) > td > input:nth-child(2)')
