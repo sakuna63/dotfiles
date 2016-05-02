@@ -1,10 +1,19 @@
 echo 'load .zshrc.alias'
 
+### Shortcuts
+
 alias so='source'
 alias re='source ~/.zshrc'
 alias ag='ag -a --hidden -f -i'
 
-### man
+alias dm="cd ~/Documents"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias dv="cd ~/Develop"
+alias dr="cd ~/Dropbox"
+
+
+### man ###
 if [ -e /Applications/Dash.localized/Dash.app ]; then
   function man_dash() { open "dash://m:$1" };
   alias m="man_dash"
@@ -32,13 +41,6 @@ elif which xdg-open >/dev/null 2>&1; then
   alias open=xdg-open
   alias o=xdg-open
 fi
-
-# Shortcuts
-alias dm="cd ~/Documents"
-alias dl="cd ~/Downloads"
-alias dt="cd ~/Desktop"
-alias dv="cd ~/Develop"
-alias dr="cd ~/Dropbox"
 
 ### Homebrew
 alias cask='brew cask'
@@ -131,13 +133,68 @@ update() {
   fi
 
   if which apt-get >/dev/null 2>&1; then
-    sudo apt-get update; sudo apt-get upgrade
+    sudo apt-get update; sudo yum upgrade
   fi
 
   if which yum >/dev/null 2>&1; then
     sudo yum update; sudo yum upgrade
   fi
 }
+
+if which peco > /dev/null; then
+  # pecoでコマンド履歴を検索できるようにする
+  function peco-select-history() {
+    local tac
+    if which tac > /dev/null; then
+      tac="tac"
+    else
+      tac="tail -r"
+    fi
+    BUFFER=$(fc -l -n 1| \
+      eval $tac | \
+      peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+  }
+  zle -N peco-select-history
+  bindkey -r '^r'
+  bindkey '^r' peco-select-history
+
+  # pecoでディレクトリの移動履歴を見れるように
+  function peco-cdr() {
+    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
+    if [ -n "$selected_dir" ]; then
+      BUFFER="cd ${selected_dir}"
+      zle accept-line
+    fi
+    zle clear-screen
+  }
+  zle -N peco-cdr
+  bindkey -r '^u'
+  bindkey '^u' peco-cdr
+fi
+
+
+# 's'end 'f'ile to 'e'vernote
+function sfe()
+{
+  if [ $# -eq 0 ]; then
+    echo "Usege: sfe path_to_file"
+    return
+  fi
+
+  ptf="$1"
+  osascript -l JavaScript -e "
+  app = Application('com.evernote.Evernote');
+  app.createNote({
+  withText: ' ',
+  title: '`basename $ptf`',
+  attachments: '`greadlink -f $ptf`'
+});
+"
+}
+
+### peco
 
 ########################
 ###   global alias   ###

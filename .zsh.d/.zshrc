@@ -48,5 +48,4 @@ zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 source ~/.zsh.d/.zshrc.modules
 source ~/.zsh.d/.zshrc.alias
-source ~/.zsh.d/.zshrc.funcs
 source ~/.zsh.d/.zshrc.last
