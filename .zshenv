@@ -63,27 +63,38 @@ elif which gnome-keyring >/dev/null 2>&1; then
   export GIT_CREDENTIAL_HELPER=gnome-keyring
 fi
 
-### Settings for Darwin(osx)
-if [ `uname` = "Darwin" ]; then
+### HOMEBREW
+if which brew >/dev/null 2>&1; then
   path=(
     $(brew --prefix)/bin(N-/)
     $path
   )
-
   fpath=(
     $(brew --prefix)/share/zsh/site-functions
     $fpath
   )
+fi
 
+export HOMEBREW_NO_ANALYTICS=1
+
+
+### JAVA
+if [ -e /usr/libexec/java_home ]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+  export JAVA6_HOME=$(/usr/libexec/java_home -v 1.6)
+  export JAVA7_HOME=$(/usr/libexec/java_home -v 1.7)
+  export JAVA8_HOME=$(/usr/libexec/java_home -v 1.8)
+fi
+
+### ANDROID
+if which brew >/dev/null 2>&1; then
   export ANDROID_HOME=$(brew --prefix)/opt/android-sdk
+fi
 
-  if [ -e /Applications/Genymotion.app ]; then
-    export GENYMOTION_APP_HOME="/Applications/Genymotion.app"
-  elif [ -e ~/Applications/Genymotion.app ]; then
-    export GENYMOTION_APP_HOME="/Applications/Genymotion.app"
-  fi
-
-  export PGDATA=/usr/local/var/postgres
+if [ -e /Applications/Genymotion.app ]; then
+  export GENYMOTION_APP_HOME="/Applications/Genymotion.app"
+elif [ -e ~/Applications/Genymotion.app ]; then
+  export GENYMOTION_APP_HOME="~/Applications/Genymotion.app"
 fi
 
 ### Local settings
