@@ -13,8 +13,8 @@ alias dv="cd ~/Develop"
 alias dr="cd ~/Dropbox"
 
 
-### man ###
-if [ -e /Applications/Dash.localized/Dash.app ]; then
+### man
+if [ -e /Applications/Dash.localized/Dash.app -o -e /Applications/Dash.app ]; then
   function man_dash() { open "dash://m:$1" };
   alias m="man_dash"
 else

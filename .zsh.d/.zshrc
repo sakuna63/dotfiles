@@ -8,7 +8,7 @@ echo 'load .zshrc'
 # bindkey -v
 
 # 補完機能の設定
-autoload -U compinit; compinit
+autoload -U compinit; compinit -u
 # 入力しているコマンdの名画間違っている場合にもしかしたらを出す
 unsetopt correct
 # 色を使う

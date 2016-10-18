@@ -3,6 +3,5 @@
 # brew install android-ndk
 brew install android-sdk
 brew install dex2jar
-brew cask install genymotion
 # brew cask install java6
 brew cask install java7

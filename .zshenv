@@ -1,4 +1,4 @@
-echo 'load .zshenv'
+# echo 'load .zshenv'
 
 source ~/.zprezto/runcoms/zshenv
 
@@ -70,6 +70,7 @@ if which brew >/dev/null 2>&1; then
     $path
   )
   fpath=(
+    $(brew --prefix)/etc/zsh-completions
     $(brew --prefix)/share/zsh/site-functions
     $fpath
   )
@@ -77,18 +78,29 @@ fi
 
 export HOMEBREW_NO_ANALYTICS=1
 
-
 ### JAVA
-if [ -e /usr/libexec/java_home ]; then
+if [ -e /usr/libexec/java_home ] ; then
   export JAVA_HOME=$(/usr/libexec/java_home)
   export JAVA6_HOME=$(/usr/libexec/java_home -v 1.6)
   export JAVA7_HOME=$(/usr/libexec/java_home -v 1.7)
   export JAVA8_HOME=$(/usr/libexec/java_home -v 1.8)
 fi
 
+### GROOVY
+if which brew >/dev/null 2>&1; then
+  export GROOVY_HOME="$(brew --prefix)"/opt/groovy/libexec
+fi
+
 ### ANDROID
 if which brew >/dev/null 2>&1; then
   export ANDROID_HOME=$(brew --prefix)/opt/android-sdk
+  export PATH=$PATH:$ANDROID_HOME/platform-tools
+  export PATH=$PATH:$ANDROID_HOME/tools
+fi
+
+export STUDIO_JDK=$JAVA8_HOME
+if [ -n $JAVA8_HOME ]; then
+  export STUDIO_JDK=$JAVA7_HOME
 fi
 
 if [ -e /Applications/Genymotion.app ]; then

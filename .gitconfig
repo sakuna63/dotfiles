@@ -12,6 +12,7 @@
 
   cm = commit -v
   cma = commit --amend -v
+  cmf = "!r() { git commit --fixup=HEAD~$1; }; r"
 
   f = fetch
 
@@ -33,7 +34,9 @@
 
   s = status
   ss = stash save
-  sp = stash pop
+  ssh = "!r() { git stash show -p stash@{$1}; }; r"
+  sp = "!r() { git stash pop stash@{$1}; }; r"
+  sa = "!r() { git stash apply stash@{$1}; }; r"
   sl = stash list
 
   # Remove branches that have already been merged with master
@@ -41,6 +44,10 @@
   dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
   n = now --all --stat
+
+  ignore = !"f() { local s=$1; shift; \
+    while [ $# -gt 0 ]; do s=\"$s,$1\"; shift; done;\
+    curl \"https://www.gitignore.io/api/$s\"; }; f"
 
 [apply]
 
@@ -51,7 +58,7 @@
   editor = $EDITOR
   pager = less
 
-  excludesfile = /Users/sakuna63/.gitignore_global
+  excludesfile = ~/.gitignore_global
   attributesfile = ~/.gitattributes
 
   # Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -69,7 +76,7 @@
 
 [user]
   name = Ippei Nawate
-  email = saku.ni63@gmail.com
+	email = saku.ni63@gmail.com
 
 [color]
 
@@ -145,3 +152,7 @@
   helper = $GIT_CREDENTIAL_HELPER
 [rebase]
 	autosquash = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f

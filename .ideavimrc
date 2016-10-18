@@ -1,19 +1,32 @@
-"大文字小文字の区別なし
+" =============================
+" === General Configuration ===
+" =============================
+
+" case unsensitive search
 set ignorecase
-"検索時に大文字を含んでいたら大/小を区別
+" case sensitive search when query includes Big character
 set smartcase
-"検索対象をハイライト
-"ハイライトを消す場合は:noh[l]
+" highlight search result
 set hlsearch
-" MacOSのクリップボードと同期するようにする
+" sync clipboard with mac osx
 set clipboard=unnamed
-" 行番号表示の変更
+" show line number
 set number
-" set relativenumber
+
+" =============================
+" ===       Extensions      ===
+" =============================
+" https://github.com/JetBrains/ideavim#emulated-vim-plugins
+
+" Enable vim-surround
+set surround
+
+" =============================
+" ===     Key Mappings      ===
+" =============================
 
 "x キー削除でデフォルトレジスタに入れない
 nnoremap x "_x
-"vnoremap x "_x
 "vv で行末まで選択
 vnoremap v ^$h
 "選択範囲のインデントを連続して変更
@@ -24,12 +37,15 @@ inoremap jj <ESC>
 inoremap <C-j> <ESC>
 vnoremap <C-j> <ESC>
 cnoremap <C-j> <ESC>
+
 nnoremap ; :
 inoremap ; ;
 inoremap : :
 
 inoremap <C-a> <Esc>^i
 inoremap <C-e> <Esc><S-a>
-
 cnoremap <C-a> <Esc>^i
 cnoremap <C-e> <Esc><S-a>
+
+nnoremap tn :action VimMotionNextTab<CR>
+nnoremap tp :action VimMotionPreviousTab<CR>

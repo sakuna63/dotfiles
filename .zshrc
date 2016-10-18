@@ -6,4 +6,3 @@ if [ -e ~/.zshrc.local ]; then
   echo "load .zshrc.local"
   source ~/.zshrc.local
 fi
-
