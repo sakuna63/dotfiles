@@ -75,16 +75,15 @@ alias adb-install='find . -name "*.apk" | peco | xargs adbp install -r'
 alias adb-run='sh ~/.zsh.d/funcs/adb-run.sh'
 
 function gradlew() {
-  dir='.'
+  # find 'gradlew' file
+  local base_dir='.'
   if git rev-parse >/dev/null 2>&1; then
-    dir="`git rev-parse --show-toplevel`"
+    base_dir="`git rev-parse --show-toplevel`"
   fi
+  local path_to_gradlew=`find $base_dir -name gradlew`
 
-  current_dir=`pwd`
-  path_to_gradlew=`find $dir -name gradlew`
-  cd `dirname $path_to_gradlew`
-  ./gradlew $@
-  cd $current_dir
+  # execute gradle tasks($@)
+  $path_to_gradlew $@
 }
 alias glo='gradlew'
 alias gl='gradlew --offline'
