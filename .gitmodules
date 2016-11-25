@@ -25,3 +25,6 @@
 [submodule ".zprezto"]
 	path = .zprezto
 	url = https://github.com/sorin-ionescu/prezto/
+[submodule ".zsh.d/modules/zsh-autosuggestions"]
+	path = .zsh.d/modules/zsh-autosuggestions
+	url = git://github.com/zsh-users/zsh-autosuggestions
