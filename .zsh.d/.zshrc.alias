@@ -138,6 +138,16 @@ update() {
   if which yum >/dev/null 2>&1; then
     sudo yum update; sudo yum upgrade
   fi
+
+  if which pip >/dev/null 2>&1; then
+    pip install --upgrade pip
+    pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U
+  fi
+
+  if which pip3 >/dev/null 2>&1; then
+    pip3 install --upgrade pip3
+    pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U
+  fi
 }
 
 if which peco > /dev/null; then
