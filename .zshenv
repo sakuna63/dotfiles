@@ -94,6 +94,7 @@ fi
 ### ANDROID
 if which brew >/dev/null 2>&1; then
   export ANDROID_HOME=$(brew --prefix)/opt/android-sdk
+  export ANDROID_SDK=$(brew --prefix)/opt/android-sdk
   export PATH=$PATH:$ANDROID_HOME/platform-tools
   export PATH=$PATH:$ANDROID_HOME/tools
 fi
