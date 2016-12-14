@@ -13,6 +13,7 @@
   cm = commit -v
   cma = commit --amend -v
   cmf = "!r() { git commit --fixup=HEAD~$1; }; r"
+  cmfa = "!r() { git commit --amend --fixup=HEAD~$1; }; r"
 
   f = fetch
 
