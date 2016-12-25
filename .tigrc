@@ -6,5 +6,7 @@ set diff-context = 6
 # copy commit number
 # bind main C @sh -c "printf '%s' %(commit) | pbcopy"
 
-bind main    R !git rebase -i %(commit)
-bind diff    R !git rebase -i %(commit)
+bind generic e        !sh -c "$EDITOR %(file)"
+bind main    <Ctrl-R> !git rebase -i %(commit)
+bind diff    <Ctrl-R> !git rebase -i %(commit)
+bind diff    C        @git checkout %(commit) -- %(file)
