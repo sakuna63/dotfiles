@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# http://qiita.com/tomoima525/items/acab0f7badf6fa6f34ad
+
+set -e
+
+dir=________work
+input=$1
+output=${1%*.}.gif
+
+mkdir $dir
+ffmpeg -i $input -an -r 15 $dir/%04d.png
+convert $dir/*.png -resize 30% $dir/resize_%04d.png
+convert $dir/resize_*.png $dir/$output
+gifsicle -O3 < $dir/$output > $output # optimize gif size
+/bin/rm -r $dir

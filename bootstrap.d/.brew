@@ -66,10 +66,12 @@ brew install Caskroom/cask/xquartz
 brew install ag
 brew install argon/mas/mas
 brew install cliclick
+brew install ffmpeg
 brew install ghostscript
 brew install git
 brew install go
 brew install graphviz
+brew install gifsicle
 brew install heroku-toolbelt
 brew install hub
 brew install imagemagick --with-webp
