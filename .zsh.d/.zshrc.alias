@@ -72,7 +72,6 @@ alias adb-record='adbp shell screenrecord /sdcard/record.mp4; adbp pull /sdcard/
 alias adb-restart='adb kill-server; adb start-server'
 alias adb-uninstall='adbp shell pm list package | sed -e s/package:// | peco | xargs adbp uninstall'
 alias adb-install='find . -name "*.apk" | peco | xargs adbp install -r'
-alias adb-run='sh ~/.zsh.d/funcs/adb-run.sh'
 
 function gradlew() {
   # find 'gradlew' file
