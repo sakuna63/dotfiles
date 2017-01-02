@@ -47,14 +47,6 @@ else
 fi
 export PAGER=less
 
-if which rbenv >/dev/null 2>&1; then
-  eval "$(rbenv init -)"
-fi
-
-if which hub >/dev/null 2>&1; then
-  eval "$(hub alias -s)"
-fi
-
 if which git-credential-osxkeychain >/dev/null 2>&1; then
   export GIT_CREDENTIAL_HELPER=osxkeychain
 elif which git-credential-gnome-keyring >/dev/null 2>&1; then

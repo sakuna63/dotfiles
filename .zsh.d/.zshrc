@@ -46,6 +46,15 @@ zstyle ':completion:*:functions' ignored-patterns '_*'
 ## cd will never select the parent directory (e.g.: cd ../<TAB>):
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
+if which rbenv >/dev/null 2>&1; then
+  eval "$(rbenv init -)"
+fi
+
+if which hub >/dev/null 2>&1; then
+  eval "$(hub alias -s)"
+fi
+
+
 source ~/.zsh.d/.zshrc.modules
 source ~/.zsh.d/.zshrc.alias
 source ~/.zsh.d/.zshrc.last
