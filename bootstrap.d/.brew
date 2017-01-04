@@ -81,7 +81,7 @@ brew install macvim --override-system-vim --with-lua --with-luajit, --with-pytho
 brew install montage
 brew install nkf
 brew install peco
-brew install pidcat
+brew install phantomjs
 brew install rbenv
 brew install reattach-to-user-namespace
 brew install rename
@@ -113,13 +113,29 @@ brew cask install google-japanese-ime
 brew cask install hyperswitch
 brew cask install iterm2
 brew cask install karabiner
-brew cask install github-desktop
 brew cask install spectacle
 brew cask install the-unarchiver
 brew cask install virtualbox
+brew cask install rocket
 
 # Remove outdated versions from the cellar.
 brew cleanup -s
 brew cask cleanup
 
 brew linkapps
+
+# Optional cellers
+
+## Android
+# brew install android-ndk
+# brew install android-sdk
+# brew install dex2jar
+# brew install pidcat
+# brew cask install java6
+# brew cask install java7
+# brew cask install java
+# brew cask install genymotion
+
+## Others
+# brew install cloc
+# brew install node

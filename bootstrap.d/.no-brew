@@ -8,7 +8,7 @@ unzip DisableMonitor-G1.92.zip
 sudo mv DisableMonitor.app /Applications
 rm DisableMonitor-G1.92.zip
 
-# Install Apps in AppStore
+# Install Apps from AppStore
 
 if ! which mas >/dev/null 2>&1; then
   brew install argon/mas/mas
@@ -16,10 +16,10 @@ fi
 
 mas install 726099620 # Bee
 mas install 539883307 # LINE
-mas install 510934532 # FreeMan
+# mas install 510934532 # FreeMan
 mas install 425955336 # Skitch
 mas install 552383089 # Dashlane
-mas install 409789998 # Twitter
+# mas install 409789998 # Twitter
 mas install 557168941 # Tweetbot
 mas install 410628904 # Wunderlist
 mas install 449589707 # Dash
@@ -28,4 +28,4 @@ mas install 422304217 # Day One Classic
 mas install 803453959 # Slack
 mas install 445189367 # PopClip
 mas install 568494494 # Pocket
-mas install 497799835 # Xcode
+# mas install 497799835 # Xcode

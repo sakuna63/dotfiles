@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# brew install android-ndk
-brew install android-sdk
-brew install dex2jar
-# brew cask install java6
-brew cask install java7
