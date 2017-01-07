@@ -15,7 +15,6 @@ fi
 
 brew tap homebrew/binary
 brew tap caskroom/cask
-brew tap homebrew/homebrew-dupus
 brew tap homebrew/science
 brew tap homebrew/versions
 brew tap caskroom/versions
@@ -69,6 +68,7 @@ brew install cliclick
 brew install ffmpeg
 brew install ghostscript
 brew install git
+brew install ghq
 brew install go
 brew install graphviz
 brew install gifsicle
@@ -98,7 +98,7 @@ brew install vimpager
 
 # Install casks
 
-brew cask install alfred
+brew cask install alfred2
 brew cask install appcleaner
 brew cask install beardedspice
 brew cask install caffeine
