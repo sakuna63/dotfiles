@@ -8,6 +8,10 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+###############################################################################
+# HomeBrew                                                                    #
+###############################################################################
+
 # Install homebrew command
 if ! which brew >/dev/null 2>&1; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -77,7 +81,6 @@ brew install hub
 brew install imagemagick --with-webp
 brew install jad
 brew install jq
-brew install macvim --override-system-vim --with-lua --with-luajit, --with-python2
 brew install montage
 brew install nkf
 brew install peco
@@ -94,7 +97,6 @@ brew install tig
 brew install tmux
 brew install tree
 brew install vimpager
-# brew install wine
 
 # Install casks
 
@@ -139,3 +141,58 @@ brew linkapps
 ## Others
 # brew install cloc
 # brew install node
+# brew install wine
+
+###############################################################################
+# AppStore                                                                    #
+###############################################################################
+# Install Apps from AppStore
+
+if ! which mas >/dev/null 2>&1; then
+  brew install argon/mas/mas
+fi
+
+mas install 726099620 # Bee
+mas install 539883307 # LINE
+# mas install 510934532 # FreeMan
+mas install 425955336 # Skitch
+mas install 552383089 # Dashlane
+# mas install 409789998 # Twitter
+mas install 557168941 # Tweetbot
+mas install 410628904 # Wunderlist
+mas install 449589707 # Dash
+mas install 948415170 # Pushbullet
+mas install 422304217 # Day One Classic
+mas install 803453959 # Slack
+mas install 445189367 # PopClip
+mas install 568494494 # Pocket
+mas install 497799835 # Xcode
+
+sudo xcodebuild -license accept
+
+# Install macvim here because it depends on full installed XCode.app
+brew install macvim --override-system-vim --with-lua --with-luajit, --with-python2
+
+###############################################################################
+# Ruby Gems                                                                   #
+###############################################################################
+
+if [ `rbenv versions | wc -l` -eq 1 ]; then # system ruby only
+  latest_version=`rbenv install --list | sed 's/\s//g' | grep '^[0-9\.]\+$' | tail -n 1`
+  rbenv install $latest_version
+  rbenv rehash
+fi
+if ! which bundle >/dev/null 2>&1 ; then
+  sudo gem install bundler
+fi
+sudo bundle install
+
+###############################################################################
+# Others                                                                      #
+###############################################################################
+
+# DisableMonitor
+curl -L -O https://github.com/Eun/DisableMonitor/releases/download/G1.92/DisableMonitor-G1.92.zip
+unzip DisableMonitor-G1.92.zip
+sudo mv DisableMonitor.app /Applications
+rm DisableMonitor-G1.92.zip
