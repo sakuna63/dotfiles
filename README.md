@@ -14,6 +14,7 @@ $ ./bootstrap.sh
 - [ ] Check display density settings for Ratina
 - Check keyboard settings
     - [ ] Remap CapsLock to Ctrl
+    - [ ] Disable "Auto Spelling Translation"
     - [ ] Uncheck all "Mission Control" shortcuts
     - [ ] Uncheck all "Spotlight" shortcuts
     - [ ] Change "Input source" shortcuts("^\<Space\>" to "⌘\<Space\>")
