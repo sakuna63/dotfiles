@@ -6,7 +6,6 @@ $ ./bootstrap.sh
 && bootstrap.d/.no-brew
 && bootstrap.d/.zsh
 && bootstrap.d/.vim
-&& bootstrap.d/.tmux
 && bootstrap.d/.osx
 ```
 

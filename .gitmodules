@@ -28,3 +28,6 @@
 [submodule ".zsh.d/modules/zsh-autosuggestions"]
 	path = .zsh.d/modules/zsh-autosuggestions
 	url = git://github.com/zsh-users/zsh-autosuggestions
+[submodule ".tmux.d/tmux-powerline"]
+	path = .tmux.d/tmux-powerline
+	url = https://github.com/erikw/tmux-powerline
