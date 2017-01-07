@@ -17,8 +17,7 @@ $ ./bootstrap.sh
     - [ ] Remap CapsLock to Ctrl
     - [ ] Uncheck all "Mission Control" shortcuts
     - [ ] Uncheck all "Spotlight" shortcuts
-    - [ ] Change "Input source" shortcuts
-        - "^<Space>" to "⌘<Space>"    
+    - [ ] Change "Input source" shortcuts("^\<Space\>" to "⌘\<Space\>")
 - Check trackpad settings
     - [ ] Accelerate pointer movement
     - [ ] Enable all gestures
