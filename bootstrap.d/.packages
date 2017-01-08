@@ -104,6 +104,7 @@ brew cask install alfred2
 brew cask install appcleaner
 brew cask install beardedspice
 brew cask install caffeine
+brew cask install dash
 brew cask install day-o
 brew cask install disk-inventory-x
 brew cask install dropbox
@@ -160,7 +161,6 @@ mas install 552383089 # Dashlane
 # mas install 409789998 # Twitter
 mas install 557168941 # Tweetbot
 mas install 410628904 # Wunderlist
-mas install 449589707 # Dash
 mas install 948415170 # Pushbullet
 mas install 422304217 # Day One Classic
 mas install 803453959 # Slack
