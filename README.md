@@ -22,5 +22,9 @@ $ ./bootstrap.sh
     - [ ] Accelerate pointer movement
     - [ ] Enable all gestures
 - [ ] Login iCloud
-- [ ] Install below apps
+- [ ] Install following apps
     - [GoogleChrome](https://www.google.com/chrome/browser/desktop/index.html)
+- [ ] Activate following apps
+    - Fantastical2
+    - Dash
+    - Alfred
