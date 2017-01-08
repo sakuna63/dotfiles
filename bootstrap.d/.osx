@@ -781,6 +781,13 @@ defaults write com.kapeli.dashdoc syncFolderPath -string "~/Dropbox/Configuratio
 defaults write com.lightheadsw.Caffeine ActivateOnLaunch -int 1
 
 ###############################################################################
+# Rocket
+###############################################################################
+
+defaults write net.matthewpalmer.Rocket "deactivated-apps" -array \
+    Slack HipChat Xcode Terminal iTerm2 "Sublime Text" "Sublime Text 2" "Android Studio" "IntelliJ IDEA" "AppCode" "MacVim"
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
@@ -789,7 +796,7 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
   "Opera" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
   "Transmission" "Twitter" "iCal" "Dash" "Karabiner" "Android\ Studio" "Intellij\ idea14" \
   "GoogleJapaneseInput" "Alfred" "PopClip" "Evernote" "Caffeine" "Pocket" \
-  "Flux" "AppCleaner" "Photos" "HyperSwitch" ; do
+  "Flux" "AppCleaner" "Photos" "HyperSwitch" "Rocket"; do
   killall "${app}" > /dev/null 2>&1
 done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
