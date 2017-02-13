@@ -61,7 +61,7 @@ brew install homebrew/dupes/openssh
 
 # Install font
 brew install ricty --vim-powerline
-cp -f $(brew --cellar)/ricty/3.2.4/share/fonts/Ricty*.ttf ~/Library/Fonts/
+cp -f $(brew --prefix)/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
 fc-cache -vf
 
 # Install other useful binaries.
