@@ -85,10 +85,14 @@ fi
 
 ### ANDROID
 if which brew >/dev/null 2>&1; then
-  export ANDROID_HOME=$(brew --prefix)/opt/android-sdk
-  export ANDROID_SDK=$(brew --prefix)/opt/android-sdk
+  export ANDROID_HOME=~/Library/Android/sdk
+  export ANDROID_SDK=~/Library/Android/sdk
   export PATH=$PATH:$ANDROID_HOME/platform-tools
   export PATH=$PATH:$ANDROID_HOME/tools
+  export PATH=$PATH:$ANDROID_HOME/tools/bin
+
+  latest_ver="`ls $ANDROID_HOME/build-tools | tail -n 1`"
+  export PATH=$PATH:$ANDROID_HOME/build-tools/$latest_ver
 fi
 
 export STUDIO_JDK=$JAVA8_HOME
