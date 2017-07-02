@@ -87,6 +87,7 @@ fi
 if which brew >/dev/null 2>&1; then
   export ANDROID_HOME=~/Library/Android/sdk
   export ANDROID_SDK=~/Library/Android/sdk
+  export ANDROID_SDK_ROOT=~/Library/Android/sdk
   export PATH=$PATH:$ANDROID_HOME/platform-tools
   export PATH=$PATH:$ANDROID_HOME/tools
   export PATH=$PATH:$ANDROID_HOME/tools/bin
