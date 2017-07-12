@@ -6,7 +6,6 @@ set nocompatible
 
 set number                      " Show line numbers
 set backspace=indent,eol,start  " Allow backspace in insert mode
-set history=1000                " Store lots of :cmdline history
 set showcmd                     " Show incomplete cmds down the bottom
 set showmode                    " Show current mode down the bottom
 set gcr=a:blinkon0              " Disable cursor blink
@@ -203,6 +202,6 @@ let g:vim_json_syntax_conceal = 0
 " ===================================================
 " ================= Bundle  =========================
 
-if filereadable(expand("~/.vim/.vimrc.bundle"))
-  so ~/.vim/.vimrc.bundle
-endif
+" if filereadable(expand("~/.vim/.vimrc.bundle"))
+"   so ~/.vim/.vimrc.bundle
+" endif

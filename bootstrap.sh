@@ -3,7 +3,7 @@
 git pull origin master;
 
 files="./.*"
-excludes=(".gitignore", ".gitmodules" ".git" "." "..")
+excludes=(".bundle" ".gitignore" ".gitmodules" ".git" "." "..")
 
 function is_excluded() {
   for exclude in ${excludes[@]}; do
@@ -28,7 +28,12 @@ function doIt() {
   if [ ! -e ~/.gradle ]; then
     mkdir ~/.gradle
   fi
-  ln -sf ~/dotfiles/gradle.properties ~/.gradle/gradle.properties
+  ln -sf ~/dotfiles/.gradle/gradle.properties ~/.gradle/gradle.properties
+
+  if [ ! -e ~/.config ]; then
+    mkdir ~/.config
+  fi
+  ln -sf ~/dotfiles/.config/nvim ~/.gradle/.config/nvim
 
   git submodule update --init --recursive
 }

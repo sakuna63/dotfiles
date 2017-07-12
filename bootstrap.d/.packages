@@ -171,7 +171,7 @@ mas install 497799835 # Xcode
 sudo xcodebuild -license accept
 
 # Install macvim here because it depends on full installed XCode.app
-brew install macvim --override-system-vim --with-lua --with-luajit, --with-python2
+# brew install macvim --override-system-vim --with-lua --with-luajit, --with-python2
 
 ###############################################################################
 # Ruby Gems                                                                   #
