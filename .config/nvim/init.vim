@@ -1,6 +1,3 @@
-" Disable vi compatibility
-set nocompatible
-
 " ===================================================
 " ================ General Config ====================
 
@@ -200,11 +197,7 @@ let g:tex_conceal=''
 let g:vim_json_syntax_conceal = 0
 
 " ===================================================
-" ================= dein.vim  =========================
-
-if &compatible
-  set nocompatible
-endif
+" ================ dein.vim  ========================
 
 " Required:
 set runtimepath+=/Users/sakuna63/.config/nvim/repos/github.com/Shougo/dein.vim
@@ -213,16 +206,8 @@ set runtimepath+=/Users/sakuna63/.config/nvim/repos/github.com/Shougo/dein.vim
 if dein#load_state('/Users/sakuna63/.config/nvim')
   call dein#begin('/Users/sakuna63/.config/nvim')
 
-  " Let dein manage dein
-  " Required:
-  call dein#add('/Users/sakuna63/.config/nvim/repos/github.com/Shougo/dein.vim')
-
-  " Add or remove your plugins here:
-  call dein#add('Shougo/neosnippet.vim')
-  call dein#add('Shougo/neosnippet-snippets')
-
-  " You can specify revision/branch/tag.
-  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+  let s:toml = '~/.config/nvim/plugins.toml'
+  call dein#load_toml(s:toml, {'lazy': 0})
 
   " Required:
   call dein#end()
@@ -234,6 +219,72 @@ filetype plugin indent on
 syntax enable
 
 " If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+if dein#check_install()
+  call dein#install()
+endif
+
+" ===================================================
+" ================ deoplete.vim ====================
+let g:deoplete#enable_at_startup = 1
+
+" ===================================================
+" ================ denite.vim =======================
+
+nnoremap [denite] <Nop>
+nmap <Leader>u [denite]
+
+nnoremap <silent> [denite]u :Denite file file_mru<CR>
+nnoremap <silent> [denite]g :Denite file file_rec<CR>
+nnoremap <silent> [denite]o :Denite outline<CR>
+nnoremap <silent> [denite]h :Denite help<CR>
+
+" Custom key mappings on unite buffer
+call denite#custom#map(
+      \ 'insert',
+      \ '<Down>',
+      \ '<denite:move_to_next_line>',
+      \ 'noremap'
+      \)
+call denite#custom#map(
+      \ 'insert',
+      \ '<Up>',
+      \ '<denite:move_to_previous_line>',
+      \ 'noremap'
+      \)
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-n>',
+      \ '<denite:move_to_next_line>',
+      \ 'noremap'
+      \)
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-p>',
+      \ '<denite:move_to_previous_line>',
+      \ 'noremap'
+      \)
+
+" Ag command on file_rec source
+call denite#custom#var('file_rec', 'command',
+      \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+
+" Ag command on grep source
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts',
+      \ ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+" ===================================================
+" ================ vim-over =========================
+nnoremap <silent> <Leader>s :OverCommandLine %s/<CR>
+vnoremap <silent> <Leader>s :OverCommandLine s/<CR>
+" replace word under cursor with highlight
+nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+
+" ===================================================
+" ================ tcomment_vim =====================
+nnoremap <silent> <Leader>c :TComment<CR>
+vnoremap <silent> <Leader>c :TComment<CR>

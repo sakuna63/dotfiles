@@ -1,0 +1,36 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+[[plugins]]
+# deoplete source for ruby
+repo = 'fishbullet/deoplete-ruby'
+
+[[plugins]]
+# deoplete source for python
+repo = 'zchee/deoplete-jedi'
+
+[[plugins]]
+# deoplete source for zsh
+repo = 'zchee/deoplete-zsh'
+
+[[plugins]]
+# denite mru source
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'h1mesuke/vim-alignta'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
