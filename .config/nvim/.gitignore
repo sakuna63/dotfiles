@@ -1,3 +1,4 @@
+/.cache/*
 /undo/*
 !/undo/.gitkeep
 /swap/*
@@ -11,5 +12,6 @@
 /doc/*
 !/doc/.gitkeep
 .netrwhist
+
 cache_nvim
-/.cache/*
+state_nvim.vim
