@@ -200,8 +200,40 @@ let g:tex_conceal=''
 let g:vim_json_syntax_conceal = 0
 
 " ===================================================
-" ================= Bundle  =========================
+" ================= dein.vim  =========================
 
-" if filereadable(expand("~/.vim/.vimrc.bundle"))
-"   so ~/.vim/.vimrc.bundle
-" endif
+if &compatible
+  set nocompatible
+endif
+
+" Required:
+set runtimepath+=/Users/sakuna63/.config/nvim/repos/github.com/Shougo/dein.vim
+
+" Required:
+if dein#load_state('/Users/sakuna63/.config/nvim')
+  call dein#begin('/Users/sakuna63/.config/nvim')
+
+  " Let dein manage dein
+  " Required:
+  call dein#add('/Users/sakuna63/.config/nvim/repos/github.com/Shougo/dein.vim')
+
+  " Add or remove your plugins here:
+  call dein#add('Shougo/neosnippet.vim')
+  call dein#add('Shougo/neosnippet-snippets')
+
+  " You can specify revision/branch/tag.
+  call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+
+  " Required:
+  call dein#end()
+  call dein#save_state()
+endif
+
+" Required:
+filetype plugin indent on
+syntax enable
+
+" If you want to install not installed plugins on startup.
+"if dein#check_install()
+"  call dein#install()
+"endif

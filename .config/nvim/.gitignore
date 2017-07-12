@@ -6,8 +6,10 @@
 !/backup/.gitkeep
 /syntax/*
 !/syntax/.gitkeep
-/bundle/*
-!/bundle/.gitkeep
+/repos/*
+!/repos/.gitkeep
 /doc/*
 !/doc/.gitkeep
 .netrwhist
+cache_nvim
+/.cache/*

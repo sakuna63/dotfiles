@@ -1,0 +1,1 @@
+/Users/sakuna63/dotfiles/.zsh.d

@@ -1,6 +1,3 @@
-[submodule ".vim/bundle/neobundle.vim"]
-	path = .vim/bundle/neobundle.vim
-	url = https://github.com/Shougo/neobundle.vim
 [submodule ".zsh.d/modules/genymotion-peco"]
 	path = .zsh.d/modules/genymotion-peco
 	url = https://github.com/sys1yagi/genymotion-peco
