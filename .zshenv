@@ -32,7 +32,9 @@ fpath=(
 )
 
 ### Settings depending on specific commands
-if which vim >/dev/null 2>&1; then
+if which nvim >/dev/null 2>&1; then
+  export EDITOR=nvim
+elif which vim >/dev/null 2>&1; then
   export EDITOR=vim
 elif which vimx >/dev/null 2>&1; then
   export EDITOR=vimx
