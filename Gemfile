@@ -13,3 +13,5 @@ gem 'poltergeist'
 gem 'trollop'
 gem 'pry'
 gem 'pry-byebug'
+
+gem 'neovim'
