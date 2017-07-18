@@ -200,11 +200,11 @@ let g:vim_json_syntax_conceal = 0
 " ================ dein.vim  ========================
 
 " Required:
-set runtimepath+=/Users/sakuna63/.config/nvim/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.config/nvim/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/Users/sakuna63/.config/nvim')
-  call dein#begin('/Users/sakuna63/.config/nvim')
+if dein#load_state('~/.config/nvim')
+  call dein#begin('~/.config/nvim')
 
   let s:toml = '~/.config/nvim/plugins.toml'
   call dein#load_toml(s:toml, {'lazy': 0})
