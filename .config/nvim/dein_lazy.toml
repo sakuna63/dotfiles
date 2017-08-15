@@ -1,0 +1,68 @@
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+on_cmd = 'Denite'
+depends = 'neomru.vim'
+hook_add ='''
+nnoremap [denite] <Nop>
+nmap <Leader>u [denite]
+
+nnoremap <silent> [denite]u :Denite file file_mru<CR>
+nnoremap <silent> [denite]g :Denite file file_rec<CR>
+nnoremap <silent> [denite]o :Denite outline<CR>
+nnoremap <silent> [denite]h :Denite help<CR>
+nnoremap <silent> [denite]f :VimFiler<CR> "WARN: vimfiler uses and depends on unite 
+'''
+hook_source ='''
+source ~/.config/nvim/plugins/denite.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/vimfiler.vim'
+on_cmd = 'VimFiler'
+depends = 'unite.vim'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = "has('nvim')"
+on_event = 'InsertEnter'
+hook_source ='''
+source ~/.config/nvim/plugins/deoplete.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/deoplete-rct'
+depends = 'deoplete.nvim'
+on_ft = 'ruby'
+
+[[plugins]]
+repo = 'zchee/deoplete-zsh'
+depends = 'deoplete.nvim'
+on_ft = 'zsh'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+on_cmd = 'OverCommandLine'
+hook_add ='''
+nnoremap <silent> <Leader>s :OverCommandLine %s/<CR>
+vnoremap <silent> <Leader>s :OverCommandLine s/<CR>
+" replace word under cursor with highlight
+nnoremap sub :OverCommandLine<CR>%s/<C-r><C-w>//g<Left><Left>
+'''
+
+[[plugins]]
+repo = 'h1mesuke/vim-alignta'
+on_cmd = 'Alignta'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+on_cmd = 'NERDTree'
