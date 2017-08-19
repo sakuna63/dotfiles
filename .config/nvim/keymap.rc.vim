@@ -42,6 +42,11 @@ nnoremap <silent> gn :bnext<CR>
 nnoremap <silent> bp :bprevious<CR>
 nnoremap <silent> bn :bnext<CR>
 
+" Terminal mode
+if has('nvim')
+  tnoremap <silent> <ESC> <C-\><C-n>
+endif
+
 " Tab Control {{{
 
 " Anywhere SID.
