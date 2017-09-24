@@ -118,7 +118,7 @@ alias ghqo='gh-open $(ghq list -p | peco)'
 ### update
 update() {
   if which brew >/dev/null 2>&1; then
-    brew update; brew upgrade -all; /bin/rm -rf $(brew --cache); brew linkapps
+    brew update; brew upgrade -all; /bin/rm -rf $(brew --cache); brew cleanup -s; brew linkapps
   fi
 
   if which gem >/dev/null 2>&1; then
@@ -143,9 +143,14 @@ update() {
     pip freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U
   fi
 
+  if which pip2 >/dev/null 2>&1; then
+    pip2 install --upgrade pip
+    pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip2 install -U
+  fi
+
   if which pip3 >/dev/null 2>&1; then
-    pip3 install --upgrade pip3
-    pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip install -U
+    pip3 install --upgrade pip
+    pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1 | xargs pip3 install -U
   fi
 }
 
