@@ -11,3 +11,5 @@
 .netrwhist
 
 cache_nvim
+.cache
+repos
