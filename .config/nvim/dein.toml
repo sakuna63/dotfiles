@@ -6,3 +6,6 @@ repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'jonathanfilip/vim-lucius'

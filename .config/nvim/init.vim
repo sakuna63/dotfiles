@@ -53,5 +53,16 @@ if dein#check_install()
   call dein#install()
 endif
 
+" ===================================================
+" =============== color scheme ======================
+
+colorscheme lucius
+LuciusBlack
+set t_Co=256¬
+set termguicolors
+
+" ===================================================
+" =============== load configs ======================
+
 runtime! options.rc.vim
 runtime! keymap.rc.vim
