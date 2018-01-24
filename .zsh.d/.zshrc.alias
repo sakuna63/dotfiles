@@ -59,7 +59,7 @@ function find_device()
 function adb-capture()
 {
   local device=`find_device`
-  local name=${1:-screenshot.png}
+  local name=${1:-screenshot-$(date +%s).png}
   adb -s $device shell screencap -p /sdcard/$name
   adb -s $device pull /sdcard/$name
   adb -s $device shell rm /sdcard/$name
