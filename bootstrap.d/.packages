@@ -81,10 +81,13 @@ brew install hub
 brew install imagemagick --with-webp
 brew install jad
 brew install jq
+brew install neovim
 brew install montage
 brew install nkf
 brew install peco
 brew install phantomjs
+brew install python@2
+brew install python
 brew install rbenv
 brew install reattach-to-user-namespace
 brew install rename
@@ -121,6 +124,7 @@ brew cask install karabiner-elements
 brew cask install spectacle
 brew cask install the-unarchiver
 brew cask install virtualbox
+brew cask install vimr
 brew cask install vlc
 brew cask install rocket
 brew cask install xmind
@@ -145,7 +149,7 @@ brew linkapps
 
 ## Others
 # brew install cloc
-# brew install node
+brew install npm
 # brew install wine
 
 ###############################################################################
@@ -175,8 +179,11 @@ mas install 497799835 # Xcode
 
 sudo xcodebuild -license accept
 
-# Install macvim here because it depends on full installed XCode.app
-# brew install macvim --override-system-vim --with-lua --with-luajit, --with-python2
+###############################################################################
+# npm                                                                         #
+###############################################################################
+
+npm install -g neovim
 
 ###############################################################################
 # Ruby Gems                                                                   #
@@ -198,8 +205,10 @@ sudo bundle install
 ###############################################################################
 
 pip2 install --upgrade pip
+pip2 install --user --upgrade neovim
 
 pip3 install --upgrade pip
+pip3 install --user --upgrade neovim
 
 ###############################################################################
 # Others                                                                      #
