@@ -28,9 +28,9 @@ set nowb
 
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
-" if has('persistent_undo') && !isdirectory(expand('~').'/.vim/backup')
-silent !mkdir ~/.vim/backup > /dev/null 2>&1
-set undodir=~/.vim/backup
+" if has('persistent_undo') && !isdirectory(expand('~').'/.config/nvim/backup')
+silent !mkdir ~/.config/nvim/backup > /dev/null 2>&1
+set undodir=~/.config/nvim/backup
 set undofile
 " endif
 
