@@ -22,14 +22,14 @@ brew tap caskroom/cask
 brew tap homebrew/science
 brew tap homebrew/versions
 brew tap caskroom/versions
-brew tap peco/peco
+brew tap caskroom/fonts
 brew tap sanemat/font
 
 # Make sure we’re using the latest Homebrew.
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade --all
+brew upgrade
 
 # Install GNU utilities (those that come with OS X are outdated).
 brew install binutils
@@ -102,7 +102,7 @@ brew install vimpager
 
 brew cask install alfred2
 brew cask install appcleaner
-brew cask install beardedspice
+# brew cask install beardedspice
 brew cask install caffeine
 brew cask install dash
 brew cask install day-o
@@ -110,16 +110,20 @@ brew cask install disk-inventory-x
 brew cask install dropbox
 brew cask install evernote
 brew cask install fantastical
+brew cask install font-noto-sans-cjk-jp
 brew cask install flux
-brew cask install google-drive
+# brew cask install google-drive
 brew cask install google-japanese-ime
 brew cask install hyperswitch
 brew cask install iterm2
-brew cask install karabiner
+brew cask install jetbrains-toolbox
+brew cask install karabiner-elements
 brew cask install spectacle
 brew cask install the-unarchiver
 brew cask install virtualbox
+brew cask install vlc
 brew cask install rocket
+brew cask install xmind
 
 # Remove outdated versions from the cellar.
 brew cleanup -s
@@ -154,7 +158,7 @@ if ! which mas >/dev/null 2>&1; then
 fi
 
 mas install 726099620 # Bee
-mas install 539883307 # LINE
+# mas install 539883307 # LINE
 # mas install 510934532 # FreeMan
 mas install 425955336 # Skitch
 mas install 552383089 # Dashlane
@@ -162,10 +166,11 @@ mas install 552383089 # Dashlane
 mas install 557168941 # Tweetbot
 mas install 410628904 # Wunderlist
 mas install 948415170 # Pushbullet
-mas install 422304217 # Day One Classic
+# mas install 422304217 # Day One Classic
 mas install 803453959 # Slack
 mas install 445189367 # PopClip
 mas install 568494494 # Pocket
+mas install 461504587 # Trello
 mas install 497799835 # Xcode
 
 sudo xcodebuild -license accept
@@ -180,12 +185,21 @@ sudo xcodebuild -license accept
 if [ `rbenv versions | wc -l` -eq 1 ]; then # system ruby only
   latest_version=`rbenv install --list | sed 's/\s//g' | grep '^[0-9\.]\+$' | tail -n 1`
   rbenv install $latest_version
+  rbenv global $latest_version
   rbenv rehash
 fi
 if ! which bundle >/dev/null 2>&1 ; then
-  sudo gem install bundler
+  gem install bundler
 fi
 sudo bundle install
+
+###############################################################################
+# PyPI                                                                        #
+###############################################################################
+
+pip2 install --upgrade pip
+
+pip3 install --upgrade pip
 
 ###############################################################################
 # Others                                                                      #
