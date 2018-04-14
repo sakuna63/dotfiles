@@ -69,6 +69,7 @@ brew install Caskroom/cask/xquartz
 brew install ag
 brew install argon/mas/mas
 brew install cliclick
+brew install ctags # to use `Denite outline`
 brew install ffmpeg
 brew install ghostscript
 brew install git

@@ -26,6 +26,7 @@ if which vimx >/dev/null 2>&1; then
   alias vim=vimx
 fi
 alias v=vim
+alias ctags="`brew --prefix`/bin/ctags" # to use `Denite outline`
 
 ### rm
 if which rmtrash >/dev/null 2>&1; then

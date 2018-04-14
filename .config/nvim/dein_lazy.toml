@@ -12,8 +12,8 @@ hook_add ='''
 nnoremap [denite] <Nop>
 nmap <Leader>u [denite]
 
-nnoremap <silent> [denite]u :Denite file file_mru<CR>
-nnoremap <silent> [denite]g :Denite file file_rec<CR>
+nnoremap <silent> [denite]u :Denite file:new buffer file_mru<CR>
+nnoremap <silent> [denite]g :Denite grep<CR>
 nnoremap <silent> [denite]o :Denite outline<CR>
 nnoremap <silent> [denite]h :Denite help<CR>
 nnoremap <silent> [denite]f :VimFiler<CR> "WARN: vimfiler uses and depends on unite 
