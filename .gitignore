@@ -1,2 +1,4 @@
 Gemfile.lock
 .bundle
+.config/hub
+.config/configstore/update-notifier-npm.json
