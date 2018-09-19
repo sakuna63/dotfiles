@@ -49,9 +49,9 @@ else
 fi
 export PAGER=less
 
-if which git-credential-osxkeychain >/dev/null 2>&1; then
+if git help -a | grep credential-osxkeychain >/dev/null 2>&1; then
   export GIT_CREDENTIAL_HELPER=osxkeychain
-elif which git-credential-gnome-keyring >/dev/null 2>&1; then
+elif git help -a | grep credential-gnome-keyring >/dev/null 2>&1; then
   export GIT_CREDENTIAL_HELPER=git-credential-gnome-keyring
 elif which gnome-keyring >/dev/null 2>&1; then
   export GIT_CREDENTIAL_HELPER=gnome-keyring
