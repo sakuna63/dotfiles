@@ -75,9 +75,12 @@ export HOMEBREW_NO_ANALYTICS=1
 ### JAVA
 if [ -e /usr/libexec/java_home ] ; then
   export JAVA_HOME=$(/usr/libexec/java_home)
-  export JAVA6_HOME=$(/usr/libexec/java_home -v 1.6)
-  export JAVA7_HOME=$(/usr/libexec/java_home -v 1.7)
-  export JAVA8_HOME=$(/usr/libexec/java_home -v 1.8)
+
+  for v in 6 7 8 9 10 11; do
+    if /usr/libexec/java_home -v 1.$v >/dev/null 2>&1; then
+      export JAVA${v}_HOME=$(/usr/libexec/java_home -v 1.$v)
+    fi
+  done
 fi
 
 ### GROOVY
