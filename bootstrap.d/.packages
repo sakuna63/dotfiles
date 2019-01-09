@@ -132,9 +132,6 @@ brew cask install xmind
 
 # Remove outdated versions from the cellar.
 brew cleanup -s
-brew cask cleanup
-
-brew linkapps
 
 # Optional cellers
 
@@ -162,7 +159,6 @@ if ! which mas >/dev/null 2>&1; then
   brew install argon/mas/mas
 fi
 
-mas install 726099620 # Bee
 # mas install 539883307 # LINE
 # mas install 510934532 # FreeMan
 mas install 425955336 # Skitch
@@ -170,12 +166,12 @@ mas install 552383089 # Dashlane
 # mas install 409789998 # Twitter
 mas install 557168941 # Tweetbot
 mas install 410628904 # Wunderlist
-mas install 948415170 # Pushbullet
+# mas install 948415170 # Pushbullet
 # mas install 422304217 # Day One Classic
 mas install 803453959 # Slack
 mas install 445189367 # PopClip
 mas install 568494494 # Pocket
-mas install 461504587 # Trello
+# mas install 461504587 # Trello
 mas install 497799835 # Xcode
 
 sudo xcodebuild -license accept
