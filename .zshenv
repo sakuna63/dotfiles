@@ -74,7 +74,9 @@ export HOMEBREW_NO_ANALYTICS=1
 
 ### JAVA
 if [ -e /usr/libexec/java_home ] ; then
-  export JAVA_HOME=$(/usr/libexec/java_home)
+  if /usr/libexec/java_home >/dev/null 2>&1; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+  fi
 
   for v in 6 7 8 9 10 11; do
     if /usr/libexec/java_home -v 1.$v >/dev/null 2>&1; then
@@ -89,7 +91,7 @@ if which brew >/dev/null 2>&1; then
 fi
 
 ### ANDROID
-if which brew >/dev/null 2>&1; then
+if [ -e ~/Library/Android/sdk ] ; then
   export ANDROID_HOME=~/Library/Android/sdk
   export ANDROID_SDK=~/Library/Android/sdk
   export ANDROID_SDK_ROOT=~/Library/Android/sdk
@@ -101,9 +103,11 @@ if which brew >/dev/null 2>&1; then
   export PATH=$PATH:$ANDROID_HOME/build-tools/$latest_ver
 fi
 
-export STUDIO_JDK=$JAVA8_HOME
-if [ -n $JAVA8_HOME ]; then
-  export STUDIO_JDK=$JAVA7_HOME
+if [ -e $JAVA8_HOME ]; then
+  export STUDIO_JDK=$JAVA8_HOME
+  if [ -n $JAVA8_HOME ]; then
+    export STUDIO_JDK=$JAVA7_HOME
+  fi
 fi
 
 if [ -e /Applications/Genymotion.app ]; then
