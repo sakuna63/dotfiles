@@ -195,7 +195,7 @@ fi
 if ! which bundle >/dev/null 2>&1 ; then
   gem install bundler
 fi
-sudo bundle install
+bundle install
 
 ###############################################################################
 # PyPI                                                                        #
