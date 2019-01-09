@@ -33,7 +33,7 @@ function doIt() {
   if [ ! -e ~/.config ]; then
     mkdir ~/.config
   fi
-  ln -sf ~/dotfiles/.config/nvim ~/.config/nvim
+  ln -sf ~/dotfiles/.config/* ~/.config
 
   git submodule update --init --recursive
 }
