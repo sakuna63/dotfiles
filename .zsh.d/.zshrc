@@ -30,6 +30,10 @@ zstyle ":chpwd:*" recent-dirs-max 500
 zstyle ":chpwd:*" recent-dirs-default true
 zstyle ":completion:*" recent-dirs-insert always
 
+# http://mollifier.hatenablog.com/entry/20101227/p1
+autoload -Uz zmv
+alias zmv='noglob zmv -W'
+
 ### ref: http://grml.org/zsh/zsh-lovers.html
 # Some functions, like _apt and _dpkg, are very slow. You can use a cache in order to proxy the list of results (like the list of available debian packages) Use a cache:
 zstyle ':completion:*' use-cache on
