@@ -119,7 +119,7 @@ alias ghqo='gh-open $(ghq list -p | peco)'
 ### update
 update() {
   if which brew >/dev/null 2>&1; then
-    brew update; brew upgrade -all; /bin/rm -rf $(brew --cache); brew cleanup -s
+    brew update; brew upgrade; /bin/rm -rf $(brew --cache); brew cleanup -s
   fi
 
   if which gem >/dev/null 2>&1; then
