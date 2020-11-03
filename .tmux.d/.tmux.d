@@ -1,1 +1,0 @@
-/Users/sakuna63/dotfiles/.tmux.d
