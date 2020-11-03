@@ -21,7 +21,7 @@ function doIt() {
     filename=$(basename $filepath)
     is_excluded $filename
     if [ $? == 0 ]; then
-      ln -sf $(pwd)/$filename $HOME/$filename
+      ln -sf $(pwd)/$filename $HOME
     fi
   done
 
