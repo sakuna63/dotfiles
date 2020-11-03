@@ -36,12 +36,6 @@ vnoremap > >gv
 " Map ; to : for US key mapping
 nnoremap ; :
 
-" Buffer browsing
-nnoremap <silent> gp :bprevious<CR>
-nnoremap <silent> gn :bnext<CR>
-nnoremap <silent> bp :bprevious<CR>
-nnoremap <silent> bn :bnext<CR>
-
 " Terminal mode
 if has('nvim')
   tnoremap <silent> <ESC> <C-\><C-n>

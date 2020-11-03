@@ -45,11 +45,7 @@ set softtabstop=2               " <TAB> width for bacsspace and manual tab inser
 set tabstop=2                   " <TAB> width to show a <TAB> in display
 set expandtab                   " Use spaces insted of <TAB>
 
-" Auto indent pasted text
-nnoremap p p=`]<C-o>
-nnoremap P P=`]<C-o>
-
-set wrap                      " wrap lines
+set wrap                        " wrap lines
 " set nowrap                      " Don't wrap lines
 
 " ===================================================
