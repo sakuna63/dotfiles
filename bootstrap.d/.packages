@@ -12,17 +12,16 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 # HomeBrew                                                                    #
 ###############################################################################
 
+BREW_PREFIX=$(brew --prefix)
+
 # Install homebrew command
 if ! which brew >/dev/null 2>&1; then
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
-brew tap homebrew/binary
-brew tap caskroom/cask
-brew tap homebrew/science
-brew tap homebrew/versions
-brew tap caskroom/versions
-brew tap caskroom/fonts
+brew tap homebrew/cask
+brew tap homebrew/cask-versions
+brew tap homebrew/cask-fonts
 brew tap sanemat/font
 
 # Make sure we’re using the latest Homebrew.
@@ -36,13 +35,13 @@ brew install binutils
 brew install coreutils
 sudo ln -s /usr/local/bin/gsha256sum /usr/local/bin/sha256sum
 brew install diffutils
-brew install findutils --with-default-names
+brew install findutils 
 brew install moreutils
 brew install gawk
-brew install gnu-sed --with-default-names
-brew install gnu-tar --with-default-names
-brew install gnu-which --with-default-names
-brew install grep --with-default-names
+brew install gnu-sed 
+brew install gnu-tar 
+brew install gnu-which 
+brew install grep 
 brew install gzip
 brew install wdiff --with-gettext
 brew install wget --with-iri
@@ -60,34 +59,32 @@ brew install homebrew/dupes/grep
 brew install homebrew/dupes/openssh
 
 # Install font
-brew install ricty --vim-powerline
-cp -f $(brew --prefix)/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
+brew install ricty --with-powerline
+cp -f ${BREW_PREFIX}/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
 fc-cache -vf
 
 # Install other useful binaries.
 brew install Caskroom/cask/xquartz
 brew install ag
-brew install argon/mas/mas
+brew install bat
 brew install cliclick
 brew install ctags # to use `Denite outline`
 brew install ffmpeg
-brew install ghostscript
+# brew install ghostscript
 brew install git
 brew install ghq
 brew install go
 brew install graphviz
-brew install gifsicle
-brew install heroku-toolbelt
 brew install hub
-brew install imagemagick --with-webp
+brew install imagemagick
 brew install jad
 brew install jq
 brew install neovim
+brew install mas
 brew install montage
 brew install nkf
 brew install peco
 brew install phantomjs
-brew install python@2
 brew install python
 brew install rbenv
 brew install reattach-to-user-namespace
@@ -104,14 +101,18 @@ brew install vimpager
 
 # Install casks
 
-brew cask install alfred2
+brew cask install alfred
 brew cask install appcleaner
 # brew cask install beardedspice
 brew cask install caffeine
+brew cask install calibre
 brew cask install dash
-brew cask install day-o
+brew cask install dbeaver-community
+# brew cask install day-o
 brew cask install disk-inventory-x
 brew cask install dropbox
+brew cask install deepl
+brew cask install docker
 brew cask install evernote
 brew cask install fantastical
 brew cask install font-noto-sans-cjk-jp
@@ -122,13 +123,19 @@ brew cask install hyperswitch
 brew cask install iterm2
 brew cask install jetbrains-toolbox
 brew cask install karabiner-elements
+brew cask install kindle
+brew cask install numi
 brew cask install spectacle
+brew cask install soundflower
+brew cask install soundflowerbed
 brew cask install the-unarchiver
+brew cask install trailer
 brew cask install virtualbox
 brew cask install vimr
 brew cask install vlc
 brew cask install rocket
 brew cask install xmind
+brew cask install zoom
 
 # Remove outdated versions from the cellar.
 brew cleanup -s
@@ -155,24 +162,22 @@ brew install npm
 ###############################################################################
 # Install Apps from AppStore
 
-if ! which mas >/dev/null 2>&1; then
-  brew install argon/mas/mas
-fi
-
 # mas install 539883307 # LINE
 # mas install 510934532 # FreeMan
-mas install 425955336 # Skitch
-mas install 552383089 # Dashlane
+mas install 425955336  # Skitch
+mas install 552383089  # Dashlane
+mas install 1274495053 # Microsoft To Do
+mas install 409183694  # Keynote
 # mas install 409789998 # Twitter
-mas install 557168941 # Tweetbot
-mas install 410628904 # Wunderlist
+# mas install 557168941 # Tweetbot
 # mas install 948415170 # Pushbullet
 # mas install 422304217 # Day One Classic
-mas install 803453959 # Slack
-mas install 445189367 # PopClip
-mas install 568494494 # Pocket
+mas install 803453959  # Slack
+mas install 445189367  # PopClip
+# mas install 568494494 # Pocket
 # mas install 461504587 # Trello
-mas install 497799835 # Xcode
+mas install 1491071483 # Tot
+mas install 497799835  # Xcode
 
 sudo xcodebuild -license accept
 
@@ -201,9 +206,6 @@ bundle install
 # PyPI                                                                        #
 ###############################################################################
 
-pip2 install --upgrade pip
-pip2 install --user --upgrade neovim
-
 pip3 install --upgrade pip
 pip3 install --user --upgrade neovim
 
@@ -212,7 +214,7 @@ pip3 install --user --upgrade neovim
 ###############################################################################
 
 # DisableMonitor
-curl -L -O https://github.com/Eun/DisableMonitor/releases/download/G1.92/DisableMonitor-G1.92.zip
-unzip DisableMonitor-G1.92.zip
-sudo mv DisableMonitor.app /Applications
-rm DisableMonitor-G1.92.zip
+# curl -L -O https://github.com/Eun/DisableMonitor/releases/download/G1.92/DisableMonitor-G1.92.zip
+# unzip DisableMonitor-G1.92.zip
+# sudo mv DisableMonitor.app /Applications
+# rm DisableMonitor-G1.92.zip
