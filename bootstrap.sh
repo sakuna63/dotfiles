@@ -3,7 +3,7 @@
 git pull origin master;
 
 files="./.*"
-excludes=(".bundle" ".config" ".gradle" ".gitignore" ".gitmodules" ".git" ".zprezto" ".zsh.d" "." "..")
+excludes=(".bundle" ".config" ".gradle" ".gitignore" ".gitmodules" ".git" "." "..")
 
 function is_excluded() {
   for exclude in ${excludes[@]}; do
