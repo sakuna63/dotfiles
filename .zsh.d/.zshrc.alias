@@ -123,8 +123,8 @@ update() {
   fi
 
   if which gem >/dev/null 2>&1; then
-    sudo gem update --system --no-document
-    sudo gem update --no-document
+    gem update --system --no-document
+    gem update --no-document
   fi
 
   if which antigen >/dev/null 2>&1; then
