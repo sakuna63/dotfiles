@@ -43,8 +43,6 @@ elif which xdg-open >/dev/null 2>&1; then
   alias o=xdg-open
 fi
 
-### Homebrew
-alias cask='brew cask'
 
 ### android
 function find_device()
