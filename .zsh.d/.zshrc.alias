@@ -29,8 +29,8 @@ alias v=vim
 alias ctags="`brew --prefix`/bin/ctags" # to use `Denite outline`
 
 ### rm
-if which rmtrash >/dev/null 2>&1; then
-  alias rm=rmtrash
+if which gomi >/dev/null 2>&1; then
+  alias rm=gomi
 elif which trash-put >/dev/null 2>&1; then
   alias rm=trash-put
 fi

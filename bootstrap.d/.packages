@@ -87,7 +87,7 @@ brew install rbenv
 brew install reattach-to-user-namespace
 brew install rename
 brew install renameutils
-brew install rmtrash
+brew install b4b4r07/tap/gomi
 brew install ruby-build
 brew install ssh-copy-id
 brew install terminal-notifier
