@@ -4,7 +4,6 @@
 $ ./bootstrap.sh \
 && bootstrap.d/.package \
 && bootstrap.d/.zsh \
-&& bootstrap.d/.vim \
 && bootstrap.d/.osx
 ```
 
