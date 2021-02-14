@@ -99,41 +99,41 @@ brew install vimpager
 
 # Install casks
 
-brew cask install alfred
-brew cask install appcleaner
+brew install alfred
+brew install appcleaner
 # brew cask install beardedspice
-brew cask install caffeine
-brew cask install calibre
-brew cask install dash
-brew cask install dbeaver-community
-# brew cask install day-o
-brew cask install disk-inventory-x
-brew cask install dropbox
-brew cask install deepl
-brew cask install docker
-brew cask install evernote
-brew cask install fantastical
-brew cask install font-noto-sans-cjk-jp
-brew cask install flux
-# brew cask install google-drive
-brew cask install google-japanese-ime
-brew cask install hyperswitch
-brew cask install iterm2
-brew cask install jetbrains-toolbox
-brew cask install karabiner-elements
-brew cask install kindle
-brew cask install numi
-brew cask install spectacle
-brew cask install soundflower
-brew cask install soundflowerbed
-brew cask install the-unarchiver
-brew cask install trailer
-brew cask install virtualbox
-brew cask install vimr
-brew cask install vlc
-brew cask install rocket
-brew cask install xmind
-brew cask install zoom
+brew install caffeine
+brew install calibre
+brew install dash
+brew install dbeaver-community
+# brew install day-o
+brew install disk-inventory-x
+brew install dropbox
+brew install deepl
+brew install docker
+brew install evernote
+brew install fantastical
+brew install font-noto-sans-cjk-jp
+brew install flux
+# brew install google-drive
+brew install google-japanese-ime
+brew install hyperswitch
+brew install iterm2
+brew install jetbrains-toolbox
+brew install karabiner-elements
+brew install kindle
+brew install numi
+brew install spectacle
+brew install soundflower
+brew install soundflowerbed
+brew install the-unarchiver
+brew install trailer
+brew install virtualbox
+brew install vimr
+brew install vlc
+brew install rocket
+brew install xmind
+brew install zoom
 
 # Remove outdated versions from the cellar.
 brew cleanup -s
