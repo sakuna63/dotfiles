@@ -25,6 +25,16 @@ function doIt() {
     fi
   done
 
+  if [ ! -e ~/.gradle ]; then
+    mkdir ~/.gradle
+  fi
+  ln -sf ~/dotfiles/.gradle/* ~/.gradle
+
+  if [ ! -e ~/.config ]; then
+    mkdir ~/.config
+  fi
+  ln -sf ~/dotfiles/.config/* ~/.config
+
   git submodule update --init --recursive
 }
 
