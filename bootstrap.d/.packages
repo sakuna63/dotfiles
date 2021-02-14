@@ -103,7 +103,7 @@ brew install appcleaner
 # brew cask install beardedspice
 brew install caffeine
 brew install calibre
-brew install dash
+brew install homebrew/cask/dash
 brew install dbeaver-community
 # brew install day-o
 brew install disk-inventory-x
@@ -162,7 +162,6 @@ brew install npm
 # mas install 539883307 # LINE
 # mas install 510934532 # FreeMan
 mas install 425955336  # Skitch
-mas install 552383089  # Dashlane
 mas install 1274495053 # Microsoft To Do
 mas install 409183694  # Keynote
 # mas install 409789998 # Twitter
