@@ -41,8 +41,8 @@ brew install gnu-tar
 brew install gnu-which 
 brew install grep 
 brew install gzip
-brew install wdiff --with-gettext
-brew install wget --with-iri
+brew install wdiff 
+brew install wget 
 
 brew install bash
 brew install unzip
