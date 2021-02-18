@@ -1,29 +1,15 @@
 echo 'load .zshrc.modules'
 
-# auto-fu.zsh
-# if [ -f ~/.zsh.d/modules/auto-fu.zsh/auto-fu.zsh ]; then
-#   source ~/.zsh.d/modules/auto-fu.zsh/auto-fu.zsh
-#   function zle-line-init () {
-#       auto-fu-init
-#   }
-#   zle -N zle-line-init
-#   # [-azfu-]を表示させない
-#   zstyle ':auto-fu:var' postdisplay $''
-# fi
-
 # z.sh
 if [ -f ~/.zsh.d/modules/z/z.sh ]; then
   source ~/.zsh.d/modules/z/z.sh
   export _Z_CMD=j
 fi
 
-# zsh-notifier
-# source ~/.zsh.d/modules/zsh-notify/notify.plugin.zsh
-# zstyle ':notify:*' error-icon $HOME/.zsh.d/modules/zsh-notify-icons/unko.png
-# zstyle ':notify:*' success-icon $HOME/.zsh.d/modules/zsh-notify-icons/smile.png
-# zstyle ':notify:*' command-complete-timeout 3
 
-source ~/.zsh.d/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh.d/modules/zsh-bd/bd.zsh
+# zsh-autosuggestions
 source ~/.zsh.d/modules/zsh-autosuggestions/zsh-autosuggestions.zsh
-alias genymotion_peco='bash -c "source ~/.zsh.d/modules/genymotion-peco/bin/genymotion_peco.sh; genymotion_peco"'
+
+# zsh-syntax-highliting
+# this should be sourced at the end of .zshrc 
+source ~/.zsh.d/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

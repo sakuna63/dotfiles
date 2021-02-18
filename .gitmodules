@@ -1,12 +1,6 @@
 [submodule ".zsh.d/modules/z"]
 	path = .zsh.d/modules/z
 	url = https://github.com/rupa/z
-[submodule ".zsh.d/modules/zsh-notify"]
-	path = .zsh.d/modules/zsh-notify
-	url = https://github.com/marzocchi/zsh-notify
-[submodule ".zsh.d/modules/zsh-bd"]
-	path = .zsh.d/modules/zsh-bd
-	url = https://github.com/Tarrasch/zsh-bd
 [submodule ".zsh.d/modules/zsh-completions"]
 	path = .zsh.d/modules/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions/
