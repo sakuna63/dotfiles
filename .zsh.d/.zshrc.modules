@@ -5,11 +5,3 @@ if [ -f ~/.zsh.d/modules/z/z.sh ]; then
   source ~/.zsh.d/modules/z/z.sh
   export _Z_CMD=j
 fi
-
-
-# zsh-autosuggestions
-source ~/.zsh.d/modules/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# zsh-syntax-highliting
-# this should be sourced at the end of .zshrc 
-source ~/.zsh.d/modules/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
