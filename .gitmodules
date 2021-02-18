@@ -1,9 +1,3 @@
-[submodule ".zsh.d/modules/genymotion-peco"]
-	path = .zsh.d/modules/genymotion-peco
-	url = https://github.com/sys1yagi/genymotion-peco
-[submodule ".zsh.d/modules/adb-peco"]
-	path = .zsh.d/modules/adb-peco
-	url = https://github.com/tomorrowkey/adb-peco
 [submodule ".zsh.d/modules/z"]
 	path = .zsh.d/modules/z
 	url = https://github.com/rupa/z
