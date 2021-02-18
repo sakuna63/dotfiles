@@ -113,7 +113,7 @@ brew install docker
 brew install evernote
 brew install fantastical
 brew install font-noto-sans-cjk-jp
-brew install flux
+brew install homebrew/cask/flux
 # brew install google-drive
 brew install google-japanese-ime
 brew install hyperswitch
